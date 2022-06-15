@@ -58,8 +58,11 @@ git show 8c928e835 | grep "func providerSource(*"
 git show 5af1e6234  | grep "func providerSource(*"
 
 Вывод:
+
 -func providerSource(services *disco.Disco) getproviders.Source {
+
 +func providerSource(configs []*cliconfig.ProviderInstallation, services *disco.Disco) (getproviders.Source, tfdiags.Diagnostics) {
+
 +func providerSourceForCLIConfigLocation(loc cliconfig.ProviderInstallationSourceLocation, services *disco.Disco) (getproviders.Source, tfdiags.Diagnostics) { 
 
 
