@@ -81,9 +81,15 @@ c0b176109 prevent log output during init
 
 git log -S "globalPluginDirs" --oneline
 
+### 7. <strong>Автор функции synchronizedWriters</strong>
+
+commit 5ac311e2a91e381e2f52234668b49ba670aa0fe5
+Author: Martin Atkins <mart@degeneration.co.uk>
+Date:   Wed May 3 16:25:41 2017 -0700
+
+
+Найдены все коммиты с помощью команды git log -S "synchronizedWriters" --oneline 
+
+Далее анализ git show 5ac311e2a
 ---
-
-Найдите все коммиты в которых была изменена функция globalPluginDirs.
-
-Кто автор функции synchronizedWriters?
 
