@@ -68,11 +68,17 @@ git show 5af1e6234  | grep "func providerSource(*"
 6. Все коммиты в которых была добавлена / изменена функция globalPluginDirs 
 
 125eb51dc Remove accidentally-committed binary
+
 22c121df8 Bump compatibility version to 1.3.0 for terraform core release (#30988)
+
 35a058fb3 main: configure credentials from the CLI config file
+
 c0b176109 prevent log output during init
+
 8364383c3 Push plugin discovery down into command package
 
+
+Результат получен с помощью команд:
 
 git log -S "globalPluginDirs" --oneline
 
