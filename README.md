@@ -68,8 +68,6 @@ git show 5af1e6234  | grep "func providerSource(*"
 
 
 ---
-Найдите коммит в котором была создана функция func providerSource, ее определение в коде выглядит так func providerSource(...) (вместо троеточего перечислены аргументы).
-
 Найдите все коммиты в которых была изменена функция globalPluginDirs.
 Кто автор функции synchronizedWriters?
 
