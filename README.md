@@ -41,12 +41,28 @@ Date:   Thu Apr 2 18:04:39 2020 -0700
 
 Результат получен с помощью команды: 
 
-git log -S "func providerSource" --oneline 
+git log -S "func providerSource" --oneline (определяем где добавлена искомая строка)
+
+В результате имеем 2 коммита:
+
+5af1e6234 есть искомая строка  func providerSource изменена   Apr 21 16:28:59 2020
+
+8c928e835 есть искомая строка  func providerSource добавлена  Apr 2 18:04:39 2020
+
+Далее анализ коммитов "5af1e6234", "8c928e835"
+
+git show 8c928e835 | grep "func providerSource(*"
+
+Вывод: +func providerSource(services *disco.Disco) getproviders.Source {
+
+git show 5af1e6234  | grep "func providerSource(*"
 
 Вывод:
+-func providerSource(services *disco.Disco) getproviders.Source {
++func providerSource(configs []*cliconfig.ProviderInstallation, services *disco.Disco) (getproviders.Source, tfdiags.Diagnostics) {
++func providerSourceForCLIConfigLocation(loc cliconfig.ProviderInstallationSourceLocation, services *disco.Disco) (getproviders.Source, tfdiags.Diagnostics) { 
 
-5af1e6234 main: Honor explicit provider_installation CLI config when present
-8c928e835 main: Consult local directories as potential mirrors of providers
+
 
 ---
 Найдите коммит в котором была создана функция func providerSource, ее определение в коде выглядит так func providerSource(...) (вместо троеточего перечислены аргументы).
