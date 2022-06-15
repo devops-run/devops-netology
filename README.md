@@ -31,6 +31,17 @@ dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
 
 Результат получен с помощью команды: git log v0.12.23 v0.12.24 --pretty=oneline
 
+5. Коммит
+commit 8c928e83589d90a031f811fae52a81be7153e82f
+Author: Martin Atkins <mart@degeneration.co.uk>
+Date:   Thu Apr 2 18:04:39 2020 -0700
+
+Результат получен с помощью команды: 
+git log -S "func providerSource" --oneline 
+Вывод:
+5af1e6234 main: Honor explicit provider_installation CLI config when present
+8c928e835 main: Consult local directories as potential mirrors of providers
+
 ---
 Найдите коммит в котором была создана функция func providerSource, ее определение в коде выглядит так func providerSource(...) (вместо троеточего перечислены аргументы).
 
