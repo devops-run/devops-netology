@@ -50,7 +50,9 @@ git log -S "func providerSource" --oneline (определяем где доба
 
 git show 8c928e835 | grep "func providerSource(*"
 
-Вывод команды: +func providerSource(services *disco.Disco) getproviders.Source {
+Вывод команды: 
+
++func providerSource(services *disco.Disco) getproviders.Source {
 
 git show 5af1e6234  | grep "func providerSource(*"
 
