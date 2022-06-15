@@ -37,8 +37,11 @@ Author: Martin Atkins <mart@degeneration.co.uk>
 Date:   Thu Apr 2 18:04:39 2020 -0700
 
 Результат получен с помощью команды: 
+
 git log -S "func providerSource" --oneline 
+
 Вывод:
+
 5af1e6234 main: Honor explicit provider_installation CLI config when present
 8c928e835 main: Consult local directories as potential mirrors of providers
 
