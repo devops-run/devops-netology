@@ -81,7 +81,7 @@ c0b176109 prevent log output during init
 
 git log -S "globalPluginDirs" --oneline
 
-### 7. <strong>Автор функции synchronizedWriters</strong>
+### 7. <strong>Автор функции synchronizedWriters: Martin Atkins</strong>
 
 commit 5ac311e2a91e381e2f52234668b49ba670aa0fe5
 Author: Martin Atkins <mart@degeneration.co.uk>
