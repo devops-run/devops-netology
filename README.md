@@ -14,7 +14,7 @@
  
 Результат получен с помощью команды: git show --pretty=%P b8d720
 
-### 4. <strong>Кеши и комментарии между тегами v0.12.23 и v0.12.24</strong>
+### 4. <strong>Хеши и комментарии между тегами v0.12.23 и v0.12.24</strong>
 
 33ff1c03bb960b332be3af2e333462dde88b279e (tag: v0.12.24) v0.12.24
 b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links
