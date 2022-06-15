@@ -8,8 +8,6 @@
 
 Автор коммита: Alisdair McDiarmid <alisdair@users.noreply.github.com>
 
-Date:   Thu Jun 18 10:29:58 2020 -0400
-
 
 2.
 
