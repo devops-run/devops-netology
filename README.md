@@ -65,9 +65,10 @@ git show 5af1e6234  | grep "func providerSource(*"
 
 +func providerSourceForCLIConfigLocation(loc cliconfig.ProviderInstallationSourceLocation, services *disco.Disco) (getproviders.Source, tfdiags.Diagnostics) { 
 
-
+6. 
 
 ---
 Найдите все коммиты в которых была изменена функция globalPluginDirs.
+
 Кто автор функции synchronizedWriters?
 
