@@ -50,11 +50,11 @@ git log -S "func providerSource" --oneline (определяем где доба
 
 git show 8c928e835 | grep "func providerSource(*"
 
-Вывод: +func providerSource(services *disco.Disco) getproviders.Source {
+Вывод команды: +func providerSource(services *disco.Disco) getproviders.Source {
 
 git show 5af1e6234  | grep "func providerSource(*"
 
-Вывод:
+Вывод команды:
 
 -func providerSource(services *disco.Disco) getproviders.Source {
 
@@ -80,6 +80,7 @@ c0b176109 prevent log output during init
 git log -S "globalPluginDirs" --oneline
 
 ---
+
 Найдите все коммиты в которых была изменена функция globalPluginDirs.
 
 Кто автор функции synchronizedWriters?
