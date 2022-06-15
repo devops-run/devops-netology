@@ -6,8 +6,6 @@
 
 Результат: aefead2207ef7e2aa5dc81a34aedf0cad4c32545 Update CHANGELOG.md
 
-Автор коммита: Alisdair McDiarmid <alisdair@users.noreply.github.com>
-
 
 2.
 
