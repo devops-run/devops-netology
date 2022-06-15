@@ -84,7 +84,9 @@ git log -S "globalPluginDirs" --oneline
 ### 7. <strong>Автор функции synchronizedWriters: Martin Atkins</strong>
 
 commit 5ac311e2a91e381e2f52234668b49ba670aa0fe5
+
 Author: Martin Atkins <mart@degeneration.co.uk>
+
 Date:   Wed May 3 16:25:41 2017 -0700
 
 
