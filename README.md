@@ -1,20 +1,20 @@
 ---
-Ответы к заданию по занятию «2.4. Инструменты Git»
+## Ответы к заданию по занятию «2.4. Инструменты Git»
 ---
 
-1. Полный хеш и комментарий коммита, хеш которого начинается на 'aefea' найдены с помощью команды: git show aefea
+### 1. Полный хеш и комментарий коммита, хеш которого начинается на 'aefea' найдены с помощью команды: git show aefea
 
 <strong>Результат: aefead2207ef7e2aa5dc81a34aedf0cad4c32545 Update CHANGELOG.md</strong>
 
-2. <strong>Коммит  85024d3100126de36331c6982bfaac02cdab9e76 соответствует тегу  v0.12.23</strong>
+### 2. <strong>Коммит  85024d3100126de36331c6982bfaac02cdab9e76 соответствует тегу  v0.12.23</strong>
 
 Результат получен с помощью команды: git show 85024d3 
 
-3. <strong>У коммита b8d720 двое родителей с хешами: 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b</strong>
+### 3. <strong>У коммита b8d720 двое родителей с хешами: 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b</strong>
  
 Результат получен с помощью команды: git show --pretty=%P b8d720
 
-4. <strong>Кеши и комментарии между тегами v0.12.23 и v0.12.24</strong>
+### 4. <strong>Кеши и комментарии между тегами v0.12.23 и v0.12.24</strong>
 
 33ff1c03bb960b332be3af2e333462dde88b279e (tag: v0.12.24) v0.12.24
 b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links
@@ -30,7 +30,7 @@ dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
 
 Результат получен с помощью команды: git log v0.12.23 v0.12.24 --pretty=oneline
 
-5. Искомый коммит: <strong>commit 8c928e83589d90a031f811fae52a81be7153e82f</strong>
+### 5. Искомый коммит: <strong>commit 8c928e83589d90a031f811fae52a81be7153e82f</strong>
 
 Author: Martin Atkins <mart@degeneration.co.uk>
 
