@@ -62,7 +62,7 @@ git show 5af1e6234  | grep "func providerSource(*"
 
 +func providerSourceForCLIConfigLocation(loc cliconfig.ProviderInstallationSourceLocation, services *disco.Disco) (getproviders.Source, tfdiags.Diagnostics) { 
 
-6. Все коммиты в которых была добавлена / изменена функция globalPluginDirs 
+###6. <strong>Все коммиты в которых была добавлена / изменена функция globalPluginDirs</strong> 
 
 125eb51dc Remove accidentally-committed binary
 
