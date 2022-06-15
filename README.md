@@ -45,9 +45,9 @@ git log -S "func providerSource" --oneline (определяем где доба
 
 В результате имеем 2 коммита:
 
-5af1e6234 есть искомая строка  func providerSource изменена   Apr 21 16:28:59 2020
+5af1e6234 есть искомая строка c  func providerSource изменена   Apr 21 16:28:59 2020
 
-8c928e835 есть искомая строка  func providerSource добавлена  Apr 2 18:04:39 2020
+8c928e835 есть искомая строка c  func providerSource добавлена  Apr 2 18:04:39 2020
 
 Далее анализ коммитов "5af1e6234", "8c928e835"
 
