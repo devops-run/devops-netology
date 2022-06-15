@@ -31,7 +31,7 @@ dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
 
 Результат получен с помощью команды: git log v0.12.23 v0.12.24 --pretty=oneline
 
-5. Коммит
+5. Искомый коммит:
 
 commit 8c928e83589d90a031f811fae52a81be7153e82f
 
@@ -39,7 +39,7 @@ Author: Martin Atkins <mart@degeneration.co.uk>
 
 Date:   Thu Apr 2 18:04:39 2020 -0700
 
-Результат получен с помощью команды: 
+Результат получен с помощью команд: 
 
 git log -S "func providerSource" --oneline (определяем где добавлена искомая строка)
 
