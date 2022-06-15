@@ -4,8 +4,7 @@
 
 1. Полный хеш и комментарий коммита, хеш которого начинается на 'aefea' найдены с помощью команды: git show aefea
 
-Результат: aefead2207ef7e2aa5dc81a34aedf0cad4c32545 Update CHANGELOG.md
-
+<strong>Результат: aefead2207ef7e2aa5dc81a34aedf0cad4c32545 Update CHANGELOG.md</strong>
 
 2. Коммит  85024d3100126de36331c6982bfaac02cdab9e76 соответствует тегу  v0.12.23
 
