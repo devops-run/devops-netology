@@ -93,5 +93,3 @@ Date:   Wed May 3 16:25:41 2017 -0700
 Найдены все коммиты с помощью команды git log -S "synchronizedWriters" --oneline 
 
 Далее анализ git show 5ac311e2a
----
-
