@@ -4,7 +4,7 @@
 
 <strong>1. Установите средство виртуализации Oracle VirtualBox. Выполнено.</strong>  
 <strong>2. Установите средство автоматизации Hashicorp Vagrant. Выполнено.</strong>  
-<strong>3. Подготовьте удобный для дальнейшей работы терминал. Выполнено.</strong> 
+<strong>3. Подготовьте удобный для дальнейшей работы терминал. Выполнено.</strong>   
 <strong>4. С помощью файла конфигурации запустил Ubuntu 22.04 в VirtualBox посредством Vagrant:  Выполнено.</strong>  
 run "Ubuntu 22.04 LTS"  from ubuntu/jammy64 Vagrant box. (https://app.vagrantup.com/ubuntu/boxes/jammy64)     
 <strong>5. Какие ресурсы выделены по-умолчанию?</strong>       
