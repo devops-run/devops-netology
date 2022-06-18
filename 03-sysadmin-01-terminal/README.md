@@ -61,12 +61,12 @@ https://www.gnu.org/software/bash/manual/bash.html
 https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html  
 
 <strong>10. Основываясь на предыдущем вопросе, как создать однократным вызовом touch 100000 файлов? А получилось ли создать 300000? Если нет, то почему?</strong>   
-touch {0..99999}.txt  
+touch {0..99999}.txt   Успех.
 Проверка:  
-ls -l | grep txt | wc -l  
+ls -l | grep txt | wc -l   
 100000  
 
-
+touch {0..300000}.txt Ошибка   
 
 В man bash поищите по /\[\[. Что делает конструкция [[ -d /tmp ]]
 
