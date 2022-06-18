@@ -61,17 +61,17 @@ https://www.gnu.org/software/bash/manual/bash.html
 https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html  
 
 <strong>10. Основываясь на предыдущем вопросе, как создать однократным вызовом touch 100000 файлов? А получилось ли создать 300000? Если нет, то почему?</strong>   
-touch {0..99999}.txt   Успех.  
+touch {0..99999}.txt   <strong>Успех.</strong>     
 Проверка:  
 ls -l | grep txt | wc -l   
 100000  
 
-touch {0..300000}.txt Ошибка   
+touch {0..300000}.txt <strong>Ошибка.</strong>      
 Argument list too long  
 В Linux максимальный объем пространства для аргументов команды составляет 1/4 доступного пространства стека. Таким образом, решение состоит в том, чтобы увеличить количество места, доступного для стека.  
 
 Выполняем ulimit -s 65536  
-touch {0..300000}.txt  Успех.  
+touch {0..300000}.txt  <strong>Успех.</strong>    
 Проверка:  
 ls -l | grep txt | wc -l
 300001  
