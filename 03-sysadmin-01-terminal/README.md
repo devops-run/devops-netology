@@ -24,12 +24,14 @@ end
 <strong>Выполнено.</strong>  
 
 8. Ознакомиться с разделами man bash:  
-какой переменной можно задать длину журнала history: HISTFILESIZE=1000     
-проверяем (echo $HISTFILESIZE)   
+какой переменной можно задать длину журнала history: HISTSIZE=1000     
+проверяем (echo $HISTSIZE)   
 на какой строчке manual это описывается?    
 man bash  
-734        HISTFILESIZE     
+738        HISTSIZE     
 <strong>Выполнено.</strong>  
+
+9. В каких сценариях использования применимы скобки {} и на какой строчке man bash это описано?  
 
 
 
