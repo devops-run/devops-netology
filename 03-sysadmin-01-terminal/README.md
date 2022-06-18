@@ -29,7 +29,7 @@ end
 на какой строчке manual это описывается?    
 man bash  
 734        HISTFILESIZE     
-
+<strong>Выполнено.</strong>  
 
 
 
