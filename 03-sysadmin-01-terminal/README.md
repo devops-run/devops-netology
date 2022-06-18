@@ -5,15 +5,14 @@
 1. Установите средство виртуализации Oracle VirtualBox. <strong>Выполнено.</strong>  
 2. Установите средство автоматизации Hashicorp Vagrant. <strong>Выполнено.</strong>  
 3. Подготовьте удобный для дальнейшей работы терминал. <strong>Выполнено.</strong> 
-4. Добавьте Vagrant в правила исключения...  <strong>Выполнено.</strong>  
-5. С помощью файла конфигурации запустите Ubuntu 20.04 в VirtualBox посредством Vagrant:  <strong>Выполнено.</strong>    
+4. С помощью файла конфигурации запустите Ubuntu 22.04 в VirtualBox посредством Vagrant:  <strong>Выполнено.</strong>  
+run "Ubuntu 22.04 LTS"  from ubuntu/jammy64 Vagrant box 
+ 
+(https://app.vagrantup.com/ubuntu/boxes/jammy64)    
 6. ..провайдер VirtualBox для Vagrant, скачает необходимый образ и запустит виртуальную машину. <strong>Выполнено.</strong>  
 
 
-
 Ознакомиться с разделами man bash, почитать о настройках самого bash:
-
-
 
 какой переменной можно задать длину журнала history, и на какой строчке manual это описывается?
 что делает директива ignoreboth в bash?
