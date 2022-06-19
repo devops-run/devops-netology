@@ -107,7 +107,8 @@ bash is /tmp/new_path_directory/bash
     
 <strong>Выполнено.</strong> 
     
-<strong>13. Чем отличается планирование команд с помощью batch и at?</strong>  
+<strong>13. Чем отличается планирование команд с помощью batch и at?</strong>   
+Ответ: Условием исполнения.      
 sudo apt install at  
 man at  
     
