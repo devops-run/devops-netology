@@ -87,8 +87,9 @@ if [[ -d /tmp ]]; then echo "каталог есть"; else echo "каталог
 type -a bash    
 bash is /usr/bin/bash   
 bash is /bin/bash   
-    
-sudo mkdir -p /tmp/new_path_directory && sudo cp /usr/bin/bash /tmp/new_path_directory  
+
+Решение:    
+sudo mkdir -p /tmp/new_path_directory && sudo cp /usr/bin/bash /tmp/new_path_directory (создаём каталог и копируем в него бинарный файл "bash") 
 sudo vi /etc/environment (Добавил в начало строки PATH="/tmp/new_path_directory:/) и перелогинился  
     
 Результат:  
@@ -97,7 +98,7 @@ bash is /tmp/new_path_directory/bash
 bash is /usr/bin/bash   
 bash is /bin/bash   
 
-Редактирование файлов ~/.bashrc и ~/.profile давали роезультат:
+Редактирование файлов ~/.bashrc и ~/.profile не давали требуемого результата:
 
 type -a bash    
 bash is /usr/bin/bash   
