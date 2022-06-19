@@ -82,12 +82,34 @@ ls -l | grep txt | wc -l
 if [[ -d /tmp ]]; then echo "каталог есть"; else echo "каталога нет"; fi   
 <strong>Выполнено.</strong>   
 
-Основываясь на знаниях о просмотре текущих (например, PATH) и установке новых переменных; командах, которые мы рассматривали, добейтесь в выводе type -a bash в виртуальной машине наличия первым пунктом в списке:   
+<strong>12. Основываясь на знаниях о просмотре текущих (например, PATH) и установке новых переменных; командах, которые мы рассматривали, добейтесь в выводе type -a bash в виртуальной машине наличия первым пунктом в списке:</strong>    
 
+type -a bash    
+bash is /usr/bin/bash   
+bash is /bin/bash   
+    
+sudo mkdir -p /tmp/new_path_directory && sudo cp /usr/bin/bash /tmp/new_path_directory  
+sudo vi /etc/environment (Добавил в начало строки PATH="/tmp/new_path_directory:/) и перелогинился  
+    
+Результат:  
+type -a bash    
+bash is /tmp/new_path_directory/bash    
+bash is /usr/bin/bash   
+bash is /bin/bash   
+
+Редактирование файлов ~/.bashrc и ~/.profile давали роезультат:
+
+type -a bash    
+bash is /usr/bin/bash   
+bash is /bin/bash   
+bash is /tmp/new_path_directory/bash    
+    
+<strong>Выполнено.</strong> 
+    
 <strong>13. Чем отличается планирование команд с помощью batch и at?</strong>  
 sudo apt install at  
 man at  
-
+    
 <strong>at</strong>  
 Команда принимает параметры в формате ЧЧ:ММ для выполнения задания в определенное время. (Если это время уже прошло, предполагается следующий день.) Вы также может указать полночь, полдень или время чаепития 4 часа дня ;-). (Перевод man at)   
 
