@@ -93,11 +93,6 @@ ls -l | grep txt | wc -l
 результат 1, такого каталога нет    
 
 
-<strong>if [[ -d /tmp ]];  then  echo  $?;  else  echo  $?; fi </strong>    
-0     
-<strong>if [[ -d /tempo ]];  then  echo  $?;  else  echo  $?; fi</strong>     
-1   
-
 <strong>Выполнено.</strong>   
 
 <strong>12. Основываясь на знаниях о просмотре текущих (например, PATH) и установке новых переменных; командах, которые мы рассматривали, добейтесь в выводе type -a bash в виртуальной машине наличия первым пунктом в списке:</strong>    
