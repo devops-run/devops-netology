@@ -93,7 +93,7 @@ ls -l | grep txt | wc -l
 результат 1, такого каталога нет    
 
 
-if [[ -d /tmp ]]; then echo $?; else echo echo $?; fi     
+if [[ -d /tmp ]]; then echo $?; else echo $?; fi     
 0     
 if [[ -d /tempo ]]; then echo $?; else echo $?; fi      
 1   
