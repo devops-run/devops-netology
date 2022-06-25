@@ -93,9 +93,9 @@ ls -l | grep txt | wc -l
 результат 1, такого каталога нет    
 
 
-if [[ -d /tmp ]]; then echo $?; else echo $?; fi     
+<strong>if [[ -d /tmp ]]; then echo $?; else echo $?; fi </strong>    
 0     
-if [[ -d /tempo ]]; then echo $?; else echo $?; fi      
+<strong>if [[ -d /tempo ]]; then echo $?; else echo $?; fi</strong>     
 1   
 
 <strong>Выполнено.</strong>   
