@@ -14,8 +14,15 @@ cd is a shell builtin
 
 <strong>Какая альтернатива без pipe команде grep <some_string> <some_file> | wc -l?</strong>   
 
-1. Какого типа команда `cd`? Попробуйте объяснить, почему она именно такого типа; опишите ход своих мыслей, если считаете что она могла бы быть другого типа.
-1. Какая альтернатива без pipe команде `grep <some_string> <some_file> | wc -l`? `man grep` поможет в ответе на этот вопрос. Ознакомьтесь с [документом](http://www.smallo.ruhr.de/award.html) о других подобных некорректных вариантах использования pipe.
+---------------------
+<strong>2. Какая альтернатива без pipe команде `grep <some_string> <some_file> | wc -l`?</strong>        
+
+man grep    
+       -c, --count  
+              Suppress  normal  output;  instead print a count of matching lines for each input file.  With the -v, --invert-match option (see below), count non-
+              matching lines.   
+
+
 1. Какой процесс с PID `1` является родителем для всех процессов в вашей виртуальной машине Ubuntu 20.04?
 1. Как будет выглядеть команда, которая перенаправит вывод stderr `ls` на другую сессию терминала?
 1. Получится ли одновременно передать команде файл на stdin и вывести ее stdout в другой файл? Приведите работающий пример.
