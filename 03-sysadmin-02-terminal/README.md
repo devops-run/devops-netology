@@ -82,7 +82,13 @@ cat < test.txt > test2.txt
 
 <strong>10. Используя `man`, опишите что доступно по адресам `/proc/<PID>/cmdline`, `/proc/<PID>/exe`.</strong>    
  
-<strong>11. Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью `/proc/cpuinfo`.</strong>    
+<strong>11. Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью `/proc/cpuinfo`</strong>    
+grep -i sse /proc/cpuinfo     
+sse sse2 sse4_1 sse4_2  
+SSE was introduced in 1999, and was also known as "Katmai New Instructions" (or KNIT) after the Pentium III's core codename.    
+
+старшую в контексте возраста - sse  
+старшую в контексте (больше цифра - свежее версия) - sse4.2     
 
 <strong>12. При открытии нового окна терминала и `vagrant ssh` создается новая сессия...</strong>   
 
