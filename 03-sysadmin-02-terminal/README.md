@@ -95,7 +95,12 @@ cat /etc/passwd 5 - передали содержимое /etc/passwd в  дес
 printenv, env, export.  
 
 <strong>10. Используя `man`, опишите что доступно по адресам `/proc/<PID>/cmdline`, `/proc/<PID>/exe`.</strong>    
- 
+
+
+sudo ls -la /proc/695/exe
+lrwxrwxrwx 1 root root 0 июн 26 20:26 /proc/695/exe -> /usr/lib/openssh/sftp-server
+
+
 <strong>11. Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью `/proc/cpuinfo`</strong>    
 grep -i sse /proc/cpuinfo     
 sse sse2 sse4_1 sse4_2  
