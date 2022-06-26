@@ -106,7 +106,7 @@ man proc
 этом файле в виде набора строк, разделенных нулевыми байтами ('\0'), с дополнительным нулевым байтом после последней строки.    
 
 sudo ls -la /proc/1050/exe      
-116 lrwxrwxrwx 1 root root 0 Jun 26 17:42 /proc/1050/exe -> /usr/sbin/sshd  
+lrwxrwxrwx 1 root root 0 Jun 26 17:42 /proc/1050/exe -> /usr/sbin/sshd  
     
 man proc        
 /proc/[pid]/exe             
