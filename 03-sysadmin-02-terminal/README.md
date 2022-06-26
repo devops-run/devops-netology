@@ -96,8 +96,8 @@ printenv, env, export.
 
 <strong>10. Используя `man`, опишите что доступно по адресам `/proc/<PID>/cmdline`, `/proc/<PID>/exe`.</strong>    
 
-sudo cat /proc/1050/cmdline
-sshd: vagrant [priv]vagrant@ubuntu-jammy:~$
+sudo cat /proc/1050/cmdline     
+sshd: vagrant [priv]vagrant@ubuntu-jammy:~$     
 
 man proc    
 /proc/[pid]/cmdline     
@@ -105,21 +105,20 @@ man proc
 в этом файле ничего нет: то есть чтение этого файла вернет 0 символов. Аргументы командной строки отображаются в
 этом файле в виде набора строк, разделенных нулевыми байтами ('\0'), с дополнительным нулевым байтом после последней строки.    
 
-sudo ls -la /proc/1050/exe
-116 lrwxrwxrwx 1 root root 0 Jun 26 17:42 /proc/1050/exe -> /usr/sbin/sshd
-
-man proc    
-/proc/[pid]/exe         
+sudo ls -la /proc/1050/exe      
+116 lrwxrwxrwx 1 root root 0 Jun 26 17:42 /proc/1050/exe -> /usr/sbin/sshd  
+    
+man proc        
+/proc/[pid]/exe             
 В Linux 2.2 и более поздних версиях этот файл представляет собой символическую ссылку, содержащую фактический путь к выполняемой команде. Этот сим‐
 ссылка bolic может быть разыменована в обычном режиме; попытка открыть ее приведет к открытию исполняемого файла. Вы даже можете ввести /proc/[pid]/exe
 чтобы запустить другую копию того же исполняемого файла, который выполняется процессом [pid]. Если имя пути было разорвано, символ‐
 ссылка bolic будет содержать строку '(удалено)', добавленную к исходному пути. В многопоточном процессе содержимое
 части этой символической ссылки недоступны, если основной поток уже завершен (обычно путем вызова pthread_exit(3)). 
     
-sudo ls -la /proc/1050/exe  
-lrwxrwxrwx 1 root root 0 Jun 26 17:42 /proc/1050/exe -> /usr/sbin/sshd  
+sudo ls -la /proc/1050/exe      
+lrwxrwxrwx 1 root root 0 Jun 26 17:42 /proc/1050/exe -> /usr/sbin/sshd      
     
-
 <strong>11. Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью `/proc/cpuinfo`</strong>    
 grep -i sse /proc/cpuinfo     
 sse sse2 sse4_1 sse4_2  
