@@ -19,7 +19,7 @@ man grep
               Suppress  normal  output;  instead print a count of matching lines for each input file.    
               matching lines.   
 
-Альтернативный способ подсчитать кол-во строк без использования конвеера (pipe) 
+Альтернативный способ подсчитать кол-во строк без использования конвеера (pipe)  
 grep -c bin /etc/passwd     
 27  
 
