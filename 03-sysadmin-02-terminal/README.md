@@ -29,19 +29,19 @@ grep bin /etc/passwd | wc -l
 
 <strong>3. Какой процесс с PID `1` является родителем для всех процессов в вашей виртуальной машине?</strong>      
 
-Ответ: systemd с PID `1`     
+Ответ: systemd с PID `1`    
 pstree -ps   
-systemd(1)─┬─VGAuthService(397) 
-           ├─agetty(518)    
+systemd(1)─┬─VGAuthService(397)     
+           ├─agetty(518)        
            ├─chronyd(541)───chronyd(547)    
-           ├─cron(416)  
+           ├─cron(416)      
 
-
-pstree -ps 416  
-systemd(1)───cron(416)  
+pstree -ps 416    
+systemd(1)--cron(416)  
 
 pstree -ps 541  
-systemd(1)───chronyd(541)───chronyd(547)    
+systemd(1)--chronyd(541)───chronyd(547)    
+
 
 
 1. Как будет выглядеть команда, которая перенаправит вывод stderr `ls` на другую сессию терминала?
