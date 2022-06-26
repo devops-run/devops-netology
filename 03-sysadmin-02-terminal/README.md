@@ -139,11 +139,10 @@ SSE was introduced in 1999, and was also known as "Katmai New Instructions" (or 
 
 <strong>12. При открытии нового окна терминала и `vagrant ssh` создается новая сессия...</strong>   
 
-    ```bash     
-	vagrant@netology1:~$ ssh localhost 'tty'        
-	not a tty       
-    ```     
-Почитайте, почему так происходит, и как изменить поведение.     
+man ssh     
+-t      Force pseudo-terminal allocation.  This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services.  Multiple -t options force tty allocation, even if ssh has no local tty.
+
+ssh -t localhost 'tty'     
 
 <strong>13. Бывает, что есть необходимость переместить запущенный процесс из одной сессии в другую</strong>.    
 Запускаю процесс htop,  PID=1276    
