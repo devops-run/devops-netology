@@ -93,7 +93,17 @@ cat < test.txt > test2.txt
 Почитайте, почему так происходит, и как изменить поведение.     
 
 <strong>13. Бывает, что есть необходимость переместить запущенный процесс из одной сессии в другую</strong>.    
- Попробуйте сделать это, воспользовавшись `reptyr`. Например, так можно перенести в `screen` процесс, который вы запустили по ошибке в обычной SSH-сессии.  
+Запускаю процесс htop,  PID=1276    
+При попытке подключиться к этому процессу в другом терминале с помощью команды reptyr получаю ошибку:    
+    
+Unable to attach to pid 1276: Operation not permitted   
+The kernel denied permission while attaching. If your uid matches   
+the target's, check the value of /proc/sys/kernel/yama/ptrace_scope.    
+For more information, see /etc/sysctl.d/10-ptrace.conf  
+
+Далее вношу изменения в /etc/sysctl.d/10-ptrace.conf, меняю дефолтный параметр kernel.yama.ptrace_scope = 1 на 0 
+перезагружаюсь  
+Теперь успешно переключаюсь на запущенный процесс в другом терминале reptyr PID процесса       
 
 <strong>14. `sudo echo string > /root/new_file` не даст выполнить перенаправление под обычным пользователем</strong>
 
