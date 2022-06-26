@@ -12,16 +12,18 @@ cd is a shell builtin
 Если, к примеру, с файловой системой компьютера возникнут проблемы, а оболочка "bash" все еще будет загружена в память, то любая из встроенных команд продолжит работать корректно, позволяя диагностировать несправность и попытаться решить проблему.      
 
 
-<strong>Какая альтернатива без pipe команде grep <some_string> <some_file> | wc -l?</strong>   
-
----------------------
 <strong>2. Какая альтернатива без pipe команде `grep <some_string> <some_file> | wc -l`?</strong>        
 
 man grep    
        -c, --count  
-              Suppress  normal  output;  instead print a count of matching lines for each input file.  With the -v, --invert-match option (see below), count non-
+              Suppress  normal  output;  instead print a count of matching lines for each input file.    
               matching lines.   
 
+Альтернативный способ подсчитать кол-во строк без использования конвеера (pipe) 
+grep -c bin /etc/passwd     
+27  
+
+grep bin /etc/passwd | wc -l    
 
 1. Какой процесс с PID `1` является родителем для всех процессов в вашей виртуальной машине Ubuntu 20.04?
 1. Как будет выглядеть команда, которая перенаправит вывод stderr `ls` на другую сессию терминала?
