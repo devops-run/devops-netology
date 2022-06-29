@@ -22,11 +22,33 @@ strace file 2&> tmp.txt; cat tmp.txt | grep magic.mgc
 stat("/home/vagrant/.magic.mgc", 0x7ffe570aa7e0) = -1 ENOENT (Нет такого файла или каталога)    
 openat(AT_FDCWD, "/etc/magic.mgc", O_RDONLY) = -1 ENOENT (Нет такого файла или каталога)    
 openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3     
-
-ответ: /usr/share/misc/magic.mgc    
-
-<strong>3. Основываясь на знаниях о перенаправлении потоков предложите способ обнуления открытого удаленного файла</strong>    
     
+ответ: /usr/share/misc/magic.mgc    
+    
+<strong>3. Основываясь на знаниях о перенаправлении потоков предложите способ обнуления открытого удаленного файла</strong>    
+Запускаю процесс (PID=1416) пинга с выводом результатов в ping.log      
+ping 192.168.1.1 >> ping.log &      
+удаляю ping.log (rm ping.log)   
+проверяю открытые процессом файлы       
+sudo lsof -p 1416 | grep deleted        
+ping    1416 vagrant    1w   REG    8,1    14942 17655 /home/vagrant/ping.log (deleted) 
+Узнаю файловый дескриптор        
+sudo ls -la /proc/1416/fd   
+l-wx------ 1 root    root    64 Jun 29 16:52 1 -> '/home/vagrant/ping.log (deleted)'       
+обнуляю удалённый файл:         
+cat /dev/null | sudo tee /proc/1416/fd/1    
+ping    1416 vagrant    1w   REG    8,1      10 17655 /home/vagrant/ping.log (deleted)  
+размер удалённого файла обнулился   
+Процесс остался в рабочем состоянии.    
+
+
+
+
+
+
+
+
+
 <strong>4. Занимают ли зомби-процессы какие-то ресурсы в ОС (CPU, RAM, IO)?</strong>   
     
 <strong>5. На какие файлы вы увидели вызовы группы open за первую секунду работы утилиты?</strong>      
