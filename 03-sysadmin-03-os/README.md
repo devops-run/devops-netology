@@ -5,6 +5,8 @@
 <strong>1. Какой системный вызов делает команда cd?</strong>  
     
 strace /bin/bash -c 'cd /tmp' > strace.log 2>&1; cat strace.log | grep -w chdir       
+
+Ответ:  
 chdir("/tmp") = 0   
     
 <strong>2. Используя strace выясните, где находится база данных file...</strong>   
