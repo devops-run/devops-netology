@@ -25,13 +25,6 @@ openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3
 
 ответ: /usr/share/misc/magic.mgc    
 
-
-
-close(3)                                = 0
-openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3
-fstat(3, {st_mode=S_IFREG|0644, st_size=6645048, ...}) = 0
-
-
 <strong>3. Основываясь на знаниях о перенаправлении потоков предложите способ обнуления открытого удаленного файла</strong>    
     
 <strong>4. Занимают ли зомби-процессы какие-то ресурсы в ОС (CPU, RAM, IO)?</strong>   
