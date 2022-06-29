@@ -31,7 +31,7 @@ ping 192.168.1.1 >> ping.log &
 удаляю ping.log (rm ping.log)   
 проверяю открытые процессом файлы       
 sudo lsof -p 1416 | grep deleted        
-ping    1416 vagrant    1w   REG    8,1    14942 17655 /home/vagrant/ping.log (deleted) 
+ping    1416 vagrant    1w   REG    8,1    14942 17655 /home/vagrant/ping.log (deleted)     
 Узнаю файловый дескриптор        
 sudo ls -la /proc/1416/fd   
 l-wx------ 1 root    root    64 Jun 29 16:52 1 -> '/home/vagrant/ping.log (deleted)'       
