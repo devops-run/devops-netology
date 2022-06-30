@@ -103,12 +103,7 @@ ls: cannot access '/несущестующий': No such file or directory
 set --help   
 -e  Exit immediately if a command exits with a non-zero status. (Немедленный выход, если команда завершается с ненулевым статусом.)   
 
-При использовании команды set -е смысл использовать в bash &&, на мой взгляд, нет.   
-
-
-
-
-
+При задействовании конструкции set -е смысла использовать в bash &&, на мой взгляд, нет.   
 
 
 <strong>8. Из каких опций состоит режим bash set -euxo pipefail и почему его хорошо было бы использовать в сценариях?</strong>  
