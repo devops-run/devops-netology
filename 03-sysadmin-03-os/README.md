@@ -111,14 +111,15 @@ set --help
     -e  Exit immediately if a command exits with a non-zero status. (прекращает выполнение скрипта если команда завершилась ошибкой, выводит в stderr строку с ошибкой)         
     -u  Treat unset variables as an error when substituting. (прекращает выполнение скрипта, если встретилась несуществующая переменная)        
     -x  xtrace  (выводит выполняемые команды в stdout перед выполненинем)       
-    -o pipefail the return value of a pipeline is the status of the last command to exit with a non-zero status, or zero if no command exited with a non-zero status  ( прекращает выполнение скрипта, даже если одна из частей пайпа завершилась ошибкой)      
+    -o pipefail the return value of a pipeline is the status of the last command to exit with a non-zero status, or zero if no command exited with a non-zero status  (прекращает выполнение скрипта, даже если одна из частей пайпа завершилась ошибкой)      
 
 man bash | grep -w pipefail     
 
 pipefail возвращаемое значение конвейера — это статус последней команды для выхода с ненулевым статусом или ноль,   
 если ни одна команда не вышла с ненулевым статусом      
 
-B
+Данный набор параметров, на мой взгляд, добавляет гарантии на успешное получение результата. Того, что требовалось от скрипта.  
+
 
 <strong>9. Используя -o stat для ps, определите, какой наиболее часто встречающийся статус у процессов в системе.</strong>  
     
