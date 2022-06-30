@@ -52,15 +52,25 @@ sudo /usr/sbin/opensnoop-bpfcc
 3 warnings generated.   
 PID    COMM               FD ERR PATH   
 620    irqbalance          6   0 /proc/interrupts   
+620    irqbalance          6   0 /proc/stat 
+620    irqbalance          6   0 /proc/irq/20/smp_affinity  
+620    irqbalance          6   0 /proc/irq/0/smp_affinity   
+620    irqbalance          6   0 /proc/irq/1/smp_affinity   
+620    irqbalance          6   0 /proc/irq/4/smp_affinity   
+620    irqbalance          6   0 /proc/irq/8/smp_affinity   
+620    irqbalance          6   0 /proc/irq/12/smp_affinity  
+620    irqbalance          6   0 /proc/irq/14/smp_affinity  
+620    irqbalance          6   0 /proc/irq/15/smp_affinity  
+573    systemd-network    19   0 /run/systemd/netif/lldp/.#32Kbga1  
+573    systemd-network    25   0 /run/systemd/netif/lldp/.#32Kbga1  
+573    systemd-network    26   0 /run/systemd/netif/lldp/3  
+1      systemd            12   0 /proc/573/cgroup   
+620    irqbalance          6   0 /proc/interrupts   
 620    irqbalance          6   0 /proc/stat     
-620    irqbalance          6   0 /proc/irq/20/smp_affinity      
-620    irqbalance          6   0 /proc/irq/0/smp_affinity       
-620    irqbalance          6   0 /proc/irq/1/smp_affinity       
-620    irqbalance          6   0 /proc/irq/4/smp_affinity       
-620    irqbalance          6   0 /proc/irq/8/smp_affinity       
-620    irqbalance          6   0 /proc/irq/12/smp_affinity      
-620    irqbalance          6   0 /proc/irq/14/smp_affinity      
-620    irqbalance          6   0 /proc/irq/15/smp_affinity      
+    
+
+
+
 
 
 <strong>6. Какой системный вызов использует uname -a?</strong>       
