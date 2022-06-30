@@ -47,6 +47,18 @@ ping    1416 vagrant    1w   REG    8,1      10 17655 /home/vagrant/ping.log (de
     
 <strong>5. На какие файлы вы увидели вызовы группы open за первую секунду работы утилиты?</strong>      
 
+vagrant@debian11:~$ /usr/sbin/opensnoop-bpfcc &> out.txt; head out.txt  
+In file included from <built-in>:2:     
+In file included from /virtual/include/bcc/bpf.h:12:    
+In file included from include/linux/types.h:6:  
+In file included from include/uapi/linux/types.h:14:    
+In file included from include/uapi/linux/posix_types.h:5:   
+In file included from include/linux/stddef.h:5:     
+In file included from include/uapi/linux/stddef.h:2:    
+In file included from include/linux/compiler_types.h:69:    
+include/linux/compiler-clang.h:51:9: warning: '__HAVE_BUILTIN_BSWAP32__' macro redefined [-Wmacro-redefined]    
+#define __HAVE_BUILTIN_BSWAP32__    
+
 <strong>6. Какой системный вызов использует uname -a?</strong>       
     
 <strong>7. Чем отличается последовательность команд через ; и через && в bash? Есть ли смысл использовать в bash &&, если применить set -e?</strong>        
