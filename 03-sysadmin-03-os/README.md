@@ -86,7 +86,19 @@ This string identifies the kernel version that is currently running.  It include
     
 <strong>7. Чем отличается последовательность команд через ; и через && в bash?  
 Есть ли смысл использовать в bash &&, если применить set -e?</strong>         
-    
+
+Вся последовательность команд через ; будет выполнена, невзирая на результат предшевствующей команды (0 или 1)
+
+ls /несущестующий; cd /невнятный; ls -l /home/  
+ls: cannot access '/несущестующий': No such file or directory   
+-bash: cd: /невнятный: No such file or directory    
+total 8 
+drwxr-x--- 3 ubuntu  ubuntu  4096 Jun 18 09:03 ubuntu   
+drwxr-x--- 6 vagrant vagrant 4096 Jun 30 16:17 vagrant  
+
+
+
+
 <strong>8. Из каких опций состоит режим bash set -euxo pipefail и почему его хорошо было бы использовать в сценариях?</strong>  
     
 <strong>9. Используя -o stat для ps, определите, какой наиболее часто встречающийся статус у процессов в системе.</strong>  
