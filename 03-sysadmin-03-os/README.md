@@ -67,14 +67,17 @@ PID    COMM               FD ERR PATH
 1      systemd            12   0 /proc/573/cgroup   
 620    irqbalance          6   0 /proc/interrupts   
 620    irqbalance          6   0 /proc/stat     
-    
-
-
-
 
 
 <strong>6. Какой системный вызов использует uname -a?</strong>       
-    
+
+strace uname -a &> temp && cat temp | grep uname
+execve("/usr/bin/uname", ["uname", "-a"], 0x7ffc8fef7f58 /* 24 vars */) = 0
+uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0
+uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0
+uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0
+
+
 <strong>7. Чем отличается последовательность команд через ; и через && в bash? Есть ли смысл использовать в bash &&, если применить set -e?</strong>        
     
 <strong>8. Из каких опций состоит режим bash set -euxo pipefail и почему его хорошо было бы использовать в сценариях?</strong>  
