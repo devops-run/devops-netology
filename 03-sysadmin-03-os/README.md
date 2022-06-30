@@ -124,6 +124,12 @@ pipefail возвращаемое значение конвейера — это
 
 <strong>9. Используя -o stat для ps, определите, какой наиболее часто встречающийся статус у процессов в системе.</strong>  
 
+vagrant@ubuntu-jammy:~$ ps -o stat
+STAT
+Ss
+R+
+
+
 PROCESS STATE CODES     
        Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the state     
        of a process:    
