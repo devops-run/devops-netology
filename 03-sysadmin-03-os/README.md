@@ -92,7 +92,7 @@ This string identifies the kernel version that is currently running.  It include
 ls /несущестующий; cd /невнятный; ls -l /home/  
 ls: cannot access '/несущестующий': No such file or directory   
 -bash: cd: /невнятный: No such file or directory    
-total 8 
+total 8      
 drwxr-x--- 3 ubuntu  ubuntu  4096 Jun 18 09:03 ubuntu   
 drwxr-x--- 6 vagrant vagrant 4096 Jun 30 16:17 vagrant  
 
