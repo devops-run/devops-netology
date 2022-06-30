@@ -105,8 +105,21 @@ set --help
 
 При задействовании конструкции set -е смысла использовать в bash &&, на мой взгляд, нет.   
 
-
 <strong>8. Из каких опций состоит режим bash set -euxo pipefail и почему его хорошо было бы использовать в сценариях?</strong>  
-    
+
+set --help  
+    -e  Exit immediately if a command exits with a non-zero status.     
+    -u  Treat unset variables as an error when substituting.    
+    -x  xtrace  
+    -o pipefail the return value of a pipeline is the status of 
+                           the last command to exit with a non-zero status, 
+                           or zero if no command exited with a non-zero status  
+
+man bash | grep -w pipefail     
+
+pipefail возвращаемое значение конвейера — это статус последней команды для выхода с ненулевым статусом или ноль,   
+если ни одна команда не вышла с ненулевым статусом  
+
+
 <strong>9. Используя -o stat для ps, определите, какой наиболее часто встречающийся статус у процессов в системе.</strong>  
     
