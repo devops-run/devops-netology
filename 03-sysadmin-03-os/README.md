@@ -96,6 +96,13 @@ total 8
 drwxr-x--- 3 ubuntu  ubuntu  4096 Jun 18 09:03 ubuntu   
 drwxr-x--- 6 vagrant vagrant 4096 Jun 30 16:17 vagrant  
 
+Конструкция && позволит выполнить последовательность команд в том случае, если результат предшедствующего выполнения был 0 (команда отработала без ошибок)      
+ls /несущестующий && cd /невнятный && ls -l /home/      
+ls: cannot access '/несущестующий': No such file or directory   
+
+
+
+
 
 
 
