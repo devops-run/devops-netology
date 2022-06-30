@@ -100,6 +100,11 @@ drwxr-x--- 6 vagrant vagrant 4096 Jun 30 16:17 vagrant
 ls /несущестующий && cd /невнятный && ls -l /home/      
 ls: cannot access '/несущестующий': No such file or directory   
 
+set --help   
+-e  Exit immediately if a command exits with a non-zero status. (Немедленный выход, если команда завершается с ненулевым статусом.)   
+
+При использовании команды set -е смысл использовать в bash &&, на мой взгляд, нет.   
+
 
 
 
