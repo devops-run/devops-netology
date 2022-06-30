@@ -70,12 +70,12 @@ PID    COMM               FD ERR PATH
 
 
 <strong>6. Какой системный вызов использует uname -a?</strong>       
-
-strace uname -a &> temp && cat temp | grep uname    
-execve("/usr/bin/uname", ["uname", "-a"], 0x7ffc8fef7f58 /* 24 vars */) = 0 
-uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0  
-uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0  
-uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0  
+    
+strace uname -a &> temp && cat temp | grep uname        
+execve("/usr/bin/uname", ["uname", "-a"], 0x7ffc8fef7f58 /* 24 vars */) = 0     
+uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0      
+uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0      
+uname({sysname="Linux", nodename="ubuntu-jammy", ...}) = 0      
     
 
 
