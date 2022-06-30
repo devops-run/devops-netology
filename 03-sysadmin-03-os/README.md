@@ -82,11 +82,8 @@ cat /proc/version
 Linux version 5.15.0-40-generic (buildd@lcy02-amd64-047) (gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #43-Ubuntu SMP Wed Jun 15 12:54:21 UTC 2022  
     
 man proc        
-This string identifies the kernel version that is currently running.  It includes the  contents  of  /proc/sys/kernel/ostype, /proc/sys/kernel/osrelease, and /proc/sys/kernel/version.  For example:   
-/proc/vmstat (since Linux 2.6.0)    
-/proc/zoneinfo (since Linux 2.6.13) 
+This string identifies the kernel version that is currently running.  It includes the  contents  of  /proc/sys/kernel/ostype, /proc/sys/kernel/osrelease, and /proc/sys/kernel/version.     
     
-
 <strong>7. Чем отличается последовательность команд через ; и через && в bash? Есть ли смысл использовать в bash &&, если применить set -e?</strong>        
     
 <strong>8. Из каких опций состоит режим bash set -euxo pipefail и почему его хорошо было бы использовать в сценариях?</strong>  
