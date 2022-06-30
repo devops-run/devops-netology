@@ -47,17 +47,21 @@ ping    1416 vagrant    1w   REG    8,1      10 17655 /home/vagrant/ping.log (de
     
 <strong>5. На какие файлы вы увидели вызовы группы open за первую секунду работы утилиты?</strong>      
 
-vagrant@debian11:~$ /usr/sbin/opensnoop-bpfcc &> out.txt; head out.txt  
-In file included from <built-in>:2:     
-In file included from /virtual/include/bcc/bpf.h:12:    
-In file included from include/linux/types.h:6:  
-In file included from include/uapi/linux/types.h:14:    
-In file included from include/uapi/linux/posix_types.h:5:   
-In file included from include/linux/stddef.h:5:     
-In file included from include/uapi/linux/stddef.h:2:    
-In file included from include/linux/compiler_types.h:69:    
-include/linux/compiler-clang.h:51:9: warning: '__HAVE_BUILTIN_BSWAP32__' macro redefined [-Wmacro-redefined]    
-#define __HAVE_BUILTIN_BSWAP32__    
+sudo /usr/sbin/opensnoop-bpfcc
+
+3 warnings generated.   
+PID    COMM               FD ERR PATH   
+620    irqbalance          6   0 /proc/interrupts   
+620    irqbalance          6   0 /proc/stat     
+620    irqbalance          6   0 /proc/irq/20/smp_affinity      
+620    irqbalance          6   0 /proc/irq/0/smp_affinity       
+620    irqbalance          6   0 /proc/irq/1/smp_affinity       
+620    irqbalance          6   0 /proc/irq/4/smp_affinity       
+620    irqbalance          6   0 /proc/irq/8/smp_affinity       
+620    irqbalance          6   0 /proc/irq/12/smp_affinity      
+620    irqbalance          6   0 /proc/irq/14/smp_affinity      
+620    irqbalance          6   0 /proc/irq/15/smp_affinity      
+
 
 <strong>6. Какой системный вызов использует uname -a?</strong>       
     
