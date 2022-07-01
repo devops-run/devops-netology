@@ -129,28 +129,24 @@ STAT
 Ss  
 R+  
 
+КОДЫ СОСТОЯНИЯ ПРОЦЕССА     
+       Вот различные значения, которые выводят спецификаторы s , stat и state (заголовок «STAT» или "S") будет отображаться для описания состояния процесс: 
+
+               D непрерывный сон (обычно IO)    
+               R работает или может выполняться (в очереди выполнения)  
+               Прерываемый сон (ожидание завершения события)    
+               T остановлен по сигналу управления заданием  
+               t остановлен отладчиком во время трассировки 
+               Пейджинг W (не действует, начиная с ядра 2.6.xx) 
+               X мертв (никогда не должен быть увиден)  
+               Z несуществующий ("зомби") процесс, завершенный, но не пожинаемый своим родителем    
     
-PROCESS STATE CODES     
-       Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to describe the state     
-       of a process:    
-
-               D    uninterruptible sleep (usually IO)      
-               I    Idle kernel thread      
-               R    running or runnable (on run queue)      
-               S    interruptible sleep (waiting for an event to complete)      
-               T    stopped by job control signal       
-               t    stopped by debugger during the tracing      
-               W    paging (not valid since the 2.6.xx kernel)      
-               X    dead (should never be seen)     
-               Z    defunct ("zombie") process, terminated but not reaped by its parent     
-     ps -o stat
-       For BSD formats and when the stat keyword is used, additional characters may be displayed:   
+       Для форматов BSD и при использовании ключевого слова stat могут отображаться дополнительные символы: 
     
-               <    high-priority (not nice to other users) 
-               N    low-priority (nice to other users)  
-               L    has pages locked into memory (for real-time and custom IO)  
-               s    is a session leader 
-               l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)   
-               +    is in the foreground process group  
-
-
+               <высокоприоритетный (неприятный для других пользователей)    
+               N с низким приоритетом (удобно для других пользователей) 
+               L имеет страницы, заблокированные в памяти (для ввода-вывода в реальном времени и пользовательского ввода-вывода)    
+               s является лидером сеанса    
+               l является многопоточным (с использованием CLONE_THREAD, как это делают pthreads NPTL)   
+               + находится в группе процессов переднего плана   
+                
