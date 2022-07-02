@@ -43,7 +43,22 @@ systemctl status node
 
 
 <strong>2. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.</strong>       
+
+curl http://127.0.0.1:9100/metrics | grep -i cpu | less     
+# TYPE go_memstats_gc_cpu_fraction gauge        
+go_memstats_gc_cpu_fraction 3.6645821200029023e-06      
     
+node_memory_Percpu_bytes 2.310144e+06       
+# HELP node_pressure_cpu_waiting_seconds_total Total time in seconds that processes have waited for CPU time    
+    
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.   
+# TYPE process_cpu_seconds_total counter    
+process_cpu_seconds_total 0.65  
+
+
+curl http://127.0.0.1:9100/metrics | grep -i memory | grep -i available     
+
+
 <strong>3. Установите в свою виртуальную машину Netdata.</strong>       
     
 <strong>4. Можно ли по выводу `dmesg` понять, осознает ли ОС, что загружена не на настоящем оборудовании, а на системе виртуализации?</strong>      
