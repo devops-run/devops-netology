@@ -185,7 +185,7 @@ root@ubuntu-jammy:~# unshare -f --pid --mount-proc sleep 1h &
     
 Далее (в новом терминале):  
 ps ax | grep sleep  
-   1583 pts/2    S      0:00 unshare -f --pid --mount-proc sleep 1h 
+   1583 pts/2    S      0:00 unshare -f --pid --mount-proc sleep 1h      
    1584 pts/2    S      0:00 sleep 1h   
     
 Подключаемся к процессу:        
