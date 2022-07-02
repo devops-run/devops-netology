@@ -109,8 +109,40 @@ node_network_transmit_fifo_total Network device statistic transmit_fifo.
 node_network_transmit_packets_total Network device statistic transmit_packets.  
 
 <strong>3. Установите в свою виртуальную машину Netdata.</strong>       
-Приятно удивлён обилием датчиков вэтой простой, незатейливой (на первый взгляд) системе 
-![alt text](https://i.ibb.co/N6CgwcN/Screen.png)
+PS F:\Vagrant-vm-conf\Ubuntu2204-oficial> vagrant up    
+Bringing machine 'default' up with 'virtualbox' provider...     
+==> default: Checking if box 'ubuntu/jammy64' version '20220616.0.0' is up to date...       
+==> default: Clearing any previously set forwarded ports...     
+==> default: Clearing any previously set network interfaces...      
+==> default: Preparing network interfaces based on configuration...     
+    default: Adapter 1: nat     
+    default: Adapter 2: bridged     
+==> default: Forwarding ports...        
+    default: 19999 (guest) => 19999 (host) (adapter 1)      
+    default: 22 (guest) => 2222 (host) (adapter 1)      
+==> default: Running 'pre-boot' VM customizations...        
+==> default: Booting VM...      
+==> default: Waiting for machine to boot. This may take a few minutes...        
+    default: SSH address: 127.0.0.1:2222        
+    default: SSH username: vagrant      
+    default: SSH auth method: private key       
+==> default: Machine booted and ready!      
+==> default: Checking for guest additions in VM...      
+    default: The guest additions on this VM do not match the installed version of       
+    default: VirtualBox! In most cases this is fine, but in rare cases it can       
+    default: prevent things such as shared folders from working properly. If you see        
+    default: shared folder errors, please make sure the guest additions within the      
+    default: virtual machine match the version of VirtualBox you have installed on      
+    default: your host and reload your VM.      
+    default:    
+    default: Guest Additions Version: 6.0.0 r127566     
+    default: VirtualBox Version: 6.1        
+==> default: Configuring and enabling network interfaces...     
+==> default: Mounting shared folders...     
+    default: /vagrant => F:/Vagrant-vm-conf/Ubuntu2204-oficial      
+
+Приятно удивлён обилием датчиков вэтой простой, незатейливой (на первый взгляд) системе     
+![Netdata](https://i.ibb.co/N6CgwcN/Screen.png)
 
 
 <strong>4. Можно ли по выводу `dmesg` понять, осознает ли ОС, что загружена не на настоящем оборудовании, а на системе виртуализации?</strong>      
