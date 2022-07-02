@@ -180,7 +180,7 @@ Soft лимит не сможет превысить системный fs.nr_op
     
 <strong>6. Запустите любой долгоживущий процесс в отдельном неймспейсе процессов.</strong>      
     
-root@ubuntu-jammy:~# unshare -f --pid --mount-proc sleep 1h 
+root@ubuntu-jammy:~# unshare -f --pid --mount-proc sleep 1h  
 Далее:  
 ps ax | grep sleep  
    1579 pts/2    S+     0:00 unshare -f --pid --mount-proc sleep 1h 
