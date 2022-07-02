@@ -3,7 +3,7 @@
 ---
                     
 <strong>1. создайте самостоятельно простой unit-файл</strong>      
-
+Doc https://www.freedesktop.org/software/systemd/man/systemd.service.html   
 wget node_exporter-1.3.1.linux-amd64.tar.gz  
 tar xfz node_exporter-1.3.1.linux-amd64.tar.gz && cd node_exporter-1.3.1.linux-amd64    
 cp node_exporter /usr/sbin/    
