@@ -4,6 +4,27 @@
                     
 <strong>1. создайте самостоятельно простой unit-файл</strong>      
 
+wget node_exporter-1.3.1.linux-amd64.tar.gz 
+tar xfz node_exporter-1.3.1.linux-amd64.tar.gz && cd node_exporter-1.3.1.linux-amd64    
+cp node_exporter /usr/sbin/
+vi /lib/systemd/system/node.service 
+
+[Unit]  
+Description=node_exporter daemon    
+After=remote-fs.target nss-user-lookup.target   
+    
+[Service]   
+EnvironmentFile=/etc/default/node_exporter  
+ExecStart=/usr/sbin/node_exporter   
+Type=simple 
+KillMode=process    
+Restart=on-failure  
+    
+[Install]   
+WantedBy=multi-user.target  
+
+
+
 * поместите его в автозагрузку,
 * предусмотрите возможность добавления опций к запускаемому процессу через внешний файл (посмотрите, например, на `systemctl cat cron`),
 * удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
