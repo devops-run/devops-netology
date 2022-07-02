@@ -180,4 +180,26 @@ Soft лимит не сможет превысить системный fs.nr_op
     
 <strong>6. Запустите любой долгоживущий процесс в отдельном неймспейсе процессов.</strong>      
     
+root@ubuntu-jammy:~# unshare -f --pid --mount-proc sleep 1h 
+Далее:  
+ps ax | grep sleep  
+   1579 pts/2    S+     0:00 unshare -f --pid --mount-proc sleep 1h 
+   1580 pts/2    S+     0:00 sleep 1h   
+   1586 pts/3    S+     0:00 grep --color=auto sleep    
+
+Подключаемся к процессу:    
+nsenter -t 1580 -p -m      
+Листинг процессов:  
+ps ax   
+    PID TTY      STAT   TIME COMMAND    
+      1 pts/2    S+     0:00 sleep 1h   
+      2 pts/3    S      0:00 -bash  
+     15 pts/3    R+     0:00 ps ax  
+
+
+
+
+
+
+
 <strong>7. Найдите информацию о том, что такое `:(){ :|:& };:`.</strong>             
