@@ -16,10 +16,11 @@ After=remote-fs.target nss-user-lookup.target
 [Service]   
 EnvironmentFile=/etc/default/node_exporter  
 ExecStart=/usr/sbin/node_exporter   
-Type=simple 
-KillMode=process    
-Restart=on-failure  
+Type=simple      
+KillMode=process        
+Restart=on-failure      
     
+
 [Install]   
 WantedBy=multi-user.target  
 
