@@ -28,23 +28,18 @@ WantedBy=multi-user.target
 systemctl daemon-reload     
 systemctl start node     
 systemctl status node   
-
-● node.service - node_exporter daemon   
-     Loaded: loaded (/lib/systemd/system/node.service; enabled; vendor preset: enabled)     
-     Active: active (running) since Sat 2022-07-02 07:18:02 UTC; 6s ago     
-   Main PID: 1755 (node_exporter)      
-      Tasks: 6 (limit: 3532)    
-     Memory: 2.4M   
-        CPU: 7ms    
-     CGroup: /system.slice/node.service 
-             └─1755 /usr/sbin/node_exporter 
-
-
+    
+● node.service - node_exporter daemon       
+     Loaded: loaded (/lib/systemd/system/node.service; enabled; vendor preset: enabled)        
+     Active: active (running) since Sat 2022-07-02 07:18:02 UTC; 6s ago      
+   Main PID: 1755 (node_exporter)          
+      Tasks: 6 (limit: 3532)        
+     Memory: 2.4M       
+        CPU: 7ms        
+     CGroup: /system.slice/node.service     
+             └─1755 /usr/sbin/node_exporter      
 
 
-* поместите его в автозагрузку,
-* предусмотрите возможность добавления опций к запускаемому процессу через внешний файл (посмотрите, например, на `systemctl cat cron`),
-* удостоверьтесь, что с помощью systemctl процесс корректно стартует, завершается, а после перезагрузки автоматически поднимается.
 
 1. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 1. Установите в свою виртуальную машину [Netdata](https://github.com/netdata/netdata). Воспользуйтесь [готовыми пакетами](https://packagecloud.io/netdata/netdata/install) для установки (`sudo apt install -y netdata`). После успешной установки:
