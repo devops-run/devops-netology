@@ -72,10 +72,10 @@ wiki
 echo "текст текст текст текст" > source 
 создал hard link на этот  файл  
 ln source hardlink   
-ls -li  
-total 8 
-3357 -rw-rw-r-- 2 vagrant vagrant 44 Jul  2 19:34 hardlink  
-3357 -rw-rw-r-- 2 vagrant vagrant 44 Jul  2 19:34 source    
+ls -li   
+total 8     
+3357 -rw-rw-r-- 2 vagrant vagrant 44 Jul  2 19:34 hardlink      
+3357 -rw-rw-r-- 2 vagrant vagrant 44 Jul  2 19:34 source        
 
 
 
