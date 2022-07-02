@@ -27,6 +27,7 @@ WantedBy=multi-user.target
 ###########################################     
      
 systemctl daemon-reload     
+systemctl enable node   
 systemctl start node     
 systemctl status node   
     
