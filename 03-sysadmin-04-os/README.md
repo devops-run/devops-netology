@@ -141,7 +141,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Mounting shared folders...     
     default: /vagrant => F:/Vagrant-vm-conf/Ubuntu2204-oficial      
 
-# Приятно удивлён обилием датчиков вэтой простой, незатейливой (на первый взгляд) системе     
+### Приятно удивлён обилием датчиков в этой простой, незатейливой (на первый взгляд) системе.     
     
 ![Netdata](https://i.ibb.co/N6CgwcN/Screen.png)
 
