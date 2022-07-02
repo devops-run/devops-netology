@@ -45,18 +45,51 @@ systemctl status node
 <strong>2. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.</strong>       
 
 curl http://127.0.0.1:9100/metrics | grep -i cpu | less     
-`#` TYPE go_memstats_gc_cpu_fraction gauge        
-go_memstats_gc_cpu_fraction 3.6645821200029023e-06      
+`#` TYPE node_cpu_seconds_total counter
+node_cpu_seconds_total{cpu="0",mode="idle"} 6305.29
+node_cpu_seconds_total{cpu="0",mode="iowait"} 0.46
+node_cpu_seconds_total{cpu="0",mode="irq"} 0
+node_cpu_seconds_total{cpu="0",mode="nice"} 0.47
+node_cpu_seconds_total{cpu="0",mode="softirq"} 7.44
+node_cpu_seconds_total{cpu="0",mode="steal"} 0
+node_cpu_seconds_total{cpu="0",mode="system"} 6.71
+node_cpu_seconds_total{cpu="0",mode="user"} 3.8
+node_cpu_seconds_total{cpu="1",mode="idle"} 6319.44
+node_cpu_seconds_total{cpu="1",mode="iowait"} 0.6
+node_cpu_seconds_total{cpu="1",mode="irq"} 0
+node_cpu_seconds_total{cpu="1",mode="nice"} 0
+node_cpu_seconds_total{cpu="1",mode="softirq"} 1.6
+node_cpu_seconds_total{cpu="1",mode="steal"} 0
+node_cpu_seconds_total{cpu="1",mode="system"} 4.43
+node_cpu_seconds_total{cpu="1",mode="user"} 2.86
+node_cpu_seconds_total{cpu="2",mode="idle"} 6323.44
+node_cpu_seconds_total{cpu="2",mode="iowait"} 0.4
+node_cpu_seconds_total{cpu="2",mode="irq"} 0
+node_cpu_seconds_total{cpu="2",mode="nice"} 0
+node_cpu_seconds_total{cpu="2",mode="softirq"} 4.52
+node_cpu_seconds_total{cpu="2",mode="steal"} 0
+node_cpu_seconds_total{cpu="2",mode="system"} 3.8
+node_cpu_seconds_total{cpu="2",mode="user"} 2.07
+
+curl http://127.0.0.1:9100/metrics | grep -i memory | grep -i available         
+`#` TYPE process_virtual_memory_max_bytes gauge     
+process_virtual_memory_max_bytes 1.8446744073709552e+19     
+
+curl http://127.0.0.1:9100/metrics | grep -i memory | grep -i free     
+`#` HELP node_memory_HugePages_Free Memory information field HugePages_Free.    
+`#` TYPE node_memory_HugePages_Free gauge   
+node_memory_HugePages_Free 0    
+`#` HELP node_memory_MemFree_bytes Memory information field MemFree_bytes.  
+`#` TYPE node_memory_MemFree_bytes gauge    
+node_memory_MemFree_bytes 2.478301184e+09   
+`#` HELP node_memory_SwapFree_bytes Memory information field SwapFree_bytes.    
+`#` TYPE node_memory_SwapFree_bytes gauge   
+node_memory_SwapFree_bytes 0    
     
-node_memory_Percpu_bytes 2.310144e+06       
-`#` HELP node_pressure_cpu_waiting_seconds_total Total time in seconds that processes have waited for CPU time    
-    
-`#` HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.   
-`#` TYPE process_cpu_seconds_total counter    
-process_cpu_seconds_total 0.65  
 
 
-curl http://127.0.0.1:9100/metrics | grep -i memory | grep -i available     
+
+
 
 
 <strong>3. Установите в свою виртуальную машину Netdata.</strong>       
