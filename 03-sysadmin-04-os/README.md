@@ -8,21 +8,36 @@ wget node_exporter-1.3.1.linux-amd64.tar.gz
 tar xfz node_exporter-1.3.1.linux-amd64.tar.gz && cd node_exporter-1.3.1.linux-amd64    
 cp node_exporter /usr/sbin/     
 vi /lib/systemd/system/node.service     
-
+###########################################
 [Unit]  
 Description=node_exporter daemon    
 After=remote-fs.target nss-user-lookup.target   
     
 [Service]   
-EnvironmentFile=/etc/default/node_exporter  
+EnvironmentFile=-/etc/default/node_exporter       
 ExecStart=/usr/sbin/node_exporter   
 Type=simple      
 KillMode=process        
 Restart=on-failure      
     
-
 [Install]   
 WantedBy=multi-user.target  
+###########################################
+     
+systemctl daemon-reload 
+systemctl start node    
+systemctl status node   
+
+● node.service - node_exporter daemon   
+     Loaded: loaded (/lib/systemd/system/node.service; enabled; vendor preset: enabled) 
+     Active: active (running) since Sat 2022-07-02 07:18:02 UTC; 6s ago 
+   Main PID: 1755 (node_exporter)   
+      Tasks: 6 (limit: 3532)    
+     Memory: 2.4M   
+        CPU: 7ms    
+     CGroup: /system.slice/node.service 
+             └─1755 /usr/sbin/node_exporter 
+
 
 
 
