@@ -147,7 +147,25 @@ Bringing machine 'default' up with 'virtualbox' provider...
 
 
 <strong>4. Можно ли по выводу `dmesg` понять, осознает ли ОС, что загружена не на настоящем оборудовании, а на системе виртуализации?</strong>      
+#### Да, проверено на нескольких гипервизорах   
+vagrant@ubuntu-jammy:~$ sudo dmesg | grep virtual          
+[    0.001020] CPU MTRRs all blank - virtualized system.          
+[    0.009367] Booting paravirtualized kernel on KVM            
+[    3.478966] systemd[1]: Detected virtualization oracle.          
     
+vagrant@vagrant:~# sudo dmesg | grep virtual    
+[    0.015326] Booting paravirtualized kernel on Hyper-V        
+[    6.373222] systemd[1]: Detected virtualization microsoft.       
+    
+vagrant@debian11:~$ sudo dmesg | grep virtual   
+[    0.012736] Booting paravirtualized kernel on VMware hypervisor  
+[    0.666431] VMware vmxnet3 virtual NIC driver - version 1.5.0.0-k-NAPI   
+[    1.522126] systemd[1]: Detected virtualization vmware.  
+    
+
+
+
+
 <strong>5. Как настроен sysctl `fs.nr_open` на системе по-умолчанию?</strong>   
     
 <strong>6. Запустите любой долгоживущий процесс в отдельном неймспейсе процессов.</strong>      
