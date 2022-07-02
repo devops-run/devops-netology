@@ -45,9 +45,9 @@ Birth: 2022-07-02 18:52:55.612666690 +0000
 Преобразовал обычный файл в разрежённый     
 cp --sparse=always ./simple-file ./sparse-file2     
     
-du -hs sparse-file2 
-0       sparse-file2    
-
+du -hs sparse-file2  
+0       sparse-file2        
+    
 stat sparse-file2   
 File: sparse-file2  
 Size: 5368709120      Blocks: 0          IO Block: 4096   regular file  
