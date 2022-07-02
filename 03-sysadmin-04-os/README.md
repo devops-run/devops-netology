@@ -170,10 +170,14 @@ vagrant@debian11:~$ sudo dmesg | grep virtual
 sysctl fs.nr_open       
 fs.nr_open = 1048576        
 https://www.kernel.org/doc/html/latest/admin-guide/sysctl/fs.html?highlight=fs+nr_open  
-Это обозначает максимальное количество дескрипторов файлов, которые может выделить процесс. Значение по умолчанию - 1024*1024 (1048576), чего должно быть достаточно для большинства машин. Фактический лимит зависит от лимита ресурсов RLIMIT_NOFILE. 
+Это обозначает максимальное количество дескрипторов файлов, которые может выделить процесс. Значение по умолчанию - 1024*1024 (1048576), чего должно быть достаточно для большинства машин. Фактический лимит зависит от лимита ресурсов RLIMIT_NOFILE.     
+    
+-n the maximum number of open file descriptors  
+vagrant@ubuntu-jammy:~$ ulimit -Sn  
+1024    
 
--n        the maximum number of open file descriptors
-
+Soft лимит может не сможет превысить системный fs.nr_open = 1048576     
+    
 <strong>6. Запустите любой долгоживущий процесс в отдельном неймспейсе процессов.</strong>      
     
 <strong>7. Найдите информацию о том, что такое `:(){ :|:& };:`.</strong>             
