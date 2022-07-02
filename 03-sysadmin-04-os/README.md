@@ -176,7 +176,7 @@ https://www.kernel.org/doc/html/latest/admin-guide/sysctl/fs.html?highlight=fs+n
 vagrant@ubuntu-jammy:~$ ulimit -Sn  
 1024    
 
-Soft лимит может не сможет превысить системный fs.nr_open = 1048576     
+Soft лимит не сможет превысить системный fs.nr_open = 1048576     
     
 <strong>6. Запустите любой долгоживущий процесс в отдельном неймспейсе процессов.</strong>      
     
