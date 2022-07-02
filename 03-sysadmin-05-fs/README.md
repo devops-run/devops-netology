@@ -67,15 +67,13 @@ wiki
 Файл UFS представляет собой структуру блоков данных на диске, имеющую уникальный индексный дескриптор (inode) и набор атрибутов (метаинформацию).   
 Жёсткая ссылка связывает индексный дескриптор файла с каталогом и даёт ему имя.     
 
-для проверки:
-создал простой файл 
+для проверки создал простой файл:   
 echo "текст текст текст текст" > source 
 создал hard link на этот  файл  
-ln source hardlink   
-ls -li   
+ln source hardlink        
+ls -li    
 total 8     
 3357 -rw-rw-r-- 2 vagrant vagrant 44 Jul  2 19:34 hardlink      
-3357 -rw-rw-r-- 2 vagrant vagrant 44 Jul  2 19:34 source        
-
+3357 -rw-rw-r-- 2 vagrant vagrant 44 Jul  2 19:34 source       
 
 
