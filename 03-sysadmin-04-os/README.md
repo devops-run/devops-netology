@@ -6,7 +6,8 @@
 
 wget node_exporter-1.3.1.linux-amd64.tar.gz  
 tar xfz node_exporter-1.3.1.linux-amd64.tar.gz && cd node_exporter-1.3.1.linux-amd64    
-cp node_exporter /usr/sbin/     
+cp node_exporter /usr/sbin/    
+touch /etc/default/node_exporter    
 vi /lib/systemd/system/node.service     
 ###########################################     
 [Unit]  
