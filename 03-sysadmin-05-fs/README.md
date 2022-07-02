@@ -25,8 +25,8 @@ Access: (0664/-rw-rw-r--)  Uid: ( 1000/ vagrant)   Gid: ( 1000/ vagrant)
 Access: 2022-07-02 18:48:30.770996488 +0000     
 Modify: 2022-07-02 18:48:30.770996488 +0000     
 Change: 2022-07-02 18:48:30.770996488 +0000     
-Birth: 2022-07-02 18:48:30.770996488 +0000  
-
+Birth: 2022-07-02 18:48:30.770996488 +0000   
+    
 Перенаправил вывод разряхенного файла в обычный:    
 cat sparse-file > simple-file   
 du -hs simple-file  
@@ -41,5 +41,23 @@ Access: 2022-07-02 18:52:55.612666690 +0000
 Modify: 2022-07-02 18:53:02.972602112 +0000     
 Change: 2022-07-02 18:53:02.972602112 +0000     
 Birth: 2022-07-02 18:52:55.612666690 +0000     
+
+Преобразовал обычный файл в разрежённый     
+cp --sparse=always ./simple-file ./sparse-file2     
+    
+du -hs sparse-file2 
+0       sparse-file2    
+
+stat sparse-file2   
+File: sparse-file2  
+Size: 5368709120      Blocks: 0          IO Block: 4096   regular file  
+Device: 801h/2049d      Inode: 2186        Links: 1     
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ vagrant)   Gid: ( 1000/ vagrant)    
+Access: 2022-07-02 18:57:46.898115518 +0000     
+Modify: 2022-07-02 18:57:50.078087700 +0000     
+Change: 2022-07-02 18:57:50.078087700 +0000     
+Birth: 2022-07-02 18:57:46.898115518 +0000      
+
+
 
 
