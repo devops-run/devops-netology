@@ -27,4 +27,19 @@ Modify: 2022-07-02 18:48:30.770996488 +0000
 Change: 2022-07-02 18:48:30.770996488 +0000     
 Birth: 2022-07-02 18:48:30.770996488 +0000  
 
+Перенаправил вывод разряхенного файла в обычный:    
+cat sparse-file > simple-file   
+du -hs simple-file  
+5.1G    simple-file 
+
+stat simple-file    
+File: simple-file   
+Size: 5368709120      Blocks: 10485768   IO Block: 4096   regular file  
+Device: 801h/2049d      Inode: 1860        Links: 1 
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ vagrant)   Gid: ( 1000/ vagrant)    
+Access: 2022-07-02 18:52:55.612666690 +0000     
+Modify: 2022-07-02 18:53:02.972602112 +0000     
+Change: 2022-07-02 18:53:02.972602112 +0000     
+Birth: 2022-07-02 18:52:55.612666690 +0000     
+
 
