@@ -108,14 +108,11 @@ node_network_transmit_errs_total Network device statistic transmit_errs.
 node_network_transmit_fifo_total Network device statistic transmit_fifo.    
 node_network_transmit_packets_total Network device statistic transmit_packets.  
 
-
-
-
-
-
-
 <strong>3. Установите в свою виртуальную машину Netdata.</strong>       
-    
+Приятно удивлён обилием датчиков вэтой простой, незатейливой (на первый взгляд) системе 
+![alt text](https://ibb.co/nsmqhx1)
+
+
 <strong>4. Можно ли по выводу `dmesg` понять, осознает ли ОС, что загружена не на настоящем оборудовании, а на системе виртуализации?</strong>      
     
 <strong>5. Как настроен sysctl `fs.nr_open` на системе по-умолчанию?</strong>   
