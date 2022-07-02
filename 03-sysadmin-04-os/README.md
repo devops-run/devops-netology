@@ -86,6 +86,28 @@ node_memory_MemFree_bytes 2.478301184e+09
 `#` TYPE node_memory_SwapFree_bytes gauge   
 node_memory_SwapFree_bytes 0    
     
+curl http://127.0.0.1:9100/metrics | grep -i space  
+`#` HELP node_filesystem_avail_bytes Filesystem space available to non-root users in bytes.
+node_filesystem_avail_bytes{device="vagrant",fstype="vboxsf",mountpoint="/vagrant"} 2.21055336448e+11       
+
+curl http://127.0.0.1:9100/metrics | grep -i network | less     
+curl http://127.0.0.1:9100/metrics | grep -i network | grep "Network device statistic"   
+node_network_receive_compressed_total Network device statistic receive_compressed.  
+node_network_receive_drop_total Network device statistic receive_drop.  
+node_network_receive_errs_total Network device statistic receive_errs.  
+node_network_receive_fifo_total Network device statistic receive_fifo.  
+node_network_receive_frame_total Network device statistic receive_frame.    
+node_network_receive_multicast_total Network device statistic receive_multicast.    
+node_network_receive_packets_total Network device statistic receive_packets.    
+node_network_transmit_bytes_total Network device statistic transmit_bytes.  
+node_network_transmit_carrier_total Network device statistic transmit_carrier.  
+node_network_transmit_colls_total Network device statistic transmit_colls.  
+node_network_transmit_compressed_total Network device statistic transmit_compressed.    
+node_network_transmit_drop_total Network device statistic transmit_drop.    
+node_network_transmit_errs_total Network device statistic transmit_errs.    
+node_network_transmit_fifo_total Network device statistic transmit_fifo.    
+node_network_transmit_packets_total Network device statistic transmit_packets.  
+
 
 
 
