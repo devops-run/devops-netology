@@ -4,10 +4,10 @@
                     
 <strong>1. создайте самостоятельно простой unit-файл</strong>      
 
-wget node_exporter-1.3.1.linux-amd64.tar.gz 
+wget node_exporter-1.3.1.linux-amd64.tar.gz  
 tar xfz node_exporter-1.3.1.linux-amd64.tar.gz && cd node_exporter-1.3.1.linux-amd64    
-cp node_exporter /usr/sbin/
-vi /lib/systemd/system/node.service 
+cp node_exporter /usr/sbin/     
+vi /lib/systemd/system/node.service     
 
 [Unit]  
 Description=node_exporter daemon    
