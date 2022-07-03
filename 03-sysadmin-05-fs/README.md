@@ -366,7 +366,13 @@ sdc                         8:32   0  2.5G  0 disk
 0       
      
 <strong>16. Используя pvmove, переместите содержимое PV с RAID0 на RAID1.</strong>   
+
+#### root@vagrant:/mnt/100mb# pvmove /dev/md1 /dev/md0      
+/dev/md1: Moved: 16.00%       
+/dev/md1: Moved: 100.00%      
+root@vagrant:/mnt/100mb#      
      
+
 <strong>17. Сделайте --fail на устройство в вашем RAID1 md.</strong>       
      
 <strong>18. Подтвердите выводом dmesg, что RAID1 работает в деградированном состоянии.</strong>     
