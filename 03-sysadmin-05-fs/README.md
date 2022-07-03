@@ -263,9 +263,19 @@ md1 : active raid0 sdc2[1] sdb2[0]
 #### Теперь всё ровно....как учили )).       
 
 
-
-
 <strong>8. Создайте 2 независимых PV на получившихся md-устройствах.</strong>       
+
+#### root@vagrant:~# pvcreate /dev/md0  
+Physical volume "/dev/md0" successfully created.  
+root@vagrant:~# pvcreate /dev/md1       
+Physical volume "/dev/md1" successfully created.       
+
+#### root@vagrant:~# pvs      
+  PV         VG        Fmt  Attr PSize    PFree        
+  /dev/md0             lvm2 ---    <2.00g   <2.00g          
+  /dev/md1             lvm2 ---  1018.00m 1018.00m          
+  /dev/sda3  ubuntu-vg lvm2 a--   <62.50g   31.25g          
+       
           
 <strong>9. Создайте общую volume-group на этих двух PV.</strong>      
      
