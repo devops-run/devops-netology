@@ -79,7 +79,7 @@ total 8.0K
 
 <strong>3. Виртуальная машинa с двумя дополнительными неразмеченными дисками по 2.5 Гб создана</strong>     
 
-root@vagrant:~# lsblk | grep sd    
+#### root@vagrant:~# lsblk | grep sd    
 sda                         8:0    0   64G  0 disk     
 ├─sda1                      8:1    0    1M  0 part     
 ├─sda2                      8:2    0  1.5G  0 part /boot    
@@ -106,7 +106,7 @@ Device     Boot   Start     End Sectors  Size Id Type
           
 Command (m for help): wq      
      
-root@vagrant:~# lsblk | grep sd    
+#### root@vagrant:~# lsblk | grep sd    
 sda                         8:0    0   64G  0 disk     
 ├─sda1                      8:1    0    1M  0 part     
 ├─sda2                      8:2    0  1.5G  0 part /boot    
@@ -117,10 +117,9 @@ sdb                         8:16   0  2.5G  0 disk
 sdc                         8:32   0  2.5G  0 disk     
      
 <strong>5. Используя sfdisk, перенесите данную таблицу разделов на второй диск.</strong>     
+         
      
-sfdisk -d /dev/sdb | sfdisk /dev/sdc    
-     
-root@vagrant:~# sfdisk -d /dev/sdb | sfdisk /dev/sdc   
+#### root@vagrant:~# sfdisk -d /dev/sdb | sfdisk /dev/sdc   
 Checking that no-one is using this disk right now ... OK        
           
 Disk /dev/sdc: 2.51 GiB, 2684354560 bytes, 5242880 sectors       
@@ -152,7 +151,7 @@ Syncing disks.
      
 #### Имеем два одинаковых (по форме и содержанию :-)) диска, готовых для включения в Raid.      
      
-root@vagrant:~# lsblk | grep sd    
+#### root@vagrant:~# lsblk | grep sd    
 sda                         8:0    0   64G  0 disk     
 ├─sda1                      8:1    0    1M  0 part     
 ├─sda2                      8:2    0  1.5G  0 part /boot    
@@ -165,7 +164,25 @@ sdc                         8:32   0  2.5G  0 disk
 └─sdc2                      8:34   0  511M  0 part     
 
 <strong>6. Соберите mdadm RAID1 на паре разделов 2 Гб.</strong>       
-          
+
+#### mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1     
+mdadm: Note: this array has metadata at the start and       
+    may not be suitable as a boot device.  If you plan to   
+    store '/boot' on this device please ensure that    
+    your boot-loader understands md/v1.x metadata, or use   
+    --metadata=0.90 
+mdadm: size set to 2094080K   
+Continue creating array? y    
+mdadm: Defaulting to version 1.2 metadata    
+mdadm: array /dev/md0 started.     
+     
+#### root@vagrant:~# cat /proc/mdstat   
+Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]     
+md0 : active raid1 sdc1[1] sdb1[0]      
+      2094080 blocks super 1.2 [2/2] [UU]         
+
+
+
 <strong>7. Соберите mdadm RAID0 на второй паре маленьких разделов.</strong>     
           
 <strong>8. Создайте 2 независимых PV на получившихся md-устройствах.</strong>       
