@@ -270,20 +270,8 @@ Physical volume "/dev/md0" successfully created.
 root@vagrant:~# pvcreate /dev/md1       
 Physical volume "/dev/md1" successfully created.       
 
-#### root@vagrant:~# pvs      
-  PV         VG        Fmt  Attr PSize    PFree        
-  /dev/md0             lvm2 ---    <2.00g   <2.00g          
-  /dev/md1             lvm2 ---  1018.00m 1018.00m          
-  /dev/sda3  ubuntu-vg lvm2 a--   <62.50g   31.25g          
-    
 #### root@vagrant:~# pvs -a        
   PV         VG        Fmt  Attr PSize    PFree   
-  /dev/loop0                ---        0        0           
-  /dev/loop1                ---        0        0      
-  /dev/loop2                ---        0        0      
-  /dev/loop3                ---        0        0      
-  /dev/loop4                ---        0        0      
-  /dev/loop5                ---        0        0      
   /dev/md0             lvm2 ---    <2.00g   <2.00g          
   /dev/md1             lvm2 ---  1018.00m 1018.00m          
   /dev/sda2                 ---        0        0      
