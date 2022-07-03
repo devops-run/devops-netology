@@ -374,9 +374,14 @@ root@vagrant:/mnt/100mb#
      
 
 <strong>17. Сделайте --fail на устройство в вашем RAID1 md.</strong>       
+#### root@vagrant:/mnt/100mb# mdadm /dev/md0 --fail /dev/sdb1    
+mdadm: set /dev/sdb1 faulty in /dev/md0      
      
 <strong>18. Подтвердите выводом dmesg, что RAID1 работает в деградированном состоянии.</strong>     
-     
+#### root@vagrant:/home/vagrant# dmesg -l crit,err     
+[ 1872.007673] md/raid1:md0: Disk failure on sdb1, disabling device.  
+               md/raid1:md0: Operation continuing on 1 devices.  
+
 <strong>19. Протестируйте целостность файла, несмотря на "сбойный" диск он должен продолжать быть доступен:</strong>    
      
 <strong>20. Погасите тестовый хост, vagrant destroy.</strong>    
