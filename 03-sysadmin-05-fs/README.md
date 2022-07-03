@@ -333,6 +333,9 @@ Writing superblocks and filesystem accounting information: done
 Filesystem                         Size  Used Avail Use% Mounted on   
 /dev/mapper/group--md0md1-lvol0     93M   72K   86M   1% /mnt/100mb   
      
+Добавил в конец файла fstab строку для автоматического монтирования данного раздела после рестарта системы      
+#### echo '/dev/mapper/group--md0md1-lvol0 /mnt/100mb  ext4 defaults 0 1' >> /etc/fstab   
+     
 <strong>13. Поместите туда тестовый файл</strong>      
 #### wget https://mirror.yandex.ru/ubuntu/ls-lR.gz -O /mnt/100mb/test.gz        
 <strong>14. Прикрепите вывод lsblk</strong>       
