@@ -87,46 +87,35 @@ sda                         8:0    0   64G  0 disk
 sdb                         8:16   0  2.5G  0 disk     
 sdc                         8:32   0  2.5G  0 disk     
      
-<strong>Используя fdisk, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.</strong>
-
-root@vagrant:~# fdisk /dev/sdb     
-
-Welcome to fdisk (util-linux 2.34).     
-Changes will remain in memory only, until you decide to write them.   
-Be careful before using the write command.   
+<strong>Используя fdisk, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.</strong>      
      
-Command (m for help): n  
-Partition type 
-   p   primary (0 primary, 0 extended, 4 free)    
-   e   extended (container for logical partitions)     
-Select (default p):      
-     
-Using default response p.     
-Partition number (1-4, default 1):      
-First sector (2048-5242879, default 2048):        
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-5242879, default 5242879): +2G   
-     
-Created a new partition 1 of type 'Linux' and of size 2 GiB.     
+Created a new partition 2 of type 'Linux' and of size 511 MiB.   
      
 Command (m for help): p  
 Disk /dev/sdb: 2.51 GiB, 2684354560 bytes, 5242880 sectors  
 Disk model: VBOX HARDDISK     
-Units: sectors of 1 * 512 = 512 bytes   
-Sector size (logical/physical): 512 bytes / 512 bytes  
-I/O size (minimum/optimal): 512 bytes / 512 bytes 
-Disklabel type: dos 
-Disk identifier: 0xe380d15f   
+Units: sectors of 1 * 512 = 512 bytes        
+Sector size (logical/physical): 512 bytes / 512 bytes       
+I/O size (minimum/optimal): 512 bytes / 512 bytes      
+Disklabel type: dos      
+Disk identifier: 0xe380d15f        
      
-Device     Boot Start     End Sectors Size Id Type     
-/dev/sdb1        2048 4196351 4194304   2G 83 Linux    
-    
+Device     Boot   Start     End Sectors  Size Id Type       
+/dev/sdb1          2048 4196351 4194304    2G 83 Linux      
+/dev/sdb2       4196352 5242879 1046528  511M 83 Linux      
+          
+Command (m for help): wq      
+     
 root@vagrant:~# lsblk | grep sd    
 sda                         8:0    0   64G  0 disk     
 ├─sda1                      8:1    0    1M  0 part     
 ├─sda2                      8:2    0  1.5G  0 part /boot    
 └─sda3                      8:3    0 62.5G  0 part     
 sdb                         8:16   0  2.5G  0 disk     
-└─sdb1                      8:17   0    2G  0 part     
+├─sdb1                      8:17   0    2G  0 part     
+└─sdb2                      8:18   0  511M  0 part     
 sdc                         8:32   0  2.5G  0 disk     
+     
+
      
      
