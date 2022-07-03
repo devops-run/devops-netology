@@ -151,6 +151,18 @@ Calling ioctl() to re-read partition table.
 Syncing disks. 
      
 #### Имеем два одинаковых (по форме и содержанию :-)) диска, готовых для включения в Raid.      
-
+     
+root@vagrant:~# lsblk | grep sd    
+sda                         8:0    0   64G  0 disk     
+├─sda1                      8:1    0    1M  0 part     
+├─sda2                      8:2    0  1.5G  0 part /boot    
+└─sda3                      8:3    0 62.5G  0 part     
+sdb                         8:16   0  2.5G  0 disk     
+├─sdb1                      8:17   0    2G  0 part     
+└─sdb2                      8:18   0  511M  0 part     
+sdc                         8:32   0  2.5G  0 disk     
+├─sdc1                      8:33   0    2G  0 part     
+└─sdc2                      8:34   0  511M  0 part     
+     
      
      
