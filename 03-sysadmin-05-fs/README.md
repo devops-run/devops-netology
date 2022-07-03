@@ -78,13 +78,14 @@ total 8.0K
 
 
 <strong>Виртуальная машинa с двумя дополнительными неразмеченными дисками по 2.5 Гб создана</strong>     
-root@vagrant:~# fdisk -l | grep /dev/sd      
-Disk /dev/sda: 64 GiB, 68719476736 bytes, 134217728 sectors      
-/dev/sda1     2048      4095      2048    1M BIOS boot      
-/dev/sda2     4096   3149823   3145728  1.5G Linux filesystem    
-/dev/sda3  3149824 134215679 131065856 62.5G Linux filesystem    
-Disk /dev/sdb: 2.51 GiB, 2684354560 bytes, 5242880 sectors  
-Disk /dev/sdc: 2.51 GiB, 2684354560 bytes, 5242880 sectors  
+
+root@vagrant:~# lsblk | grep sd    
+sda                         8:0    0   64G  0 disk     
+├─sda1                      8:1    0    1M  0 part     
+├─sda2                      8:2    0  1.5G  0 part /boot    
+└─sda3                      8:3    0 62.5G  0 part     
+sdb                         8:16   0  2.5G  0 disk     
+sdc                         8:32   0  2.5G  0 disk     
      
 <strong>Используя fdisk, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.</strong>
 
