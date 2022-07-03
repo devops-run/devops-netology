@@ -285,25 +285,25 @@ Volume group "group-md0md1" successfully created
 
 #### root@vagrant:~# vgdisplay     
  --- Volume group ---    
-  VG Name               group-md0md1    
-  System ID                        
-  Format                lvm2       
-  Metadata Areas        2          
-  Metadata Sequence No  1          
-  VG Access             read/write      
-  VG Status             resizable       
-  MAX LV                0          
-  Cur LV                0          
-  Open LV               0          
-  Max PV                0          
-  Cur PV                2          
-  Act PV                2          
-  VG Size               <2.99 GiB       
-  PE Size               4.00 MiB        
-  Total PE              765        
-  Alloc PE / Size       0 / 0      
-  Free  PE / Size       765 / <2.99 GiB      
-  VG UUID               Zc6wFy-aj40-zp45-aIl3-V2Xq-LN1u-9iVv7w        
+VG Name               group-md0md1    
+System ID                        
+Format                lvm2       
+Metadata Areas        2          
+Metadata Sequence No  1          
+VG Access             read/write      
+VG Status             resizable       
+MAX LV                0          
+Cur LV                0          
+Open LV               0          
+Max PV                0          
+Cur PV                2          
+Act PV                2          
+VG Size               <2.99 GiB       
+PE Size               4.00 MiB        
+Total PE              765        
+Alloc PE / Size       0 / 0      
+Free  PE / Size       765 / <2.99 GiB      
+VG UUID               Zc6wFy-aj40-zp45-aIl3-V2Xq-LN1u-9iVv7w        
 
 
 
