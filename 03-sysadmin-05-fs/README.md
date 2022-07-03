@@ -305,10 +305,9 @@ Alloc PE / Size       0 / 0
 Free  PE / Size       765 / <2.99 GiB      
 VG UUID               Zc6wFy-aj40-zp45-aIl3-V2Xq-LN1u-9iVv7w        
 
-
-
-
 <strong>10. Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.</strong>       
+#### root@vagrant:~# lvcreate -L 100M group-md0md1 /dev/md1      
+Logical volume "lvol0" created.    
      
 <strong>11. Создайте mkfs.ext4 ФС на получившемся LV.</strong>   
      
