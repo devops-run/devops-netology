@@ -212,7 +212,23 @@ md0 : active raid1 sdc1[1] sdb1[0]
 
 unused devices: <none>        
 
-     
+#### root@vagrant:~# lsblk
+├─sda1                      8:1    0    1M  0 part
+├─sda2                      8:2    0  1.5G  0 part  /boot
+└─sda3                      8:3    0 62.5G  0 part
+  └─ubuntu--vg-ubuntu--lv 253:0    0 31.3G  0 lvm   /
+sdb                         8:16   0  2.5G  0 disk
+├─sdb1                      8:17   0    2G  0 part
+│ └─md0                     9:0    0    2G  0 raid1
+└─sdb2                      8:18   0  511M  0 part
+  └─md1                     9:1    0 1018M  0 raid0
+sdc                         8:32   0  2.5G  0 disk
+├─sdc1                      8:33   0    2G  0 part
+│ └─md0                     9:0    0    2G  0 raid1
+└─sdc2                      8:34   0  511M  0 part
+  └─md1                     9:1    0 1018M  0 raid0
+
+
 <strong>8. Создайте 2 независимых PV на получившихся md-устройствах.</strong>       
           
 <strong>9. Создайте общую volume-group на этих двух PV.</strong>      
