@@ -260,7 +260,7 @@ md0 : active raid1 sdb1[0] sdc1[1]
 md1 : active raid0 sdc2[1] sdb2[0] 
       1042432 blocks super 1.2 512k chunks   
           
-
+Теперь всё ровно....как учили )).       
 
 
 
