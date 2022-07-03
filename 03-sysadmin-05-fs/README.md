@@ -150,7 +150,7 @@ The partition table has been altered.
 Calling ioctl() to re-read partition table.  
 Syncing disks. 
      
-
+### Имеем два одинаковых (по форме и содержанию :-)) диска, готовых для включения в Raid.      
 
      
      
