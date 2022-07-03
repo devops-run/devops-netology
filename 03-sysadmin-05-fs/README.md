@@ -230,8 +230,8 @@ sdc                         8:32   0  2.5G  0 disk
 
 #### Презентация с урока      
 Воспользуемся инструкцией для сохранения конфигурации:      
-root@vagrant:~# echo 'DEVICE partitions containers' > /etc/mdadm/mdadm.conf     
-root@vagrant:~# mdadm --detail --scan >> /etc/mdadm/mdadm.conf       
+ echo 'DEVICE partitions containers' > /etc/mdadm/mdadm.conf     
+ mdadm --detail --scan >> /etc/mdadm/mdadm.conf       
      
 #### cat /etc/mdadm/mdadm.conf     
 root@vagrant:~# cat /etc/mdadm/mdadm.conf    
