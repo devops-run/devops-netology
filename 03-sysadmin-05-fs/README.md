@@ -228,6 +228,19 @@ sdc                         8:32   0  2.5G  0 disk
 └─sdc2                      8:34   0  511M  0 part     
   └─md1                     9:1    0 1018M  0 raid0    
 
+#### Презентация с урока      
+Воспользуемся инструкцией для сохранения конфигурации:      
+root@vagrant:~# echo 'DEVICE partitions containers' > /etc/mdadm/mdadm.conf     
+root@vagrant:~# mdadm --detail --scan >> /etc/mdadm/mdadm.conf   
+Сделал по инструкции, проверил после перезапуска сервера    
+
+#### cat /etc/mdadm/mdadm.conf     
+root@vagrant:~# cat /etc/mdadm/mdadm.conf    
+DEVICE partitions containers       
+ARRAY /dev/md0 metadata=1.2 name=vagrant:0 UUID=f7624870:7fe4b3be:d685f14a:a0125a89       
+ARRAY /dev/md1 metadata=1.2 name=vagrant:1 UUID=f4030c2c:fe09a46e:06da0425:b2a429a8       
+
+
 
 
 <strong>8. Создайте 2 независимых PV на получившихся md-устройствах.</strong>       
