@@ -239,10 +239,10 @@ DEVICE partitions containers
 ARRAY /dev/md0 metadata=1.2 name=vagrant:0 UUID=f7624870:7fe4b3be:d685f14a:a0125a89       
 ARRAY /dev/md1 metadata=1.2 name=vagrant:1 UUID=f4030c2c:fe09a46e:06da0425:b2a429a8       
 
-#### Сделал по инструкции, проверил после перезапуска сервера    
+#### Сделал по инструкции, проверил после перезапуска сервера.    
 Raid тома на месте, единственное, что Ubuntu предпочла их переименовать.   
      
-root@vagrant:~# cat /proc/mdstat   
+#### root@vagrant:~# cat /proc/mdstat   
 Personalities : [raid1] [raid0] [linear] [multipath] [raid6] [raid5] [raid4] [raid10]     
 md126 : active raid0 sdb2[0] sdc2[1]    
       1042432 blocks super 1.2 512k chunks   
