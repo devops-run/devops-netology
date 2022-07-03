@@ -325,10 +325,14 @@ Writing inode tables: done
 Creating journal (1024 blocks): done         
 Writing superblocks and filesystem accounting information: done       
 
-
-
-
 <strong>12. Смонтируйте этот раздел в любую директорию, например, /tmp/new.</strong> 
+#### mkdir /mnt/100mb    
+#### mount /dev/group-md0md1/lvol0 /mnt/100mb/    
+
+#### root@vagrant:~# df -h    
+Filesystem                         Size  Used Avail Use% Mounted on   
+/dev/mapper/group--md0md1-lvol0     93M   72K   86M   1% /mnt/100mb   
+
      
 <strong>13. Поместите туда тестовый файл</strong>      
      
