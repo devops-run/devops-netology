@@ -251,7 +251,7 @@ md127 : active (auto-read-only) raid1 sdb1[0] sdc1[1]
       2094080 blocks super 1.2 [2/2] [UU]    
 
 #### Победил, добавив параметр HOMEHOST vagrant в /etc/mdadm/mdadm.conf    
-#### и вы полнив клманду update-initramfs -u      
+#### и выполнив клманду update-initramfs -u      
 root@vagrant:~# cat /proc/mdstat   
 Personalities : [raid0] [raid1] [linear] [multipath] [raid6] [raid5] [raid4] [raid10]     
 md0 : active raid1 sdb1[0] sdc1[1] 
