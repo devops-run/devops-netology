@@ -197,7 +197,22 @@ sdc                         8:32   0  2.5G  0 disk
 └─sdc2                      8:34   0  511M  0 part     
 
 <strong>7. Соберите mdadm RAID0 на второй паре маленьких разделов.</strong>     
+#### root@vagrant:~# mdadm --create --verbose /dev/md1 --level=0 --raid-devices=2 /dev/sdb2 /dev/sdc2
+mdadm: chunk size defaults to 512K      
+mdadm: Defaulting to version 1.2 metadata         
+mdadm: array /dev/md1 started.          
+
+#### root@vagrant:~# cat /proc/mdstat
+Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]     
+md1 : active raid0 sdc2[1] sdb2[0]      
+      1042432 blocks super 1.2 512k chunks        
           
+md0 : active raid1 sdc1[1] sdb1[0]      
+      2094080 blocks super 1.2 [2/2] [UU]         
+
+unused devices: <none>        
+
+     
 <strong>8. Создайте 2 независимых PV на получившихся md-устройствах.</strong>       
           
 <strong>9. Создайте общую volume-group на этих двух PV.</strong>      
