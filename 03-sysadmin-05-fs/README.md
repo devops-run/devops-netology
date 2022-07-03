@@ -118,6 +118,39 @@ sdc                         8:32   0  2.5G  0 disk
      
 <strong>Используя sfdisk, перенесите данную таблицу разделов на второй диск.</strong>     
      
+sfdisk -d /dev/sdb | sfdisk /dev/sdc    
      
+root@vagrant:~# sfdisk -d /dev/sdb | sfdisk /dev/sdc   
+Checking that no-one is using this disk right now ... OK        
+          
+Disk /dev/sdc: 2.51 GiB, 2684354560 bytes, 5242880 sectors       
+Disk model: VBOX HARDDISK     
+Units: sectors of 1 * 512 = 512 bytes   
+Sector size (logical/physical): 512 bytes / 512 bytes       
+I/O size (minimum/optimal): 512 bytes / 512 bytes      
+     
+>>> Script header accepted.   
+>>> Script header accepted.   
+>>> Script header accepted.   
+>>> Script header accepted.   
+>>> Created a new DOS disklabel with disk identifier 0xe380d15f.      
+/dev/sdc1: Created a new partition 1 of type 'Linux' and of size 2 GiB.     
+/dev/sdc2: Created a new partition 2 of type 'Linux' and of size 511 MiB.       
+/dev/sdc3: Done.         
+          
+New situation:      
+Disklabel type: dos 
+Disk identifier: 0xe380d15f   
+     
+Device     Boot   Start     End Sectors  Size Id Type       
+/dev/sdc1          2048 4196351 4194304    2G 83 Linux      
+/dev/sdc2       4196352 5242879 1046528  511M 83 Linux      
+          
+The partition table has been altered.        
+Calling ioctl() to re-read partition table.  
+Syncing disks. 
+     
+
+
      
      
