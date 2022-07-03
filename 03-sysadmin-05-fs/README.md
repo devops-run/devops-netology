@@ -231,15 +231,24 @@ sdc                         8:32   0  2.5G  0 disk
 #### Презентация с урока      
 Воспользуемся инструкцией для сохранения конфигурации:      
 root@vagrant:~# echo 'DEVICE partitions containers' > /etc/mdadm/mdadm.conf     
-root@vagrant:~# mdadm --detail --scan >> /etc/mdadm/mdadm.conf   
-Сделал по инструкции, проверил после перезапуска сервера    
-
+root@vagrant:~# mdadm --detail --scan >> /etc/mdadm/mdadm.conf       
+     
 #### cat /etc/mdadm/mdadm.conf     
 root@vagrant:~# cat /etc/mdadm/mdadm.conf    
 DEVICE partitions containers       
 ARRAY /dev/md0 metadata=1.2 name=vagrant:0 UUID=f7624870:7fe4b3be:d685f14a:a0125a89       
 ARRAY /dev/md1 metadata=1.2 name=vagrant:1 UUID=f4030c2c:fe09a46e:06da0425:b2a429a8       
 
+#### Сделал по инструкции, проверил после перезапуска сервера    
+Raid тома на месте, единственное, что Ubuntu предпочла их переименовать.   
+     
+root@vagrant:~# cat /proc/mdstat   
+Personalities : [raid1] [raid0] [linear] [multipath] [raid6] [raid5] [raid4] [raid10]     
+md126 : active raid0 sdb2[0] sdc2[1]    
+      1042432 blocks super 1.2 512k chunks   
+     
+md127 : active (auto-read-only) raid1 sdb1[0] sdc1[1]  
+      2094080 blocks super 1.2 [2/2] [UU]    
 
 
 
