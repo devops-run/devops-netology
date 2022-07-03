@@ -181,7 +181,20 @@ Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [ra
 md0 : active raid1 sdc1[1] sdb1[0]      
       2094080 blocks super 1.2 [2/2] [UU]         
 
-
+#### root@vagrant:~# lsblk         
+sda                         8:0    0   64G  0 disk     
+├─sda1                      8:1    0    1M  0 part     
+├─sda2                      8:2    0  1.5G  0 part  /boot   
+└─sda3                      8:3    0 62.5G  0 part     
+  └─ubuntu--vg-ubuntu--lv 253:0    0 31.3G  0 lvm   /  
+sdb                         8:16   0  2.5G  0 disk     
+├─sdb1                      8:17   0    2G  0 part     
+│ └─md0                     9:0    0    2G  0 raid1    
+└─sdb2                      8:18   0  511M  0 part     
+sdc                         8:32   0  2.5G  0 disk     
+├─sdc1                      8:33   0    2G  0 part     
+│ └─md0                     9:0    0    2G  0 raid1    
+└─sdc2                      8:34   0  511M  0 part     
 
 <strong>7. Соберите mdadm RAID0 на второй паре маленьких разделов.</strong>     
           
