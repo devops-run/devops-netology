@@ -383,7 +383,24 @@ mdadm: set /dev/sdb1 faulty in /dev/md0
                md/raid1:md0: Operation continuing on 1 devices.  
 
 <strong>19. Протестируйте целостность файла, несмотря на "сбойный" диск он должен продолжать быть доступен:</strong>    
-     
+#### gzip -t /mnt/100mb/test.gz && echo $?
+0
+root@vagrant:/home/vagrant# lsblk
+NAME                      MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+  └─ubuntu--vg-ubuntu--lv 253:0    0 31.3G  0 lvm   /
+sdb                         8:16   0  2.5G  0 disk
+├─sdb1                      8:17   0    2G  0 part
+│ └─md0                     9:0    0    2G  0 raid1
+│   └─group--md0md1-lvol0 253:1    0  100M  0 lvm   /mnt/100mb
+└─sdb2                      8:18   0  511M  0 part
+  └─md1                     9:1    0 1018M  0 raid0
+sdc                         8:32   0  2.5G  0 disk
+├─sdc1                      8:33   0    2G  0 part
+│ └─md0                     9:0    0    2G  0 raid1
+│   └─group--md0md1-lvol0 253:1    0  100M  0 lvm   /mnt/100mb
+└─sdc2                      8:34   0  511M  0 part
+  └─md1                     9:1    0 1018M  0 raid0
+
 <strong>20. Погасите тестовый хост, vagrant destroy.</strong>    
 #### Destroy после зачёта.
      
