@@ -58,7 +58,7 @@ Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=
 Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:199 level=info msg="Listening on" address=:9200  
 Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=tls_config.go:195 level=info msg="TLS is disabled." http2=false  
 
-### root@vagrant:~# ps ax | grep node
+#### root@vagrant:~# ps ax | grep node
    1847 ?        Ssl    0:00 /usr/sbin/node_exporter --web.listen-address=:9200 --collector.ethtool  
 ### КОНЕЦ ДОРАБОТКИ
 
