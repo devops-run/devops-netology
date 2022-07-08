@@ -24,7 +24,7 @@ After=remote-fs.target nss-user-lookup.target
     
 [Service]   
 EnvironmentFile=/etc/node/node.conf
-ExecStart=/usr/sbin/node_exporter $ARG1 $ARG2   #Запуск с аргументами из файла
+ExecStart=/usr/sbin/node_exporter $ARG1 $ARG2   #Запуск с аргументами из файла  
 Type=simple      
 KillMode=process        
 Restart=on-failure      
