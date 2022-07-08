@@ -19,8 +19,8 @@ vi /lib/systemd/system/node.service
 ###########################################     
 [Unit]  
 Description=node_exporter daemon    
-Wants=network-online.target
-After=remote-fs.target nss-user-lookup.target
+Wants=network-online.target 
+After=remote-fs.target nss-user-lookup.target 
     
 [Service]   
 EnvironmentFile=/etc/node/node.conf
