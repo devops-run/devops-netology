@@ -60,7 +60,11 @@ Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=
 
 #### root@vagrant:~# ps ax | grep node
    1847 ?        Ssl    0:00 /usr/sbin/node_exporter --web.listen-address=:9200 --collector.ethtool  
-### КОНЕЦ ДОРАБОТКИ
+   
+#### root@vagrant:~# lsof -i | grep node  
+   node_expo 1847            root    7u  IPv6  30436      0t0  TCP *:9200 (LISTEN)  
+    
+### КОНЕЦ ДОРАБОТКИ  
 
 
 <strong>2. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.</strong>       
