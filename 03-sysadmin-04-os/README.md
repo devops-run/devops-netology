@@ -8,16 +8,23 @@ Doc: https://www.freedesktop.org/software/systemd/man/systemd.service.html
 wget node_exporter-1.3.1.linux-amd64.tar.gz  
 tar xfz node_exporter-1.3.1.linux-amd64.tar.gz && cd node_exporter-1.3.1.linux-amd64    
 cp node_exporter /usr/sbin/    
-touch /etc/default/node_exporter    
-vi /lib/systemd/system/node.service     
+### ДОРАБОТКА
+получил параметры запуска бин.файла ./node_exporter -h и добавил их в файл  
+##################################  
+vi /etc/node/node.conf  
+ARG1=--web.listen-address=":9200"  
+ARG2=--collector.ethtool  
+##################################  
+vi /lib/systemd/system/node.service      
 ###########################################     
 [Unit]  
 Description=node_exporter daemon    
-After=remote-fs.target nss-user-lookup.target   
+Wants=network-online.target
+After=remote-fs.target nss-user-lookup.target
     
 [Service]   
-EnvironmentFile=-/etc/default/node_exporter       
-ExecStart=/usr/sbin/node_exporter   
+EnvironmentFile=/etc/node/node.conf
+ExecStart=/usr/sbin/node_exporter $ARG1 $ARG2   #Запуск с аргументами из файла
 Type=simple      
 KillMode=process        
 Restart=on-failure      
@@ -31,15 +38,28 @@ systemctl enable node
 systemctl start node     
 systemctl status node   
     
-● node.service - node_exporter daemon       
-     Loaded: loaded (/lib/systemd/system/node.service; enabled; vendor preset: enabled)        
-     Active: active (running) since Sat 2022-07-02 07:18:02 UTC; 6s ago      
-   Main PID: 1755 (node_exporter)          
-      Tasks: 6 (limit: 3532)        
-     Memory: 2.4M       
-        CPU: 7ms        
-     CGroup: /system.slice/node.service     
-             └─1755 /usr/sbin/node_exporter      
+● node.service - node_exporter daemon  
+     Loaded: loaded (/etc/systemd/system/node.service; enabled; vendor preset: enabled)  
+     Active: active (running) since Fri 2022-07-08 14:14:03 UTC; 6s ago  
+   Main PID: 1847 (node_exporter)  
+      Tasks: 4 (limit: 3521)  
+     Memory: 2.3M  
+     CGroup: /system.slice/node.service  
+             └─1847 /usr/sbin/node_exporter --web.listen-address=:9200 --collector.ethtool  
+
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=thermal_zone  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=time  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=timex  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=udp_queues  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=uname  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=vmstat  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=xfs  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:115 level=info collector=zfs  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=node_exporter.go:199 level=info msg="Listening on" address=:9200  
+Jul 08 14:14:03 vagrant node_exporter[1847]: ts=2022-07-08T14:14:03.383Z caller=tls_config.go:195 level=info msg="TLS is disabled." http2=false  
+
+### root@vagrant:~# ps ax | grep node
+   1847 ?        Ssl    0:00 /usr/sbin/node_exporter --web.listen-address=:9200 --collector.ethtool  
 
 
 
