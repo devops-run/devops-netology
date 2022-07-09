@@ -157,10 +157,11 @@ dns.google.             600     IN      A       8.8.4.4
 
 ns1.zdns.google.        343138  IN      A       216.239.32.114    
 ns2.zdns.google.        335828  IN      A       216.239.34.114    
-ns4.zdns.google.        345560  IN      A       216.239.38.114    
-ns4.zdns.google.        343883  IN      A       216.239.38.114    
-dns.google.             108     IN      A       8.8.4.4
-dns.google.             108     IN      A       8.8.8.8
+ns4.zdns.google.        345560  IN      A       216.239.38.114      
+ns4.zdns.google.        343883  IN      A       216.239.38.114     
+dns.google.             108     IN      A       8.8.4.4   
+dns.google.             108     IN      A       8.8.8.8   
+  
 
 
 Получил PTR записи для этих IP 
