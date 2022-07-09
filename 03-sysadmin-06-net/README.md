@@ -78,19 +78,19 @@ created:        2018-10-31T11:47:00Z
 last-modified:  2018-10-31T11:47:00Z    
 source:         RIPE    
 remarks:        ****************************    
-remarks:        * THIS OBJECT IS MODIFIED   
-remarks:        * Please note that all data that is generally regarded as personal    
-remarks:        * data has been removed from this object.   
-remarks:        * To view the original object, please query the RIPE Database at:   
-remarks:        * http://www.ripe.net/whois   
-remarks:        ****************************    
+
+#### whois -h whois.cymru.com -- '-v AS12389'   
+AS      | CC | Registry | Allocated  | AS Name    
+12389   | RU | ripencc  | 2005-07-01 | ROSTELECOM-AS, RU    
   
-Имя AS (оно же номер): AS12389    
-Описание: Rostelecom networks   
-провайдер: Rostelecom   
-сеть провайдера: 178.47.128.0/20    
+Имя AS: ROSTELECOM-AS    
+Номер AS: AS12389   
+Описание: Rostelecom networks     
+Провайдер: Rostelecom     
+сеть провайдера: 178.47.128.0/20      
      
-<strong>5. </strong>     
+<strong>5. Через какие сети проходит пакет, отправленный с вашего компьютера на адрес 8.8.8.8?</strong>  
+   
          
 <strong>6. </strong>       
 
