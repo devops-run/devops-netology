@@ -28,6 +28,10 @@ X-Timer: S1657341828.193667,VS0,VE93
 Vary: Fastly-SSL    
 X-DNS-Prefetch-Control: off   
 Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com; expires=Fri, 01-Jan-2055 00:00:00 GMT; path=/; HttpOnly   
+
+#### Что он означает полученный HTTP код?   
+1. Подключился по сетевому протоколу для реализации текстового терминального интерфейса по сети при помощи транспорта TCP к хосту stackoverflow.com  на порт 80 (http)
+
     
 Connection closed by foreign host.
 
