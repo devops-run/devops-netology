@@ -149,7 +149,18 @@ A записи
 dns.google.             600     IN      A       8.8.8.8   
 dns.google.             600     IN      A       8.8.4.4   
 
-**8. Проверьте PTR записи для IP адресов из задания 7. Какое доменное имя привязано к IP? воспользуйтесь утилитой dig** 
+**8. Проверьте PTR записи для IP адресов из задания 7. Какое доменное имя привязано к IP? воспользуйтесь утилитой dig**   
+
+#### dig ns1.zdns.google ns2.zdns.google ns4.zdns.google ns4.zdns.google | grep IN    
+;ns1.zdns.google.               IN      A   
+ns1.zdns.google.        343138  IN      A       216.239.32.114    
+;ns2.zdns.google.               IN      A   
+ns2.zdns.google.        335828  IN      A       216.239.34.114    
+;ns4.zdns.google.               IN      A   
+ns4.zdns.google.        345560  IN      A       216.239.38.114    
+;ns4.zdns.google.               IN      A   
+ns4.zdns.google.        343883  IN      A       216.239.38.114    
+
 
 
 
