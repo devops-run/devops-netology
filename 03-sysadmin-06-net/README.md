@@ -171,4 +171,5 @@ dns.google.             108     IN      A       8.8.8.8
 8.8.8.8.in-addr.arpa.   76903   IN      PTR     dns.google.   
 4.4.8.8.in-addr.arpa.   79567   IN      PTR     dns.google.   
 
-
+#### В итоге:   
+Домен **dns.google**, котоый доступен по IP 8.8.8.8 и 8.8.4.4 облуживают 4 NS сервера ns1-ns4.zdns.google. 
