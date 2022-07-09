@@ -32,8 +32,7 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
 #### Что он означает полученный HTTP код?   
 1. Подключился по сетевому протоколу для реализации текстового терминального интерфейса по сети (telnet) при помощи транспорта TCP к хосту stackoverflow.com на порт 80 (http).   
 2. Сформировал и выполнил запрос "GET /questions HTTP/1.0" к "HOST: stackoverflow.com"  
-3. В ответе хост указал, что ко всем запросам на этот порт применяется правило редиректа 301. И все запросы на постоянной основе перемещаются в новое месторасположение location: https://stackoverflow.com/questions. Также host анонсировал, что использует HTTP-заголовок "Cache-Control" с параметрами: no-cache, no-store, must-revalidate           
-   
+3. В ответе хост указал, что ко всем запросам на этот порт применяется правило редиректа 301. И все запросы на постоянной основе перемещаются в новое месторасположение location: https://stackoverflow.com/questions. Также host анонсировал в HTTP-заголовоках "Cache-Control", "feature-policy", "content-security-policy", "Accept-Ranges" параметры взаимодейтсвия (при каких условиях) он будет взаимодействовать с клиентами (в моём слкчае telnet) или браузерами.                       
     
 
 <strong>2. </strong>     
