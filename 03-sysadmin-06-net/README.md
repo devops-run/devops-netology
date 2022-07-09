@@ -35,7 +35,8 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
 3. В ответе хост указал, что ко всем запросам на этот порт применяется правило редиректа 301. И все запросы на постоянной основе перемещаются в новое месторасположение location: https://stackoverflow.com/questions. Также host анонсировал в HTTP-заголовоках "Cache-Control", "feature-policy", "content-security-policy", "Accept-Ranges" параметры взаимодейтсвия (при каких условиях) он будет взаимодействовать с клиентами (в моём случае telnet) или браузерами.                       
 4. Также в ответе указана дата, время запроса и другие параметры взаимодействия с клиентами.               
 
-<strong>2. </strong>     
+<strong>2. Работа в консоли разработчика F12</strong>        
+    
 ![Netdata](https://i.ibb.co/kV7kBZc/Screenshot-2.png)
 
 <strong>3. </strong>     
