@@ -58,30 +58,37 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
 
 В моём случае больше всего времени потрачено на ожидание сетевого подключения. 
     
-<strong>3. </strong>     
+<strong>3. Какой IP адрес у вас в интернете?</strong>     
 Команда в консоли выдаёт мой внешний ip адрес.  
-#### wget -qO- eth0.me    
-У меня статический IP, по понятным причинам публиковать его тут не буду.   
+#### wget -qO- eth0.me 
+178.47.143.143 
+(это не мой реальный IP, взят наугад)    
+У меня статический IP, по понятным причинам публиковать его тут не стану.      
 
-<strong>4. </strong>    
-% Information related to '178.47.140.0 - 178.47.143.255'    
-% Abuse contact for '178.47.140.0 - 178.47.143.255' is 'abuse@rt.ru'    
+<strong>4. Какому провайдеру принадлежит ваш IP адрес? Какой автономной системе AS?</strong>    
+Для получения информации об автономной системе воспользовался базой данных whois.radb.net     
     
-inetnum:        178.47.140.0 - 178.47.143.255   
-netname:        USI_ADSL_USERS    
-descr:          Dynamic distribution IP's for broadband services    
-descr:          OJSC Rostelecom, regional branch "Urals"    
-country:        RU    
-admin-c:        UPAS1-RIPE    
-tech-c:         UPAS1-RIPE    
-status:         ASSIGNED PA   
-mnt-by:         MFIST-MNT   
-created:        2012-03-21T03:32:43Z    
-last-modified:  2012-03-21T03:32:43Z    
+#### whois -h whois.radb.net 178.47.143.143     
+route:          178.47.128.0/20   
+descr:          Rostelecom networks   
+origin:         AS12389   
+notify:         ripe@rt.ru    
+mnt-by:         ROSTELECOM-MNT    
+created:        2018-10-31T11:47:00Z    
+last-modified:  2018-10-31T11:47:00Z    
 source:         RIPE    
+remarks:        ****************************    
+remarks:        * THIS OBJECT IS MODIFIED   
+remarks:        * Please note that all data that is generally regarded as personal    
+remarks:        * data has been removed from this object.   
+remarks:        * To view the original object, please query the RIPE Database at:   
+remarks:        * http://www.ripe.net/whois   
+remarks:        ****************************    
   
-
-
+Имя AS (оно же номер): AS12389    
+Описание: Rostelecom networks   
+провайдер: Rostelecom   
+сеть провайдера: 178.47.128.0/20    
      
 <strong>5. </strong>     
          
