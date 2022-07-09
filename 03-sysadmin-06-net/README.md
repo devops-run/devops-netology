@@ -151,13 +151,21 @@ dns.google.             600     IN      A       8.8.4.4
 
 **8. Проверьте PTR записи для IP адресов из задания 7. Какое доменное имя привязано к IP? воспользуйтесь утилитой dig**   
 
-#### dig ns1.zdns.google ns2.zdns.google ns4.zdns.google ns4.zdns.google | grep IN    
+
+Получил IP  
+#### dig ns1.zdns.google ns2.zdns.google ns4.zdns.google ns4.zdns.google | grep IN     
+
 ns1.zdns.google.        343138  IN      A       216.239.32.114    
 ns2.zdns.google.        335828  IN      A       216.239.34.114    
 ns4.zdns.google.        345560  IN      A       216.239.38.114    
 ns4.zdns.google.        343883  IN      A       216.239.38.114    
 
-
+Получил PTR записи для этих IP
+#### dig -x 216.239.32.114 | grep PTR; dig -x 216.239.34.114 | grep PTR; dig -x 216.239.38.114 | grep PTR  
+114.32.239.216.in-addr.arpa. 86317 IN   PTR     ns1.zdns.google.  
+114.34.239.216.in-addr.arpa. 86400 IN   PTR     ns2.zdns.google.  
+114.38.239.216.in-addr.arpa. 86400 IN   PTR     ns4.zdns.google.  
+  
 
 
 
