@@ -77,7 +77,8 @@ mnt-by:         ROSTELECOM-MNT
 created:        2018-10-31T11:47:00Z    
 last-modified:  2018-10-31T11:47:00Z    
 source:         RIPE    
-  
+remarks:        ****************************    
+
 #### whois -h whois.cymru.com -- '-v AS12389'   
 AS      | CC | Registry | Allocated  | AS Name    
 12389   | RU | ripencc  | 2005-07-01 | ROSTELECOM-AS, RU    
