@@ -40,7 +40,7 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
 ![Netdata](https://i.ibb.co/n0CMrxW/Screenshot-3.png)
 
 Полученный в ответе код: HTTP/2 200 OK    
-Время загрузки страницы:  Передано за: 2,63 с DOMContentLoaded: 805 мс load: 2,03 с   
+Время загрузки страницы:  Передано за: 5,59 с DOMContentLoaded: 571 мс load: 3,47 с   
 
 ![Netdata](https://i.ibb.co/zXzN7w4/Screenshot-4.png)
 #### Время запроса:   
