@@ -133,5 +133,11 @@ HOST: Fedora-36-server            Loss%   Snt   Last   Avg  Best  Wrst StDev
     
 Максимальная задерзка на 9-м хопе AS15169  142.250.235.68   
 
+**7. Через какие сети проходит пакет, отправленный с вашего компьютера на адрес 8.8.8.8?**    
+
+dig dns.google +noall +answer
+dns.google.             164     IN      A       8.8.4.4
+dns.google.             164     IN      A       8.8.8.8
+
      
 
