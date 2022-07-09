@@ -30,10 +30,9 @@ X-DNS-Prefetch-Control: off
 Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com; expires=Fri, 01-Jan-2055 00:00:00 GMT; path=/; HttpOnly   
 
 #### Что он означает полученный HTTP код?   
-1. Подключился по сетевому протоколу для реализации текстового терминального интерфейса по сети при помощи транспорта TCP к хосту stackoverflow.com  на порт 80 (http)
-
+1. Подключился по сетевому протоколу для реализации текстового терминального интерфейса по сети (telnet) при помощи транспорта TCP к хосту stackoverflow.com на порт 80 (http).   
+2. Сформировал запрос "GET /questions HTTP/1.0" к "HOST: stackoverflow.com"   
     
-Connection closed by foreign host.
 
 <strong>2. </strong>     
 
