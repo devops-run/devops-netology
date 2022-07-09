@@ -133,11 +133,24 @@ HOST: Fedora-36-server            Loss%   Snt   Last   Avg  Best  Wrst StDev
     
 Максимальная задерзка на 9-м хопе AS15169  142.250.235.68   
 
-**7. Через какие сети проходит пакет, отправленный с вашего компьютера на адрес 8.8.8.8?**    
+**7. Какие DNS сервера отвечают за доменное имя dns.google? Какие A записи? воспользуйтесь утилитой dig** 
+   
+DNS сервера   
+#### dig NS dns.google  
+;; ANSWER SECTION:    
+dns.google.             21579   IN      NS      ns1.zdns.google.    
+dns.google.             21579   IN      NS      ns2.zdns.google.    
+dns.google.             21579   IN      NS      ns3.zdns.google.    
+dns.google.             21579   IN      NS      ns4.zdns.google.    
 
-dig dns.google +noall +answer
-dns.google.             164     IN      A       8.8.4.4
-dns.google.             164     IN      A       8.8.8.8
+A записи      
+####dig A dns.google    
+;; ANSWER SECTION:  
+dns.google.             600     IN      A       8.8.8.8   
+dns.google.             600     IN      A       8.8.4.4   
+
+
+
 
      
 
