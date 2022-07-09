@@ -37,7 +37,7 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
 
 <strong>2. Работа в консоли разработчика F12</strong>        
     
-![Netdata](https://i.ibb.co/kV7kBZc/Screenshot-2.png)
+![Netdata](https://i.ibb.co/n0CMrxW/Screenshot-3.png)
 
 <strong>3. </strong>     
 
