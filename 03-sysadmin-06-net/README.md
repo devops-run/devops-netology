@@ -36,6 +36,7 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
 4. Также в ответе указана дата, время запроса и другие параметры взаимодействия с клиентами.               
 
 <strong>2. </strong>     
+![Netdata](https://i.ibb.co/kV7kBZc/Screenshot-2.png)
 
 <strong>3. </strong>     
 
