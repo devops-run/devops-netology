@@ -144,7 +144,7 @@ dns.google.             21579   IN      NS      ns3.zdns.google.
 dns.google.             21579   IN      NS      ns4.zdns.google.    
 
 A записи      
-####dig A dns.google    
+#### dig A dns.google    
 ;; ANSWER SECTION:  
 dns.google.             600     IN      A       8.8.8.8   
 dns.google.             600     IN      A       8.8.4.4   
