@@ -60,8 +60,8 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
     
 <strong>3. </strong>     
 Команда в консоли выдаёт мой внешний ip адрес.  
-wget -qO- eth0.me 
-У меня статический IP, по понятным причинам публиковать его тут не буду   
+#### wget -qO- eth0.me    
+У меня статический IP, по понятным причинам публиковать его тут не буду.   
 
 <strong>4. </strong>    
      
