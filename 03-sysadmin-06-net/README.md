@@ -64,6 +64,24 @@ Set-Cookie: prov=a21bc76b-f894-2cc0-bc70-e3df550f26f3; domain=.stackoverflow.com
 У меня статический IP, по понятным причинам публиковать его тут не буду.   
 
 <strong>4. </strong>    
+% Information related to '178.47.140.0 - 178.47.143.255'    
+% Abuse contact for '178.47.140.0 - 178.47.143.255' is 'abuse@rt.ru'    
+    
+inetnum:        178.47.140.0 - 178.47.143.255   
+netname:        USI_ADSL_USERS    
+descr:          Dynamic distribution IP's for broadband services    
+descr:          OJSC Rostelecom, regional branch "Urals"    
+country:        RU    
+admin-c:        UPAS1-RIPE    
+tech-c:         UPAS1-RIPE    
+status:         ASSIGNED PA   
+mnt-by:         MFIST-MNT   
+created:        2012-03-21T03:32:43Z    
+last-modified:  2012-03-21T03:32:43Z    
+source:         RIPE    
+  
+
+
      
 <strong>5. </strong>     
          
