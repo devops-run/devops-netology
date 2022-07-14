@@ -84,7 +84,23 @@ Usage:   **lldpcli** [OPTIONS ...] [COMMAND ...]
 Usage:   **lldpctl** [OPTIONS ...] [COMMAND ...]       
 
 <strong>Какая технология используется для разделения L2 коммутатора на несколько виртуальных сетей? Какой пакет и команды есть в Linux для этого? Приведите пример конфига.</strong>   
+  
+Для разделения L2 коммутатора на несколько виртуальных сетей используется технология VLAN.    
+Пакет в Ubuntu: vlan    
+Команды:    
+#### vconfig --help   
+
+Usage: add             [interface-name] [vlan_id]   
+       rem             [vlan-name]    
+       set_flag        [interface-name] [flag-num]       [0 | 1]    
+       set_egress_map  [vlan-name]      [skb_priority]   [vlan_qos]   
+       set_ingress_map [vlan-name]      [skb_priority]   [vlan_qos]   
+       set_name_type   [name-type]    
+    
 
 
+
+
+Настройки подынтерфейсов[1] VLANов в Ubuntu точно так же, как и для сетевых интерфейсов, указываются в файле /etc/network/interfaces.   
 
  
