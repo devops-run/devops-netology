@@ -79,11 +79,9 @@ lo              65536      130      0      0 0           130      0      0      
 Пакет в Ubuntu: lldpd     
 #### apt install lldpd      
 Команды:      
-Usage:   lldpcli [OPTIONS ...] [COMMAND ...]    
-Version: lldpd 1.0.13   
+Usage:   **lldpcli** [OPTIONS ...] [COMMAND ...]    
     
-Usage:   lldpctl [OPTIONS ...] [COMMAND ...]    
-Version: lldpd 1.0.13   
+Usage:   **lldpctl** [OPTIONS ...] [COMMAND ...]       
 
 
  
