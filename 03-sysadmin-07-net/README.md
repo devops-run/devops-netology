@@ -123,6 +123,11 @@ Vlan  interface  definitions  exist of the vlan interface name, and an optional 
 
 <strong>4. Какие типы агрегации интерфейсов есть в Linux? Какие опции есть для балансировки нагрузки? Приведите пример конфига.</strong>
 
+LAG – агрегация портов    
+Используется для увеличения полосы в сторону сервера.   
 
-
+Типы LAG:   
+статический (на Cisco mode on).      
+динамический – LACP протокол (на Cisco mode active).     
  
+
