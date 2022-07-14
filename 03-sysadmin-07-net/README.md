@@ -73,4 +73,17 @@ lo              65536      130      0      0 0           130      0      0      
 
 
 <strong>2. Какой протокол используется для распознавания соседа по сетевому интерфейсу? Какой пакет и команды есть в Linux для этого?</strong>  
-     
+    
+Для распознавания соседа в сети используется протокол канального уровня LLDP.   
+
+Пакет в Ubuntu: lldpd     
+#### apt install lldpd      
+Команды:      
+Usage:   lldpcli [OPTIONS ...] [COMMAND ...]    
+Version: lldpd 1.0.13   
+    
+Usage:   lldpctl [OPTIONS ...] [COMMAND ...]    
+Version: lldpd 1.0.13   
+
+
+ 
