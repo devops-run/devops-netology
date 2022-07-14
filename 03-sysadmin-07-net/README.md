@@ -121,6 +121,8 @@ Vlan  interface  definitions  exist of the vlan interface name, and an optional 
             address 192.168.1.1   
             netmask 255.255.255.0   
 
+<strong>Какие типы агрегации интерфейсов есть в Linux? Какие опции есть для балансировки нагрузки? Приведите пример конфига.</strong>
+
 
 
  
