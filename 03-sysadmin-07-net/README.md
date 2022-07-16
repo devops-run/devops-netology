@@ -160,7 +160,7 @@ HostMax:   192.168.1.6
 Broadcast: 192.168.1.7      
 Hosts/Net: 6                     Class C, Private Internet     
 
-Ответ: 8    
+Ответ: 8 адресов        
 c 192.168.1.0 по 192.168.1.7    
   
 
