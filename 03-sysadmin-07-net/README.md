@@ -149,7 +149,7 @@ Bonding – это объединение сетевых интерфейсов 
 Конфигурационный файл   
 Файл для настройки сети находится в каталоге /etc/netplan/    
 vi /etc/netplan/01-netcfg.yaml          
-network:      
+```network:      
     version: 2    
     renderer: networkd    
     ethernets:    
@@ -170,7 +170,7 @@ network:
             nameservers:      
                 addresses:      
                     - 8.8.8.8     
-                    - 77.88.8.8     
+                    - 77.88.8.8```     
 
 В этом примере мы объединяем физические интерфейсы ens2f0 и ens2f1     
 настройка parameters mode указываем на тип объединения        
