@@ -148,7 +148,9 @@ Bonding – это объединение сетевых интерфейсов 
     
 Конфигурационный файл   
 Файл для настройки сети находится в каталоге /etc/netplan/    
-vi /etc/netplan/01-netcfg.yaml          
+vi /etc/netplan/01-netcfg.yaml  
+
+        
     network:      
     version: 2    
     renderer: networkd    
