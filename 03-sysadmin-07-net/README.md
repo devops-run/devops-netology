@@ -181,4 +181,4 @@ HostMax:   100.64.0.62
 Broadcast: 100.64.0.63    
 Hosts/Net: 62   
     
-
+<strong>7. Как проверить ARP таблицу в Linux, Windows? Как очистить ARP кеш полностью? Как из ARP таблицы удалить только один нужный IP?</strong>   
