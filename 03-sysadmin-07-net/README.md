@@ -194,7 +194,7 @@ arp -d *
       
 ### Удалить только один нужный IP     
     
-arp -d <ip-address>   
+`arp -d <ip-address>`   
     
 ### Очистка ARP кеша Linux:     
 ip -s -s neigh flush all      
