@@ -170,7 +170,9 @@ vi /etc/netplan/01-netcfg.yaml
             nameservers:      
                 addresses:      
                     - 8.8.8.8     
-                    - 77.88.8.8```     
+                    - 77.88.8.8     
+
+
 
 В этом примере мы объединяем физические интерфейсы ens2f0 и ens2f1     
 настройка parameters mode указываем на тип объединения        
