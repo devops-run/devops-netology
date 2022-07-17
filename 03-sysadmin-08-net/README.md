@@ -49,7 +49,7 @@ Paths: (23 available, best #16, table default)
 
 #### vi /etc/netplan/02-dummy.yaml    
 
-```  network:    
+```network:    
   version: 2    
   renderer: networkd    
   bridges:    
@@ -65,5 +65,5 @@ Paths: (23 available, best #16, table default)
         - to: 192.168.20.0/24   
           via: 192.168.20.1   
           on-link: true   
-
+```
 
