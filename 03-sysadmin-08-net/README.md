@@ -115,6 +115,16 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
 tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN
 tcp        0      0 192.168.1.13:22         192.168.1.11:59689      ESTABLISHED
 tcp        0     64 192.168.1.13:22         192.168.1.11:59688      ESTABLISHED
+```
+root@ubuntu2204:~# ss -tnlp
 
 ```
+root@ubuntu2204:~# ss -tnlp
+State      Recv-Q     Send-Q         Local Address:Port         Peer Address:Port     Process
+LISTEN     0          128                127.0.0.1:6010              0.0.0.0:*         users:(("sshd",pid=836,fd=5))
+LISTEN     0          4096           127.0.0.53%lo:53                0.0.0.0:*         users:(("systemd-resolve",pid=584,fd=14))
+LISTEN     0          128                  0.0.0.0:22                0.0.0.0:*         users:(("sshd",pid=668,fd=3))
+
+```
+
 
