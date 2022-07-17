@@ -93,5 +93,14 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 92  bytes 7208 (7.2 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-
+#### root@ubuntu2204:~# route -n    
+```
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    0      0        0 ens18
+192.168.0.0     0.0.0.0         255.255.0.0     U     0      0        0 dummy0
+192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 ens18
+192.168.10.0    192.168.10.1    255.255.255.0   UG    0      0        0 dummy0
+192.168.20.0    192.168.20.1    255.255.255.0   UG    0      0        0 dummy0
+```
 
