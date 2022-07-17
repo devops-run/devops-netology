@@ -97,29 +97,24 @@ Usage: add             [interface-name] [vlan_id]
        set_ingress_map [vlan-name]      [skb_priority]   [vlan_qos]   
        set_name_type   [name-type]    
     
-Настройки подынтерфейсов VLANов в Ubuntu точно так же, как и для сетевых интерфейсов, указываются в файле /etc/network/interfaces.    
+Настройки подынтерфейсов VLANов в Ubuntu точно так же, как и для сетевых интерфейсов, указываются в файле
+/etc/netplan/01-netcfg.yaml
+        
+    network:    
+    version: 2    
+    renderer: networkd    
+    ethernets:    
+        ens3: {}    
+    vlans:    
+        vlan5:    
+            id: 5   
+            link: ens3    
+            dhcp4: no   
+            addresses: [10.0.0.15/24]   
+            gateway: 10.0.0.1   
+    
 
-#### man vlan-interfaces 5    
-VLAN CREATION 
-Vlan  interface  definitions  exist of the vlan interface name, and an optional 'raw-device' parameter.  Vlan interfaces are numbered 1 to 4095. You have the option to have interface names zero-padded to 4 numbers, or just the plain digits without leading zero.  The following example shows four ways to create a vlan with id 1 on interface eth0.  They all result in different names.   
-
-        iface eth0.1 inet static    
-            address 192.168.1.1   
-            netmask 255.255.255.0   
-    
-        iface vlan1 inet static   
-            vlan-raw-device eth0    
-            address 192.168.1.1   
-            netmask 255.255.255.0   
-    
-        iface eth0.0001 inet static   
-            address 192.168.1.1   
-            netmask 255.255.255.0   
-    
-        iface vlan0001 inet static    
-            vlan-raw-device eth0    
-            address 192.168.1.1   
-            netmask 255.255.255.0   
+В данном примере мы настроили интерфейс с тегом 5 на физическом адаптере ens3.    
 
 <strong>4. Какие типы агрегации интерфейсов есть в Linux? Какие опции есть для балансировки нагрузки? Приведите пример конфига.</strong>
 
