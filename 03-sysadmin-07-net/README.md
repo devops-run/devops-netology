@@ -184,15 +184,15 @@ Hosts/Net: 62
     
 <strong>7. Как проверить ARP таблицу в Linux, Windows? Как очистить ARP кеш полностью? Как из ARP таблицы удалить только один нужный IP?</strong>  
   
-Проверка ARP таблицы. Команда работает в Linux, Windows.      
-#### arp -a     
+### Проверка ARP таблицы. Команда работает в Linux, Windows.      
+arp -a     
     
 ### Очистка ARP кеша Windows:          
 netsh interface IP delete arpcache   
       
 arp -d *    
       
-### Удалить только один нужный IP     
+### Удалить только один нужный IP. Команда работает в Linux, Windows.        
     
 `arp -d <ip-address>`   
     
@@ -200,6 +200,8 @@ arp -d *
 ip -s -s neigh flush all      
 *** Round 1, deleting 5 entries ***     
 *** Flush is complete after 1 round ***   
+
+### Удалить только один нужный IP   
 
   
 
