@@ -4,22 +4,22 @@
                     
 <strong>1. Подключитесь к публичному маршрутизатору в интернет. Найдите маршрут к вашему публичному IP</strong>
 
-80.92.205.188
-
-route-views>show ip route 80.92.205.188   
-Routing entry for 80.92.205.0/24    
-  Known via "bgp 6447", distance 20, metric 0   
-  Tag 6939, type external   
-  Last update from 64.71.137.241 3w4d ago   
-  Routing Descriptor Blocks:    
-  * 64.71.137.241, from 64.71.137.241, 3w4d ago   
-      Route metric is 0, traffic share count is 1   
-      AS Hops 2   
-      Route tag 6939    
-      MPLS label: none    
-
-
-route-views>show bgp 80.92.205.188    
+Мой внешний IP (VPN) 80.92.205.188    
+    
+route-views>show ip route 80.92.205.188     
+Routing entry for 80.92.205.0/24      
+  Known via "bgp 6447", distance 20, metric 0     
+  Tag 6939, type external     
+  Last update from 64.71.137.241 3w4d ago     
+  Routing Descriptor Blocks:      
+  * 64.71.137.241, from 64.71.137.241, 3w4d ago     
+      Route metric is 0, traffic share count is 1     
+      AS Hops 2     
+      Route tag 6939      
+      MPLS label: none      
+    
+  
+route-views>show bgp 80.92.205.188      
 BGP routing table entry for 80.92.205.0/24, version 2327992362    
 Paths: (23 available, best #16, table default)    
   Not advertised to any peer    
@@ -40,6 +40,8 @@ Paths: (23 available, best #16, table default)
   Refresh Epoch 1   
   4901 6079 3356 52000    
     162.250.137.254 from 162.250.137.254 (162.250.137.254)    
+    
+    
   
 
 
