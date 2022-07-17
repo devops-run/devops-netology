@@ -97,7 +97,7 @@ Usage: add             [interface-name] [vlan_id]
        set_ingress_map [vlan-name]      [skb_priority]   [vlan_qos]   
        set_name_type   [name-type]    
     
-Настройки подынтерфейсов VLANов в Ubuntu точно так же, как и для сетевых интерфейсов, указываются в файле
+Настройки подинтерфейсов VLAN в Ubuntu указываются в файле
 /etc/netplan/01-netcfg.yaml
         
     network:    
