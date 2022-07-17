@@ -150,5 +150,5 @@ UNCONN         0              0                       127.0.0.53%lo:53          
 ```
 <strong>5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали.</strong>    
 
-https://clck.ru/sK2YH   
+https://clck.ru/sK2xb      
 
