@@ -116,6 +116,19 @@ tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN
 tcp        0      0 192.168.1.13:22         192.168.1.11:59689      ESTABLISHED
 tcp        0     64 192.168.1.13:22         192.168.1.11:59688      ESTABLISHED
 ```
+#### root@ubuntu2204:~# lsof -i   
+```
+COMMAND   PID            USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+systemd-r 584 systemd-resolve   13u  IPv4  19164      0t0  UDP localhost:domain
+systemd-r 584 systemd-resolve   14u  IPv4  19165      0t0  TCP localhost:domain (LISTEN)
+sshd      668            root    3u  IPv4  19432      0t0  TCP *:ssh (LISTEN)
+sshd      836            root    4u  IPv4  20711      0t0  TCP ubuntu2204:ssh->192.168.1.11:59688 (ESTABLISHED)
+sshd      836            root    5u  IPv4  22211      0t0  TCP localhost:6010 (LISTEN)
+sshd      839            root    4u  IPv4  21816      0t0  TCP ubuntu2204:ssh->192.168.1.11:59689 (ESTABLISHED)
+
+```
+
+
 #### root@ubuntu2204:~# ss -tnlp    
 
 ```
