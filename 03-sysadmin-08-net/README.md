@@ -17,9 +17,9 @@ Routing entry for 80.92.205.0/24
       AS Hops 2     
       Route tag 6939      
       MPLS label: none      
-    
-  
-route-views>show bgp 80.92.205.188      
+        
+     
+**route-views>show bgp 80.92.205.188**      
 BGP routing table entry for 80.92.205.0/24, version 2327992362    
 Paths: (23 available, best #16, table default)    
   Not advertised to any peer    
