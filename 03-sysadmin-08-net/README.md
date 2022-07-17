@@ -126,5 +126,11 @@ LISTEN     0          4096           127.0.0.53%lo:53                0.0.0.0:*  
 LISTEN     0          128                  0.0.0.0:22                0.0.0.0:*         users:(("sshd",pid=668,fd=3))
 
 ```
+#### root@ubuntu2204:~# ss -unap    
 
+```
+State          Recv-Q         Send-Q                  Local Address:Port                   Peer Address:Port         Process
+UNCONN         0              0                       127.0.0.53%lo:53                          0.0.0.0:*             users:(("systemd-resolve",pid=584,fd=13))
+
+```
 
