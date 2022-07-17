@@ -200,10 +200,4 @@ arp -d *
 ip -s -s neigh flush all      
 *** Round 1, deleting 5 entries ***     
 *** Flush is complete after 1 round ***   
-
-### Удалить только один нужный IP   
-
-  
-
-
     
