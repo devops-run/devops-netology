@@ -105,5 +105,16 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 ```
 <strong>3. Проверьте открытые TCP порты в Ubuntu, какие протоколы и приложения используют эти порты? Приведите несколько примеров.</strong>
 
+#### root@ubuntu2204:~# netstat -ant 
+   
+```
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN
+tcp        0      0 192.168.1.13:22         192.168.1.11:59689      ESTABLISHED
+tcp        0     64 192.168.1.13:22         192.168.1.11:59688      ESTABLISHED
 
+```
 
