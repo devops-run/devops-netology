@@ -225,7 +225,7 @@ arp -d *
 `arp -d <ip-address>`   
     
 ### Очистка ARP кеша Linux:     
-ip -s -s neigh flush all      
+ip -s neigh flush all      
 *** Round 1, deleting 5 entries ***     
 *** Flush is complete after 1 round ***   
     
