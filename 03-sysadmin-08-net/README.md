@@ -45,5 +45,25 @@ Paths: (23 available, best #16, table default)
 И далее несколько десятков строк        
   
 
+<strong>2. Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.</strong>
+
+#### vi /etc/netplan/02-dummy.yaml    
+
+  network:    
+  version: 2    
+  renderer: networkd    
+  bridges:    
+    dummy0:   
+      dhcp4: no   
+      dhcp6: no   
+      accept-ra: no   
+      addresses:    
+        - 192.168.10.10/16    
+      routes:   
+        - to: 192.168.10.0/24   
+          via: 192.168.10.1   
+        - to: 192.168.20.0/24   
+          via: 192.168.20.1   
+          on-link: true   
 
 
