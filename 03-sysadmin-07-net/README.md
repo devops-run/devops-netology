@@ -192,7 +192,7 @@ Hosts/Net: 62
 
 #### arp -d
 
-Очистка ARP кеша Linux:   
+#### Очистка ARP кеша Linux:   
 ip -s -s neigh flush all    
 *** Round 1, deleting 5 entries ***   
 *** Flush is complete after 1 round ***   
