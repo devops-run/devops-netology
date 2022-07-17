@@ -148,4 +148,6 @@ State          Recv-Q         Send-Q                  Local Address:Port        
 UNCONN         0              0                       127.0.0.53%lo:53                          0.0.0.0:*             users:(("systemd-resolve",pid=584,fd=13))
 
 ```
+<strong>5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали.</strong>    
 
+https://clck.ru/sK2YH
