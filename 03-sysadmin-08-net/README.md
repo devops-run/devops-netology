@@ -116,7 +116,7 @@ tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN
 tcp        0      0 192.168.1.13:22         192.168.1.11:59689      ESTABLISHED
 tcp        0     64 192.168.1.13:22         192.168.1.11:59688      ESTABLISHED
 ```
-root@ubuntu2204:~# ss -tnlp
+#### root@ubuntu2204:~# ss -tnlp    
 
 ```
 root@ubuntu2204:~# ss -tnlp
