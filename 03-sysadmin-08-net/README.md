@@ -6,13 +6,13 @@
 
 Мой внешний IP (VPN) 80.92.205.188    
     
-route-views>show ip route 80.92.205.188     
+**route-views>show ip route 80.92.205.188**     
 Routing entry for 80.92.205.0/24      
   Known via "bgp 6447", distance 20, metric 0     
   Tag 6939, type external     
   Last update from 64.71.137.241 3w4d ago     
   Routing Descriptor Blocks:      
-  * 64.71.137.241, from 64.71.137.241, 3w4d ago     
+   64.71.137.241, from 64.71.137.241, 3w4d ago     
       Route metric is 0, traffic share count is 1     
       AS Hops 2     
       Route tag 6939      
