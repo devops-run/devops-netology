@@ -68,7 +68,8 @@ Paths: (23 available, best #16, table default)
 ```
 #### root@ubuntu2204:~# ifconfig    
 
-```dummy0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+```
+dummy0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         inet 192.168.10.10  netmask 255.255.0.0  broadcast 192.168.255.255
         ether 3a:c6:d6:63:ec:58  txqueuelen 1000  (Ethernet)
         RX packets 0  bytes 0 (0.0 B)
