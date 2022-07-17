@@ -67,3 +67,30 @@ Paths: (23 available, best #16, table default)
           on-link: true   
 ```
 
+```root@ubuntu2204:~# ifconfig
+dummy0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.10.10  netmask 255.255.0.0  broadcast 192.168.255.255
+        ether 3a:c6:d6:63:ec:58  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens18: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.13  netmask 255.255.255.0  broadcast 192.168.1.255
+        ether 86:80:f8:c4:ab:ed  txqueuelen 1000  (Ethernet)
+        RX packets 1463  bytes 116734 (116.7 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1691  bytes 200995 (200.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 92  bytes 7208 (7.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 92  bytes 7208 (7.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+
