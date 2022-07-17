@@ -187,7 +187,7 @@ Hosts/Net: 62
 Проверка ARP таблицы. Команда работает в Linux, Windows.      
 #### arp -a     
     
-Очистка ARP кеша    
+Очистка ARP кеша Windows:          
 #### netsh interface IP delete arpcache   
 
     
