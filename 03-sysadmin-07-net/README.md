@@ -183,7 +183,11 @@ Broadcast: 100.64.0.63
 Hosts/Net: 62   
     
 <strong>7. Как проверить ARP таблицу в Linux, Windows? Как очистить ARP кеш полностью? Как из ARP таблицы удалить только один нужный IP?</strong>  
+  
+Проверка ARP таблицы. Команда работает в Linux, Windows.      
+#### arp -a     
+    
+Очистка ARP кеша    
+#### netsh interface IP delete arpcache   
 
-#### arp -a  
-Проверка ARP таблицы. Команда работает в Linux, Windows.    
     
