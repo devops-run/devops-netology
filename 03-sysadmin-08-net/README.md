@@ -25,21 +25,21 @@ Paths: (23 available, best #16, table default)
   Not advertised to any peer    
   Refresh Epoch 1   
   20912 3257 174 52000    
-    212.66.96.126 from 212.66.96.126 (212.66.96.126)    
+    **212.66.96.126 from 212.66.96.126 (212.66.96.126)**    
       Origin IGP, localpref 100, valid, external    
       Community: 3257:8070 3257:30155 3257:50001 3257:53900 3257:53902 20912:65004    
       path 7FE115AA6288 RPKI State not found    
       rx pathid: 0, tx pathid: 0    
   Refresh Epoch 1   
   3333 1257 174 52000   
-    193.0.0.56 from 193.0.0.56 (193.0.0.56)   
+    **193.0.0.56 from 193.0.0.56 (193.0.0.56)**   
       Origin IGP, localpref 100, valid, external    
       Community: 174:21001 174:22013 1257:50 1257:51 1257:90 1257:2000 1257:3276 1257:4103    
       path 7FE0D9FA0810 RPKI State not found    
       rx pathid: 0, tx pathid: 0    
   Refresh Epoch 1   
   4901 6079 3356 52000    
-    162.250.137.254 from 162.250.137.254 (162.250.137.254)    
+    **162.250.137.254 from 162.250.137.254 (162.250.137.254)**    
     
 ......    
 И далее несколько десятков строк        
