@@ -68,4 +68,8 @@ root@ubuntu2204:~#
 
 Перезапускаю Апач   
 
-#### systemctl reload apache2   
+#### systemctl reload apache2  
+
+
+![Bitwarden](https://i.ibb.co/6nmDJnW/Screenshot-9.png)
+
