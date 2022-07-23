@@ -182,23 +182,53 @@ Input file:
 
 <strong>8*. Просканируйте хост scanme.nmap.org. Какие сервисы запущены?</strong>
 
-#### root@ubuntu2204:/home# nmap -sV scanme.nmap.org    
+#### root@ubuntu2204:/home# nmap -A scanme.nmap.org    
 
 ```
-Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-23 13:48 UTC
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-23 13:52 UTC
 Nmap scan report for scanme.nmap.org (45.33.32.156)
-Host is up (0.23s latency).
+Host is up (0.22s latency).
 Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
 Not shown: 996 closed ports
 PORT      STATE SERVICE    VERSION
 22/tcp    open  ssh        OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   1024 ac:00:a0:1a:82:ff:cc:55:99:dc:67:2b:34:97:6b:75 (DSA)
+|   2048 20:3d:2d:44:62:2a:b0:5a:9d:b5:b3:05:14:c2:a6:b2 (RSA)
+|   256 96:02:bb:5e:57:54:1c:4e:45:2f:56:4c:4a:24:b2:57 (ECDSA)
+|_  256 33:fa:91:0f:e0:e1:7b:1f:6d:05:a2:b0:f1:54:41:56 (ED25519)
 80/tcp    open  http       Apache httpd 2.4.7 ((Ubuntu))
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: Go ahead and ScanMe!
 9929/tcp  open  nping-echo Nping echo
 31337/tcp open  tcpwrapped
+Aggressive OS guesses: HP P2000 G3 NAS device (93%), Linux 2.6.32 (92%), Linux 2.6.32 - 3.1 (92%), Ubiquiti AirOS 5.5.9 (92%), Ubiquiti Pico Station WAP (AirOS 5.2.6) (92%), Linux 2.6.32 - 3.13 (92%), Linux 3.0 - 3.2 (92%), MikroTik RouterOS 6.36 (91%), Linux 4.0 (91%), Infomir MAG-250 set-top box (91%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 15 hops
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 13.28 seconds
+TRACEROUTE (using port 80/tcp)
+HOP RTT       ADDRESS
+1   0.36 ms   _gateway (192.168.1.1)
+2   4.45 ms   90.150.180.22
+3   6.52 ms   87.226.151.28
+4   13.67 ms  95.167.92.190
+5   67.83 ms  217.161.68.34
+6   69.98 ms  217.161.68.33
+7   65.61 ms  telia-gw.fnt.cw.net (195.2.22.238)
+8   66.64 ms  ffm-bb1-link.ip.twelve99.net (62.115.124.116)
+9   77.27 ms  prs-bb2-link.ip.twelve99.net (62.115.122.138)
+10  83.27 ms  ldn-bb1-link.ip.twelve99.net (62.115.135.24)
+11  144.45 ms nyk-bb1-link.ip.twelve99.net (62.115.112.244)
+12  214.57 ms sjo-b23-link.ip.twelve99.net (62.115.119.229)
+13  212.01 ms linode-ic342731-sjo-b21.ip.twelve99-cust.net (62.115.172.133)
+14  220.30 ms if-2-6.csw6-fnc1.linode.com (173.230.159.69)
+15  222.25 ms scanme.nmap.org (45.33.32.156)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 27.17 seconds
+
+
 ```
 
 
