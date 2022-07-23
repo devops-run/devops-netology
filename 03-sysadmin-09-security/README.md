@@ -141,12 +141,20 @@ root@ubuntu2204:~/.ssh#
 
 <strong>6. Переименуйте файлы ключей из задания 5. Настройте файл конфигурации SSH клиента, так чтобы вход на удаленный сервер осуществлялся по имени сервера.</strong>
 
+#### mv id_rsa id_rsa_renamed
+
+#### mv id_rsa.pub id_rsa.pub_renamed
+
+
+
 #### nano ~/.ssh/config
 
 ```
 Host home-ssh
     HostName 192.168.1.14
     User root
+    IdentityFile ~/.ssh/id_rsa_renamed
+
 ```
 
 Теперь можно подключаться гораздо удобней:    
