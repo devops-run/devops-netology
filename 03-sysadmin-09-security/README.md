@@ -6,9 +6,9 @@
 
 Зарегистрировался в системе Bitwarden. Установил, настроил браузерный плагин и desktop приложение. Включил Двухфакторную аутентификацию с помощью приложение-аутентификатора "Google Authenticator" 
 
-![Netdata](https://i.ibb.co/KxcSfWT/Screenshot-6.png)
+![Bitwarden](https://i.ibb.co/KxcSfWT/Screenshot-6.png)
 
 
 #### Web интерфейс    
-https://i.ibb.co/b3HLgsN/Screenshot-7.png
+![Bitwarden](https://i.ibb.co/b3HLgsN/Screenshot-7.png)
 
