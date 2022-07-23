@@ -186,10 +186,6 @@ vagrant@debian11:~$ sudo dmesg | grep virtual
 [    0.012736] Booting paravirtualized kernel on VMware hypervisor  
 [    0.666431] VMware vmxnet3 virtual NIC driver - version 1.5.0.0-k-NAPI   
 [    1.522126] systemd[1]: Detected virtualization vmware.  
-    
-
-
-
 
 <strong>5. Как настроен sysctl `fs.nr_open` на системе по-умолчанию?</strong>   
 sysctl fs.nr_open       
