@@ -162,8 +162,21 @@ Host home-ssh
 #### ssh home-ssh   
 
 
+<strong>7. Соберите дамп трафика утилитой tcpdump в формате pcap, 100 пакетов. Откройте файл pcap в Wireshark.</strong>
 
 
+#### sudo apt install wireshark
+
+#### tcpdump -nnei any -c 100 -w 100.pcap
+
+#### wireshark --help | grep file
+
+```
+Input file:
+  -r <infile>, --read-file <infile>
+                           set the filename to read from (no pipes or stdin!)
+```
+#### wireshark -r 100.pcap
 
 
 
