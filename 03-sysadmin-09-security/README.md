@@ -51,4 +51,21 @@ Cоздаю новый файл минимальной конфигурации:
 root@ubuntu2204:~#
 
 ```
+Создаю простейший html файл     
+#### nano /var/www/ubuntu2204/index.html
 
+
+Подключаю конфигурационный файл вирт. хоста     
+#### a2ensite ubuntu2204.conf  
+  
+Тестирую конфигурацию web сервера     
+```
+root@ubuntu2204:~# apache2ctl configtest
+Syntax OK   
+root@ubuntu2204:~#    
+
+``` 
+
+Перезапускаю Апач   
+
+#### systemctl reload apache2   
