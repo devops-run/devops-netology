@@ -73,3 +73,7 @@ root@ubuntu2204:~#
 
 ![Bitwarden](https://i.ibb.co/6nmDJnW/Screenshot-9.png)
 
+<strong>4. Проверьте на TLS уязвимости произвольный сайт в интернете</strong>
+
+
+
