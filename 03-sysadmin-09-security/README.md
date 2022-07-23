@@ -12,6 +12,10 @@
 #### Web интерфейс    
 ![Bitwarden](https://i.ibb.co/b3HLgsN/Screenshot-7.png)
 
+<strong>2. Установите Google authenticator на мобильный телефон. Настройте вход в Bitwarden акаунт через Google authenticator OTP.</strong>    
 
 #### Google Authenticator   
+
 ![Bitwarden](https://i.ibb.co/GVMT7RF/Screenshot-8.png)
+
+
