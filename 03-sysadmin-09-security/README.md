@@ -12,3 +12,6 @@
 #### Web интерфейс    
 ![Bitwarden](https://i.ibb.co/b3HLgsN/Screenshot-7.png)
 
+
+#### Google Authenticator   
+![Bitwarden](https://i.ibb.co/GVMT7RF/Screenshot-8.png)
