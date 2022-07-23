@@ -9,4 +9,6 @@
 ![Netdata](https://i.ibb.co/KxcSfWT/Screenshot-6.png)
 
 
+#### Web интерфейс    
+https://i.ibb.co/b3HLgsN/Screenshot-7.png
 
