@@ -180,6 +180,28 @@ Input file:
 
 ![Bitwarden](https://i.ibb.co/KVW1wsw/Screenshot-10.png)
 
+<strong>8*. Просканируйте хост scanme.nmap.org. Какие сервисы запущены?</strong>
+
+#### root@ubuntu2204:/home# nmap -sV scanme.nmap.org    
+
+```
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-07-23 13:48 UTC
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.23s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 996 closed ports
+PORT      STATE SERVICE    VERSION
+22/tcp    open  ssh        OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+80/tcp    open  http       Apache httpd 2.4.7 ((Ubuntu))
+9929/tcp  open  nping-echo Nping echo
+31337/tcp open  tcpwrapped
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.28 seconds
+```
+
+
 
 
 
