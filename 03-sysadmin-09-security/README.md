@@ -20,19 +20,20 @@
 
 <strong>3. Установите apache2, сгенерируйте самоподписанный сертификат, настройте тестовый сайт для работы по HTTPS.</strong>   
 
-Ставим  apache2:    
-
-#### sudo apt install apache2
-
-Открываем  http, https порты:   
-#### sudo ufw allow "Apache Full"    
-
-
-
-сгенерил сертификат:    
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
-
-#### root@ubuntu2204:~# cat /etc/apache2/sites-available/ubuntu2204.conf
+Ставим  apache2:      
+#### sudo apt install apache2   
+  
+Открываем  http, https порты:       
+#### sudo ufw allow "Apache Full"      
+    
+Включение mod_ssl:    
+#### Включение mod_ssl       
+    
+Создание SSL-сертификата:     
+#### openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt   
+    
+Cоздаю новый файл минимальной конфигурации:       
+#### root@ubuntu2204:~# cat /etc/apache2/sites-available/ubuntu2204.conf      
 
 ```
 <VirtualHost *:80>
