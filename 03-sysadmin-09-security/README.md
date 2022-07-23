@@ -149,6 +149,8 @@ Host home-ssh
     User root
 ```
 
+Теперь можно подключаться гораздо удобней:    
+#### ssh home-ssh   
 
 
 
