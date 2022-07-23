@@ -20,3 +20,22 @@
 
 <strong>3. Установите apache2, сгенерируйте самоподписанный сертификат, настройте тестовый сайт для работы по HTTPS.</strong>   
 
+#### root@ubuntu2204:~# cat /etc/apache2/sites-available/ubuntu2204.conf
+
+```
+<VirtualHost *:80>
+        ServerName 192.168.1.13
+        Redirect / https://192.168.1.13/
+</VirtualHost>
+
+<VirtualHost *:443>
+   ServerName 192.168.1.13
+   DocumentRoot /var/www/ubuntu2204
+   SSLEngine on
+   SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
+   SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+</VirtualHost>
+root@ubuntu2204:~#
+
+```
+
