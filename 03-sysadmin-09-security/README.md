@@ -18,4 +18,5 @@
 
 ![Bitwarden](https://i.ibb.co/GVMT7RF/Screenshot-8.png)
 
+<strong>3. Установите apache2, сгенерируйте самоподписанный сертификат, настройте тестовый сайт для работы по HTTPS.</strong>   
 
