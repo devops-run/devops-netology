@@ -123,6 +123,14 @@ root@ubuntu2204:/home/testssl.sh#
 Генерим ключ:   
 #### ssh-keygen  
 
+#### cat id_rsa.pub
+````
+root@ubuntu2204:~/.ssh# cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzgqZpwwMLcYXhIDdi3DFHNEUup3edzYuuOg19dlQtPo4/nuStXCDaZiEAnhbZWL2olOL90JryMPTz102atZ1tvGfJvLCYBbpbmkdRGf+bgEA3QSeANohpcr65ROrw44YUWR+8vGnz6Gyhs8wibLMxKakFMBTphJUQMa0xxbKTnEwfxw2p8yevdR17qm8taB3cy7HlgalEckDSJK4jC1FCYraqNpGeQXBtK8rkxaK3HLTR3So/GXZhCiPX2h7JZ+rwlWmrqo+1fKuAzQUfl280vvNb8ptCZgziCRmyYlymSVNBemdmZcwbUEekQTA4kcLcA9sFjj6ze/+Nmti+VilGjfMGWmI5oDz5WYhRNz6gv4N/xu3xr/GfeVTNRXZFHMx5DQyfg/qLILaAXOP6PJI9gDRurlv8aGGI4RJL2/pl+zODmbDekz8/R7lPjeW4JiFg2mthYCuZOIO3QyrkaQjnZuM0UABgSnLRbKVwIzLTJmOPqnyFVyYjX+k04ydTfR0= root@ubuntu2204
+root@ubuntu2204:~/.ssh#
+
+````
+
 Копируем публичный ключ на удаленный сервер
 #### ssh-copy-id root@192.168.1.14
 
