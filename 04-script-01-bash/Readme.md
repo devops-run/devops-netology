@@ -53,7 +53,21 @@ done
 
 ### Ваш скрипт:
 ```bash
-???
+
+#!/bin/bash
+DATA=`(date "+%d-%m-%Y %H:%M:%S")`
+while (( 1 == 1 ))
+do
+#  curl https://ya.ru
+    sudo ping -c 3 192.168.1.82
+    if (($? != 0))
+      then
+        echo $DATA > curl.log
+      else exit
+    fi
+
+done
+
 ```
 
 ## Обязательная задача 3
