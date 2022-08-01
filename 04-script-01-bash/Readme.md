@@ -58,7 +58,7 @@ done
 DATA=`(date "+%d-%m-%Y %H:%M:%S")`
 while (( 1 == 1 ))
 do
-#  curl https://ya.ru
+#   curl https://localhost:4757 
     sudo ping -c 3 192.168.1.82
     if (($? != 0))
       then
