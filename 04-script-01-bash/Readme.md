@@ -77,7 +77,19 @@ done
 
 ### Ваш скрипт:
 ```bash
-???
+#!/bin/bash
+cat /dev/null > hosts.log 
+hosts=(192.168.0.1 173.194.222.113 87.250.250.24)
+for i in {1..5}
+do
+date >>hosts.log
+    for h in ${hosts[@]}
+    do
+      nc -w 5 -vz $h 80 >/dev/null
+        echo "check" $h status=$? >>hosts.log
+    done
+done
+
 ```
 
 ## Обязательная задача 4
