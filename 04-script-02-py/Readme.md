@@ -26,6 +26,11 @@ c=str(a)+b
 print (c)
 c=a+int(b)
 print (c)
+
+$ ./run.py
+12
+3
+
 ```
 
 ## Обязательная задача 2
