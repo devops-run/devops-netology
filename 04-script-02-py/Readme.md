@@ -51,6 +51,8 @@ for result in result_os.split('\n'):
         break
 ```
 
+
+
 ### Ваш скрипт:
 ```python
 ???
