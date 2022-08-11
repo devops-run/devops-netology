@@ -52,15 +52,32 @@ for result in result_os.split('\n'):
 ```
 
 
-
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+
+import os
+from os.path import expanduser
+home = expanduser("~")
+
+bash_command = ["cd ~/devops-netology", "git status", "pwd"]
+result_os = os.popen(' && '.join(bash_command)).read()
+#is_change = False  # лишняя  переменная 
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(f'{home}/devops-netology/{prepare_result}')
+#       break  # Цикл прерывался после первого найденного файла
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+[fedora@Fedora-36-server ~]$ ./run.py
+/home/fedora/devops-netology/01-intro-01/README.md
+/home/fedora/devops-netology/03-sysadmin-06-net/README.md
+/home/fedora/devops-netology/04-script-02-py/Readme.md
+[fedora@Fedora-36-server ~]$
+
 ```
 
 

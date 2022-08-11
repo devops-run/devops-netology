@@ -163,7 +163,6 @@ dns.google.             108     IN      A       8.8.4.4
 dns.google.             108     IN      A       8.8.8.8   
   
 
-
 Получил PTR записи для этих IP 
 #### dig -x 216.239.32.114 | grep PTR; dig -x 216.239.34.114 | grep PTR; dig -x 216.239.38.114 | grep PTR; dig -x 8.8.8.8 | grep PTR;  dig -x 8.8.4.4 | grep PTR      
 114.32.239.216.in-addr.arpa. 86317 IN   PTR     ns1.zdns.google.  
