@@ -8,3 +8,5 @@
 * [Обучение обработки JSON через JavaScript](https://developer.mozilla.org/ru/docs/Learn/JavaScript/Объекты/JSON)
 * [Докуентация про библиотеку JSON](https://docs.python.org/3/library/json.html)
 * [Документация про библиотеку YAML](https://pyyaml.org/wiki/PyYAMLDocumentation)
+
+
