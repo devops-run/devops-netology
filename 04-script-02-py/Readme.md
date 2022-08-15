@@ -80,14 +80,30 @@ for result in result_os.split('\n'):
 
 ```
 
-
-
 ## Обязательная задача 3
 1. Доработать скрипт выше так, чтобы он мог проверять не только локальный репозиторий в текущей директории, а также умел воспринимать путь к репозиторию, который мы передаём как входной параметр. Мы точно знаем, что начальство коварное и будет проверять работу этого скрипта в директориях, которые не являются локальными репозиториями.
 
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+import os
+import sys
+import subprocess
+
+git_dir = sys.argv[1]
+bash_command = ["cd " + git_dir, "git status"]
+os.chdir(git_dir)
+with subprocess.Popen(['git', 'status'], stdout=subprocess.PIPE) as proc:
+    result = proc.stdout.read().decode("utf-8")
+if result.find('not') == -1:
+    print('В данном каталоге нет репозитория GIT!')
+else:
+  result_os =  os.popen(' && '.join(bash_command)).read()
+  for result in result_os.split('\n'):
+      if result.find('modified') != -1:
+          prepare_result = result.replace('\tmodified:   ', '')
+          print(f'{git_dir}{prepare_result}')
+
 ```
 
 ### Вывод скрипта при запуске при тестировании:
