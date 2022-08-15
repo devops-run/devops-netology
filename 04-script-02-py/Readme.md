@@ -70,7 +70,7 @@ for result in result_os.split('\n'):
 #       break  # Цикл прерывался после первого найденного файла
 ```
 
-### Вывод скрипта при запуске при тестировании:
+### Вывод скрипта при запуске:
 ```
 [fedora@Fedora-36-server ~]$ ./run.py
 /home/fedora/devops-netology/01-intro-01/README.md
