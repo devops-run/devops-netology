@@ -119,9 +119,17 @@ else:
 ???
 ```
 
-### Вывод скрипта при запуске при тестировании:
+### Вывод скрипта при тестировании:
 ```
-???
+[fedora@Fedora-36-server ~]$ ./run2.py /home/fedora/
+fatal: not a git repository (or any of the parent directories): .git
+В данном каталоге нет репозитория GIT!
+    
+[fedora@Fedora-36-server ~]$ ./run2.py /home/fedora/devops-netology/
+/home/fedora/devops-netology/04-script-02-py/Readme.md
+
+
+
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
