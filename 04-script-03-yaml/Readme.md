@@ -3,7 +3,7 @@
 
 ## Обязательная задача 1
 Мы выгрузили JSON, который получили через API запрос к нашему сервису:
-```json
+```
     { "info" : "Sample JSON output from our service\t",
         "elements" :[
             { "name" : "first",
