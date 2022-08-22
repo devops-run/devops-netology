@@ -59,22 +59,66 @@
 
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+
+import socket
+import time
+import json
+import yaml
+
+servers = {"drive.google.com": "", "mail.google.com": "", "google.com": ""}
+while True:
+    for url, ip in servers.items():
+        ip_addr = socket.gethostbyname(url)
+        if ip == "":
+            servers[url] = ip_addr
+            print("{} - {}".format(url, ip_addr))
+        elif ip != ip_addr:
+            print("[ERROR] {} IP mismatch: {} -> {}".format(url, ip, ip_addr))
+            servers[url] = ip_addr
+    with open('ip.json', 'w') as json_file:
+        json_file.write(json.dumps(servers, indent=2))
+    with open('ip.yaml', 'w') as yaml_file:
+        yaml_file.write(yaml.dump(servers, indent=2, explicit_start=True, explicit_end=True))
+    time.sleep(1)
+
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+[fedora@Fedora-36-server 222]$ ./111.py
+drive.google.com - 64.233.164.194
+mail.google.com - 64.233.161.83
+google.com - 142.251.1.113
+[ERROR] mail.google.com IP mismatch: 64.233.161.83 -> 64.233.161.17
+[ERROR] google.com IP mismatch: 142.251.1.113 -> 142.251.1.139
+[ERROR] mail.google.com IP mismatch: 64.233.161.17 -> 64.233.161.18
+[ERROR] google.com IP mismatch: 142.251.1.139 -> 142.251.1.138
+[ERROR] google.com IP mismatch: 142.251.1.138 -> 142.251.1.139
+[ERROR] google.com IP mismatch: 142.251.1.139 -> 142.251.1.102
+[ERROR] mail.google.com IP mismatch: 64.233.161.18 -> 64.233.161.83
+[ERROR] google.com IP mismatch: 142.251.1.102 -> 142.251.1.100
+[ERROR] google.com IP mismatch: 142.251.1.100 -> 142.251.1.101
+
 ```
 
 ### json-файл(ы), который(е) записал ваш скрипт:
 ```json
-???
+{
+  "drive.google.com": "64.233.164.194",
+  "mail.google.com": "74.125.131.17",
+  "google.com": "142.250.150.100"
+
 ```
 
 ### yml-файл(ы), который(е) записал ваш скрипт:
 ```yaml
-???
+---
+drive.google.com: 64.233.164.194
+google.com: 142.250.150.100
+mail.google.com: 74.125.131.17
+...
+
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
