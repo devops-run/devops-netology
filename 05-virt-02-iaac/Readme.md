@@ -83,7 +83,7 @@ docker ps
 Запустил вирт. машину на платформе Oracle VM VirtualBox командой ***vagrant up***. 
  
 
-
+### Vagrantfile
 ```ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
