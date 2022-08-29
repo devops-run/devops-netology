@@ -132,7 +132,7 @@ end
 
 
 ```
-В результате vagrant установил ubuntu2004, запустил ansible   
-ansible довёл состояние вирт. машины до: "наличие установленных docker, docker-compose vim".
+В результате vagrant установил ubuntu2004 на Oracle VM , запустил ansible.       
+Аnsible довёл состояние вирт. машины до: "наличие установленных docker, docker-compose vim".
    
 
