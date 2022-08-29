@@ -79,3 +79,35 @@ ansible 2.9.6
 ```
 docker ps
 ```
+```ruby
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+Vagrant.configure("2") do |config|
+########## VM definition ############
+  config.vm.define "srv" do |config|
+  config.vm.hostname = "server1"
+  config.vm.box = "generic/ubuntu2004"
+  config.vm.box_check_update = false
+  config.vm.provider :virtualbox do |v|
+    v.memory = 4096
+    v.cpus = 2
+  config.vm.provision "shell", inline: <<-SHELL
+    hostnamectl set-hostname server1
+    apt-get -y update
+    apt-get -y upgrade
+    apt-get -y install ansible
+    shutdown -r
+    SHELL
+  end
+  config.vm.provision :ansible do |ansible|
+    ansible.limit = "all"
+    ansible.playbook = "provision.yaml"
+  end
+ end
+end
+
+
+```
+
