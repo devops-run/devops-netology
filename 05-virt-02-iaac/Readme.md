@@ -80,7 +80,7 @@ ansible 2.9.6
 docker ps
 ```
 ### Решение:    
-Запустил вирт. машину на платформе Oracle VM VirtualBox командой *vagrant up*. 
+Запустил вирт. машину на платформе Oracle VM VirtualBox командой ***vagrant up***. 
  
 
 
