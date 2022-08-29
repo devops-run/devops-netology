@@ -80,8 +80,10 @@ ansible 2.9.6
 docker ps
 ```
 ### Решение:    
+Установил vagrant на вирт. машину (vagrant-srv) с Ubuntu под ESXI.     
+Установил Oracle VM на вирт. машину (vagrant-srv)   
 Запустил вирт. машину на платформе Oracle VM VirtualBox командой ***vagrant up***.     
-Использовал упрощённую конфигурацию из 2 файлов:  
+Использовал упрощённую конфигурацию из 2 файлов:    
 
 #### Первый файл: Vagrantfile
 ```ruby
@@ -141,3 +143,4 @@ end
 
    
 ![ibb-img](https://i.ibb.co/7QmpBCz/Screenshot-6.png)
+
