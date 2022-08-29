@@ -49,27 +49,25 @@
 
 *Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.*
 ```bash
-root@vagrant-srv:~# date
+#### root@vagrant-srv:~# date
 Mon 29 Aug 2022 03:18:48 PM UTC
-root@vagrant-srv:~# virtualbox --help
+
+#### root@vagrant-srv:~# virtualbox --help
 Oracle VM VirtualBox VM Selector v6.1.34_Ubuntu
 (C) 2005-2022 Oracle Corporation
 All rights reserved.
-
 No special options.
 
-If you are looking for --startvm and related options, you need to use VirtualBoxVM.
-root@vagrant-srv:~# vagrant --version
+#### root@vagrant-srv:~# vagrant --version
 Vagrant 2.3.0
-root@vagrant-srv:~# ansible --version
+
+#### root@vagrant-srv:~# ansible --version
 ansible 2.9.6
   config file = /etc/ansible/ansible.cfg
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/lib/python3/dist-packages/ansible
   executable location = /usr/bin/ansible
   python version = 3.8.10 (default, Jun 22 2022, 20:18:18) [GCC 9.4.0]
-root@vagrant-srv:~#
-
 
 ```
 ## Задача 4 (*)
