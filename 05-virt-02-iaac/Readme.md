@@ -111,3 +111,21 @@ end
 
 ```
 
+```yaml
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: "Update OS"
+    package:
+     name: '*'
+     state: latest
+  - name: Install Basic packages
+    package:
+      name: ['docker', 'docker-compose', 'vim' ]
+...
+
+
+```
+
