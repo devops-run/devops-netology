@@ -113,9 +113,8 @@ Vagrant.configure("2") do |config|
  end
 end
 
-
 ```
-
+#### Второй файл: provision.yaml
 ```yaml
 ---
 - hosts: all
