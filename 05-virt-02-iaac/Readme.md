@@ -135,7 +135,7 @@ end
 
 ```
 В результате vagrant установил ubuntu2004 на Oracle VM , запустил ansible.       
-Аnsible довёл состояние вирт. машины до: "наличие установленных docker, docker-compose, vim".    
+Аnsible довёл состояние вирт. машины до: "наличие установленных и обновлённых пакетов docker, docker-compose, vim".    
 
 Зашел внутрь ВМ (***команда vagrant ssh***)        
 Проверил весию docker.    
