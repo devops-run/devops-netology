@@ -81,9 +81,9 @@ docker ps
 ```
 ### Решение:    
 Запустил вирт. машину на платформе Oracle VM VirtualBox командой ***vagrant up***. 
- 
+Использовал упрощённую конфигурацию из 2 файлов: 
 
-### Vagrantfile
+#### Первый файл: Vagrantfile
 ```ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
