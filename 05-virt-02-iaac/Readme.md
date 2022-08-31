@@ -145,6 +145,17 @@ end
 ![ibb-img](https://i.ibb.co/7QmpBCz/Screenshot-6.png)
 
 ### Решение задачи на гипервизоре ESXI  
+Использовал плагин vagrant-vmware-esxi.
+https://github.com/josenk/vagrant-vmware-esxi
+
+```bash
+vagrant plugin install vagrant-vmware-esxi
+vagrant plugin list
+vagrant version
+
+vagrant-vmware-esxi (2.5.5, global)
+
+```
 
 ```yaml
 # -*- mode: ruby -*-
