@@ -157,6 +157,9 @@ vagrant-vmware-esxi (2.5.5, global)
 
 ```
 
+
+#### Первый файл: Vagrantfile
+
 ```yaml
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -195,4 +198,26 @@ end
 
 ```  
 
+#### Второй файл: provision.yaml
+```yaml
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: "Update OS"
+    package:
+     name: '*'
+     state: latest
+  - name: Install Basic packages
+    package:
+      name: ['docker', 'docker-compose', 'vim', 'net-tools' ]
+      #  - name: Installing docker
+      #    shell: curl -fsSL get.docker.com -o get-docker.sh && chmod +x get-docker.sh && ./get-docker.sh
+  - name: Add the current user to docker group
+    user: name=vagrant append=yes groups=docker
+...
+
+
+```
 
