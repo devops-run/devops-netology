@@ -144,3 +144,44 @@ end
    
 ![ibb-img](https://i.ibb.co/7QmpBCz/Screenshot-6.png)
 
+### Решение задачи на гипервизоре ESXI  
+
+```yaml
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+Vagrant.configure('2') do |config|
+  config.vm.box = 'generic/ubuntu2004'
+  config.vm.synced_folder('.', '/vagrant')
+  config.vm.provider :vmware_esxi do |esxi|
+    esxi.esxi_hostname = '192.168.1.15'
+    esxi.esxi_username = 'root'
+    esxi.esxi_password = '**********'
+    esxi.esxi_hostport = 22
+    esxi.guest_name = 'server1'
+    esxi.guest_username = 'vagrant'
+    esxi.guest_memsize = '4096'
+    esxi.guest_numvcpus = '2'
+    esxi.guest_nic_type = 'vmxnet3'
+    esxi.guest_boot_disk_size = 30
+    end
+  config.vm.provision "shell", inline: <<-SHELL
+    hostnamectl set-hostname server1
+    end
+    apt -y update
+    apt -y upgrade
+    apt -y install ansible curl wget mc net-tools
+    shutdown -r now
+    SHELL
+  config.vm.provision "ansible" do |ansible|
+    ansible.verbose = "v"
+    ansible.inventory_path = "./ansible/inventory"
+    ansible.playbook = "./ansible/provision.yaml"
+    ansible.become = true
+    ansible.extra_vars = { ansible_user: 'vagrant' }
+  end
+end
+
+```  
+
+
