@@ -34,6 +34,7 @@ Hey, Netology
 #### docker tag webtest devopsrun/webtest:latest    
 Авторизовался на https://hub.docker.com   
 Отправил контенер в свой публичный репозиторий    
+    
 https://hub.docker.com/r/devopsrun/webtest
 #### docker push devopsrun/webtest    
   
