@@ -35,10 +35,8 @@ Hey, Netology
 Авторизовался на https://hub.docker.com   
 Отправил контенер в свой публичный репозиторий    
 https://hub.docker.com/r/devopsrun/webtest
-
-#### docker push devopsrun/webtest
+#### docker push devopsrun/webtest    
   
-
 #### Dockerfile
 ```docker
 FROM nginx:latest
