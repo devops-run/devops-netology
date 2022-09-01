@@ -11,7 +11,8 @@
 - создайте свой fork образа;
 - реализуйте функциональность:
 запуск веб-сервера в фоне с индекс-страницей, содержащей HTML-код ниже:
-```
+
+```html
 <html>
 <head>
 Hey, Netology
@@ -30,14 +31,14 @@ Hey, Netology
 #### docker run -d -p 80:80 webtest   
 Создал имидж на базе текущего контейнера    
 #### docker build -t webtest .
-Присвоил тег контейнеру
+Присвоил тег 
 #### docker tag webtest devopsrun/webtest:latest    
 Авторизовался на https://hub.docker.com   
-Отправил контенер в свой публичный репозиторий    
+Отправил имидж  в свой публичный репозиторий    
     
 https://hub.docker.com/r/devopsrun/webtest
 #### docker push devopsrun/webtest    
-  
+ 
 #### Dockerfile
 ```docker
 FROM nginx:latest
