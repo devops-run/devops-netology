@@ -24,6 +24,8 @@ Hey, Netology
 Опубликуйте созданный форк в своем репозитории и предоставьте ответ в виде ссылки на https://hub.docker.com/username_repo.
 
 ### Решение 
+Запущен контейнер на базе образа nginx:latest с помощью Dockerfile   
+docker build -t webtest .
 Создан имидж на базе запущенного с помощью Dockerfile контейнера  
 
 #### Dockerfile
