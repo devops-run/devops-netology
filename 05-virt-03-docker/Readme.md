@@ -24,9 +24,20 @@ Hey, Netology
 Опубликуйте созданный форк в своем репозитории и предоставьте ответ в виде ссылки на https://hub.docker.com/username_repo.
 
 ### Решение 
-Запущен контейнер на базе образа nginx:latest с помощью Dockerfile   
-docker build -t webtest .
-Создан имидж на базе запущенного с помощью Dockerfile контейнера  
+Подготовил контейнер на базе образа nginx:latest с помощью Dockerfile и файла index.html  
+  
+Запустил контейнер на 80 порту и проверил работу.  
+#### docker run -d -p 80:80 webtest   
+Создал имидж на базе текущего контейнера    
+#### docker build -t webtest .
+Присвоил тег контейнеру
+#### docker tag webtest devopsrun/webtest:latest    
+Авторизовался на https://hub.docker.com   
+Отправил контенер в свой публичный репозиторий    
+https://hub.docker.com/r/devopsrun/webtest
+
+#### docker push devopsrun/webtest
+  
 
 #### Dockerfile
 ```docker
