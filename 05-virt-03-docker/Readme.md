@@ -228,9 +228,15 @@ ansible 2.10.17
   python version = 3.10.5 (main, Jul 25 2022, 15:52:08) [GCC 11.2.1 20220219]
 
 ```
-4. Присвоил тег имиджу и отправил имидж на dockerhub
+
+4. Присвоил тег имиджу и отправил его на hub.docker.com
+
 ```
 docker tag my_ansible devopsrun/my_ansible:latest
 docker pull devopsrun/my_ansible
 ```
+5. Ссылка: https://hub.docker.com/r/devopsrun/my_ansible    
+
+Docker Pull Command: docker pull devopsrun/my_ansible
+
 
