@@ -98,7 +98,7 @@ docker exec -it 58ad294bc9e2 bash
 ```
 4. Создал файл touch test.txt с содержимым 111
 ```
-[root@58ad294bc9e2 ~]# touch /data/test.txt
+[root@58ad294bc9e2 ~]# touch /data/test.txt && echo ${PWD} > /data/test.txt 
 ```
 5. Подключился кo второму контейнеру
 ```bash
