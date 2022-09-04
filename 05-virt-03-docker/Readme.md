@@ -96,7 +96,7 @@ CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS   
 ```bash
 docker exec -it 58ad294bc9e2 bash
 ```
-4. Создал файл touch test.txt с содержимым 111
+4. Создал файл test.txt 
 ```
 [root@58ad294bc9e2 ~]# touch /data/test.txt && echo ${PWD} > /data/test.txt 
 ```
