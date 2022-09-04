@@ -239,4 +239,7 @@ docker pull devopsrun/my_ansible
 
 Docker Pull Command: docker pull devopsrun/my_ansible
 
+### Вывод:
+
+Самое сложное (по градации) задание решилось быстрей и проще остальных. Приникаюсь уважением к технологии Docker и грамотно составленным Dockerfile. ))
 
