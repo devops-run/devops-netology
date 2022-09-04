@@ -77,6 +77,16 @@ COPY index.html /usr/share/nginx/html/index.html
 - Добавьте еще один файл в папку ```/data``` на хостовой машине;
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
+### Решение
+root@debian11-docker:/data# docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
+58ad294bc9e2   centos    "/bin/bash"   15 minutes ago   Up 15 minutes             peaceful_boyd
+1229e999cd72   debian    "bash"        15 minutes ago   Up 15 minutes             gifted_driscoll
+
+
+
+
+
 ## Задача 4 (*)
 
 Воспроизвести практическую часть лекции самостоятельно.
