@@ -78,12 +78,26 @@ COPY index.html /usr/share/nginx/html/index.html
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
 ### Решение
+1. Создал каталог /data на host машине debian11-docker  
+2. Запустил два контейнера с параметрами "-d -v"
+ 
+```bash
+docker run -d -v /data:/data centos
+docker run -d -v /data:/data debian
+``` 
+```bash
 root@debian11-docker:/data# docker ps
 CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
 58ad294bc9e2   centos    "/bin/bash"   15 minutes ago   Up 15 minutes             peaceful_boyd
 1229e999cd72   debian    "bash"        15 minutes ago   Up 15 minutes             gifted_driscoll
+```
+3. Подключился к первому контейнеру 
+```bash
+docker exec -it 58ad294bc9e2 bash
+```
 
 
+docker exec -it 1229e999cd72 bash
 
 
 
