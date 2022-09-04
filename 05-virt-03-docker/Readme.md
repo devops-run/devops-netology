@@ -85,6 +85,7 @@ COPY index.html /usr/share/nginx/html/index.html
 docker run -d -v /data:/data centos
 docker run -d -v /data:/data debian
 ``` 
+#### Список запущенных контейнеров (docker ps)
 ```bash
 root@debian11-docker:/data# docker ps
 CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
