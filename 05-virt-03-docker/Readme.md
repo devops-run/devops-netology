@@ -108,6 +108,31 @@ docker exec -it 1229e999cd72 bash
 ```
 root@1229e999cd72:~# touch /data/test2.txt && echo ${PWD} > /data/test2.txt
 ```
+7. На host машине создал третий файл
+```
+root@debian11-docker:/data# touch /data/test3.txt
+```
+8. Листинг каталогов с 3-х машин:   
+```bash
+root@debian11-docker:~# ls -l /data/
+итого 8
+-rw-r--r-- 1 root root 6 сен  4 06:51 test2.txt
+-rw-r--r-- 1 root root 0 сен  4 06:56 test3.txt
+-rw-r--r-- 1 root root 4 сен  4 06:22 test.txt
+-----------------------
+[root@58ad294bc9e2 ~]# ls -l /data/
+total 8
+-rw-r--r-- 1 root root 4 Sep  4 06:22 test.txt
+-rw-r--r-- 1 root root 6 Sep  4 06:51 test2.txt
+-rw-r--r-- 1 root root 0 Sep  4 06:56 test3.txt
+-----------------------
+root@1229e999cd72:~# ls -l /data/
+total 8
+-rw-r--r-- 1 root root 4 Sep  4 06:22 test.txt
+-rw-r--r-- 1 root root 6 Sep  4 06:51 test2.txt
+-rw-r--r-- 1 root root 0 Sep  4 06:56 test3.txt
+
+```
 
 
 
