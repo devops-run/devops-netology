@@ -203,12 +203,13 @@ CONTAINER ID   IMAGE        COMMAND   CREATED         STATUS         PORTS     N
 
 
 ```
-Подключился к контейнеру:
+3. Подключился к контейнеру для проверки работы ПО:
+
 ```bash
 root@debian11:~/ansible# docker exec -it 3d787e3196b3 sh
 ```
+ansible # cat /etc/os-release
 ```bash
-/ansible # cat /etc/os-release
 NAME="Alpine Linux"
 ID=alpine
 VERSION_ID=3.16.2
@@ -217,9 +218,8 @@ HOME_URL="https://alpinelinux.org/"
 BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
 
 ```
-
+ansible # ansible --version
 ```bash
-/ansible # ansible --version
 ansible 2.10.17
   config file = None
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
