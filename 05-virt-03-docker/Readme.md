@@ -147,6 +147,8 @@ total 8
 
 1. Собрал Docker image с помощью Dockerfile (Версии ПО изменены на актуальные)
 
+docker build . -t my_ansible
+
 ```yaml
 FROM alpine:3.16
 
@@ -190,4 +192,40 @@ WORKDIR /ansible
 
 CMD [ "ansible-playbook", "--version" ]
 ``` 
+2. Запустил контейнер на базе собранного имиджа:       
+
+```bash
+root@debian11:~# docker run -d -it my_ansible sh
+3d787e3196b331435f64135d9fd634237a80d3eee74633cf02fa5f8bf0d811db
+root@debian11:~# docker ps
+CONTAINER ID   IMAGE        COMMAND   CREATED         STATUS         PORTS     NAMES
+3d787e3196b3   my_ansible   "sh"      7 seconds ago   Up 6 seconds             mystifying_poitras
+
+
+```
+Подключился к контейнеру:
+```bash
+root@debian11:~/ansible# docker exec -it 3d787e3196b3 sh
+```
+```bash
+/ansible # cat /etc/os-release
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.16.2
+PRETTY_NAME="Alpine Linux v3.16"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+
+```
+
+```bash
+/ansible # ansible --version
+ansible 2.10.17
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.10/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.5 (main, Jul 25 2022, 15:52:08) [GCC 11.2.1 20220219]
+
+```
 
