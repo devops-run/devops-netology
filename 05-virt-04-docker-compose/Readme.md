@@ -21,10 +21,15 @@ root@debian11:/packer# yc compute image list
 
 Создать вашу первую виртуальную машину в Яндекс.Облаке.
 
-Для получения зачета, вам необходимо предоставить:
-- Скриншот страницы свойств созданной ВМ, как на примере ниже:
+### Решение
 
-<p align="center"><img width="1200" height="600" src="./assets/yc_01.png"></p>
+```
+root@debian11:~/yandex-cloud# terraform --version
+Terraform v1.2.8
+on linux_amd64
+
+```
+<p align="center"><img src="./assets/2.png"></p>
 
 ## Задача 3
 
