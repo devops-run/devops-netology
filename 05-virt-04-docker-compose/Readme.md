@@ -6,7 +6,7 @@
 
 ### Решение
 
- <p align="center"><img width="1200" height="600" src="./Screenshot_1.png"></p>
+<p align="center"><img width="1200" height="600" src="./assets/Screenshot_1.png"></p>
 
 
 ## Задача 2
