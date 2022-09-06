@@ -6,7 +6,7 @@
 
 ### Решение
 
-<p align="center"><img width="1200" height="600" src="./assets/1.png"></p>
+<p align="center"><img src="./assets/1.png"></p>
 
 root@debian11:/packer# yc compute image list
 ```
