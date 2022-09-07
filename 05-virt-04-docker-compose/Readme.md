@@ -62,7 +62,7 @@ on linux_amd64
 
 <p align="center"><img src="./assets/5.png"></p>
 
-<p align="center"><img src="./assets/3.png"></p>
+<p align="center"><img src="./assets/6.png"></p>
 
 <p align="center"><img src="./assets/3.png"></p>        
 ---
