@@ -56,6 +56,14 @@ on linux_amd64
 4. Создал 2 вирт. машины в облаке.      
 5. "Развернул" docker и сервисы мониторинга на node1 c помощью ansible.
 6. Установил Prometheus и node exporter (получилость сделать только подключившись по SSH) на node2
-        
+
+
+<p align="center"><img src="./assets/55.png"></p>
+
+<p align="center"><img src="./assets/3.png"></p>
+
+<p align="center"><img src="./assets/3.png"></p>
+
+<p align="center"><img src="./assets/3.png"></p>        
 ---
 
