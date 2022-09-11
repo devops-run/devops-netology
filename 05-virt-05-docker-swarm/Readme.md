@@ -69,3 +69,12 @@ docker service ls
 # см.документацию: https://docs.docker.com/engine/swarm/swarm_manager_locking/
 docker swarm update --autolock=true
 ```
+### Решение
+```
+[root@node01 ~]# docker swarm update --autolock=true
+Swarm updated.
+To unlock a swarm manager after it restarts, run the `docker swarm unlock`
+command and provide the following key:
+
+    SWMKEY-1-V1hYjk7X2iOOiuvhku6R73An6DgXE2tfWnQI7Ztoizo
+```
