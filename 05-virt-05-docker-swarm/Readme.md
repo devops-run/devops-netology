@@ -44,10 +44,11 @@ overlay - Сетевой драйвер создает распределенн�
 ```
 docker node ls
 ```
-#### Решение    
+### Решение    
 
 <p align="center"><img src="./assets/1.png"></p>
 
+#### docker node ls
 <p align="center"><img src="./assets/3.png"></p>
 ## Задача 3
 
