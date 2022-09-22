@@ -34,24 +34,23 @@ services:
 ```
      
 ```
-root@ubuntu2204:~/postgres# psql -h 127.0.0.1 -U net -d net
-Password for user net:
+root@ubuntu2204:~/postgres# psql -h 127.0.0.1 -U postgres
 psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 12.12 (Debian 12.12-1.pgdg110+1))
 Type "help" for help.
 
-net=# \l
-                             List of databases
-   Name    | Owner | Encoding |  Collate   |   Ctype    | Access privileges
------------+-------+----------+------------+------------+-------------------
- net       | net   | UTF8     | en_US.utf8 | en_US.utf8 |
- postgres  | net   | UTF8     | en_US.utf8 | en_US.utf8 |
- template0 | net   | UTF8     | en_US.utf8 | en_US.utf8 | =c/net           +
-           |       |          |            |            | net=CTc/net
- template1 | net   | UTF8     | en_US.utf8 | en_US.utf8 | =c/net           +
-           |       |          |            |            | net=CTc/net
+postgres=# \l
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-----------+----------+----------+------------+------------+-----------------------
+ net       | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
 (4 rows)
 
-net=#
+postgres=#
 
 ```
 
