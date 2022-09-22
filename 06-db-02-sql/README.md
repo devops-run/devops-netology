@@ -32,7 +32,7 @@ services:
       - "5432:5432"
 
 ```
-psql -h 127.0.0.1 -U net -d net     
+     
 ```
 root@ubuntu2204:~/postgres# psql -h 127.0.0.1 -U net -d net
 Password for user net:
