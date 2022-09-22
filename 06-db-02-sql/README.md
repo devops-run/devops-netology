@@ -12,6 +12,26 @@
 
 Приведите получившуюся команду или docker-compose манифест.
 
+### Решение
+docker-compose.yml      
+
+```
+version: "3.9"
+services:
+  postgres:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: "net"
+      POSTGRES_USER: "net"
+      POSTGRES_PASSWORD: "net"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - .:/var/lib/postgresql/data
+      - ./backup:/backup
+    ports:
+      - "5432:5432"
+
+```
 ## Задача 2
 
 В БД из задачи 1: 
