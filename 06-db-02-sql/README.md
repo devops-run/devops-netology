@@ -32,6 +32,30 @@ services:
       - "5432:5432"
 
 ```
+psql -h 127.0.0.1 -U net -d net     
+```
+root@ubuntu2204:~/postgres# psql -h 127.0.0.1 -U net -d net
+Password for user net:
+psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 12.12 (Debian 12.12-1.pgdg110+1))
+Type "help" for help.
+
+net=# \l
+                             List of databases
+   Name    | Owner | Encoding |  Collate   |   Ctype    | Access privileges
+-----------+-------+----------+------------+------------+-------------------
+ net       | net   | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres  | net   | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | net   | UTF8     | en_US.utf8 | en_US.utf8 | =c/net           +
+           |       |          |            |            | net=CTc/net
+ template1 | net   | UTF8     | en_US.utf8 | en_US.utf8 | =c/net           +
+           |       |          |            |            | net=CTc/net
+(4 rows)
+
+net=#
+
+```
+
+
 ## Задача 2
 
 В БД из задачи 1: 
