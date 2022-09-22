@@ -22,8 +22,8 @@ services:
     image: postgres:12
     environment:
       POSTGRES_DB: "net"
-      POSTGRES_USER: "net"
-      POSTGRES_PASSWORD: "net"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
       - .:/var/lib/postgresql/data
