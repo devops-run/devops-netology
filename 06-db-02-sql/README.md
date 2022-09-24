@@ -292,17 +292,37 @@ test_db=# SELECT * FROM clients c JOIN orders o ON c.заказ = o.id;
 #### Решение
 
 ```sql
-test_db=# EXPLAIN SELECT c.* FROM clients c JOIN orders o ON c.заказ = o.id;
-                               QUERY PLAN
-------------------------------------------------------------------------
- Hash Join  (cost=37.00..57.24 rows=810 width=72)
+test_db=# EXPLAIN ANALYZE VERBOSE SELECT c.* FROM clients c JOIN orders o ON c.заказ = o.id;
+                                                       QUERY PLAN
+-------------------------------------------------------------------------------------------------------------------------
+ Hash Join  (cost=37.00..57.24 rows=810 width=72) (actual time=0.015..0.016 rows=3 loops=1)
+   Output: c.id, c."фамилия", c."страна проживания", c."заказ"
+   Inner Unique: true
    Hash Cond: (c."заказ" = o.id)
-   ->  Seq Scan on clients c  (cost=0.00..18.10 rows=810 width=72)
-   ->  Hash  (cost=22.00..22.00 rows=1200 width=4)
-         ->  Seq Scan on orders o  (cost=0.00..22.00 rows=1200 width=4)
-(5 rows)
+   ->  Seq Scan on public.clients c  (cost=0.00..18.10 rows=810 width=72) (actual time=0.005..0.006 rows=5 loops=1)
+         Output: c.id, c."фамилия", c."страна проживания", c."заказ"
+   ->  Hash  (cost=22.00..22.00 rows=1200 width=4) (actual time=0.005..0.005 rows=5 loops=1)
+         Output: o.id
+         Buckets: 2048  Batches: 1  Memory Usage: 17kB
+         ->  Seq Scan on public.orders o  (cost=0.00..22.00 rows=1200 width=4) (actual time=0.003..0.003 rows=5 loops=1)
+               Output: o.id
+ Planning Time: 0.061 ms
+ Execution Time: 0.027 ms
+(13 rows)
+
 
 ```
+
+Числа, перечисленные в скобках (слева направо), имеют следующий смысл:      
+
+Приблизительная стоимость запуска. Это время, которое проходит, прежде чем начнётся этап вывода данных, например для сортирующего узла это время сортировки.        
+        
+Приблизительная общая стоимость. Она вычисляется в предположении, что узел плана выполняется до конца, то есть возвращает все доступные строки. На практике родительский узел может досрочно прекратить чтение строк дочернего.     
+        
+Ожидаемое число строк, которое должен вывести этот узел плана. При этом так же предполагается, что узел выполняется до конца.       
+        
+Ожидаемый средний размер строк, выводимых этим узлом плана (в байтах).      
+
 
 
 ## Задача 6
