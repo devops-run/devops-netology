@@ -16,25 +16,30 @@
 docker-compose.yml      
 
 ```
-version: "3.9"
+version: '3.9'
+volumes:
+  data: {}
+  backup: {}
 services:
   postgres:
     image: postgres:12
+    container_name: postgres12
+    ports:
+      - "0.0.0.0:5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./backup:/backup
     environment:
-      POSTGRES_DB: "postgres"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      PGDATA: "/var/lib/postgresql/data/pgdata"
-    volumes:
-      - .:/var/lib/postgresql/data
-      - ./backup:/backup
-    ports:
-      - "5432:5432"
+      POSTGRES_DB: "run_db"
+    restart: always
 
 ```
      
 ```
 root@ubuntu2204:~/postgres# psql -h 127.0.0.1 -U postgres
+Password for user postgres:
 psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 12.12 (Debian 12.12-1.pgdg110+1))
 Type "help" for help.
 
@@ -43,13 +48,12 @@ postgres=# \l
    Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
 -----------+----------+----------+------------+------------+-----------------------
  postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ run_db    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
  template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
            |          |          |            |            | postgres=CTc/postgres
  template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
            |          |          |            |            | postgres=CTc/postgres
-(3 rows)
-
-postgres=#
+(4 rows)
 
 ```
 
