@@ -381,19 +381,22 @@ e23a610fbed8   postgres:12   "docker-entrypoint.s…"   4 minutes ago   Up 4 min
 root@ubuntu2204:~/postgres#
 
 ```
+#### Восстановление базы test_db из дампа   
+
 ```bash
 psql -h localhost -U test-admin-user -f backup/dumpall.sql test_db
 ```
-
+#### Проверка наличия таблиц в базе 
 ```sql
 test_db=# \dt
-             List of relations
+            List of relations
  Schema |  Name   | Type  |      Owner
 --------+---------+-------+-----------------
  public | clients | table | test-admin-user
  public | orders  | table | test-admin-user
 (2 rows)
 ```
+#### Проверка содержания таблиц
 ```
 test_db=# SELECT * FROM clients;
  id |       фамилия        | страна проживания | заказ
