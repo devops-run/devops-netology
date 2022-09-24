@@ -289,6 +289,22 @@ test_db=# SELECT * FROM clients c JOIN orders o ON c.заказ = o.id;
 
 Приведите получившийся результат и объясните что значат полученные значения.
 
+#### Решение
+
+```sql
+test_db=# EXPLAIN SELECT c.* FROM clients c JOIN orders o ON c.заказ = o.id;
+                               QUERY PLAN
+------------------------------------------------------------------------
+ Hash Join  (cost=37.00..57.24 rows=810 width=72)
+   Hash Cond: (c."заказ" = o.id)
+   ->  Seq Scan on clients c  (cost=0.00..18.10 rows=810 width=72)
+   ->  Hash  (cost=22.00..22.00 rows=1200 width=4)
+         ->  Seq Scan on orders o  (cost=0.00..22.00 rows=1200 width=4)
+(5 rows)
+
+```
+
+
 ## Задача 6
 
 Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. Задачу 1).
