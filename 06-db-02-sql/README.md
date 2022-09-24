@@ -385,5 +385,39 @@ root@ubuntu2204:~/postgres#
 psql -h localhost -U test-admin-user -f backup/dumpall.sql test_db
 ```
 
+```sql
+test_db=# \dt
+             List of relations
+ Schema |  Name   | Type  |      Owner
+--------+---------+-------+-----------------
+ public | clients | table | test-admin-user
+ public | orders  | table | test-admin-user
+(2 rows)
+```
+```
+test_db=# SELECT * FROM clients;
+ id |       фамилия        | страна проживания | заказ
+----+----------------------+-------------------+-------
+  4 | Ронни Джеймс Дио     | Russia            |
+  5 | Ritchie Blackmore    | Russia            |
+  1 | Иванов Иван Иванович | USA               |     3
+  2 | Петров Петр Петрович | Canada            |     4
+  3 | Иоганн Себастьян Бах | Japan             |     5
+(5 rows)
+
+```
+```
+test_db=# SELECT * FROM orders;
+ id | наименование | цена
+----+--------------+------
+  1 | Шоколад      |   10
+  2 | Принтер      | 3000
+  3 | Книга        |  500
+  4 | Монитор      | 7000
+  5 | Гитара       | 4000
+(5 rows)
+
+```
+
 
 
