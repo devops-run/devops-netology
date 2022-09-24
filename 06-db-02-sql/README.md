@@ -332,4 +332,12 @@ test_db=# EXPLAIN ANALYZE SELECT * FROM clients c JOIN orders o ON c.заказ 
 
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
 
+#### Решение    
+```bash 
 
+root@ubuntu2204:~/postgres# pwd
+/root/postgres
+root@ubuntu2204:~/postgres# export PGPASSWORD=netology && pg_dumpall -h localhost -U test-admin-user > ./backup/dumpall.sql
+root@ubuntu2204:~/postgres#
+
+```
