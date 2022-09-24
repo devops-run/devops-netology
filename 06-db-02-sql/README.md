@@ -131,7 +131,45 @@ test_db=#
 
 <p align="center"><img src="./content/3.png"></p>
 
+#### Вывод SQL запроса c правами юзеров на таблицы      
+```
+test_db=# SELECT
+    grantee, table_name, privilege_type
+FROM
+    information_schema.table_privileges
+WHERE
+    grantee in ('test-admin-user','test-simple-user')
+    and table_name in ('clients','orders')
+order by
+    1,2,3;
+------------------------------------------------
+     grantee      | table_name | privilege_type
+------------------+------------+----------------
+ test-admin-user  | clients    | DELETE
+ test-admin-user  | clients    | INSERT
+ test-admin-user  | clients    | REFERENCES
+ test-admin-user  | clients    | SELECT
+ test-admin-user  | clients    | TRIGGER
+ test-admin-user  | clients    | TRUNCATE
+ test-admin-user  | clients    | UPDATE
+ test-admin-user  | orders     | DELETE
+ test-admin-user  | orders     | INSERT
+ test-admin-user  | orders     | REFERENCES
+ test-admin-user  | orders     | SELECT
+ test-admin-user  | orders     | TRIGGER
+ test-admin-user  | orders     | TRUNCATE
+ test-admin-user  | orders     | UPDATE
+ test-simple-user | clients    | DELETE
+ test-simple-user | clients    | INSERT
+ test-simple-user | clients    | SELECT
+ test-simple-user | clients    | UPDATE
+ test-simple-user | orders     | DELETE
+ test-simple-user | orders     | INSERT
+ test-simple-user | orders     | SELECT
+ test-simple-user | orders     | UPDATE
+(22 rows)
 
+```
 ## Задача 3
 
 Используя SQL синтаксис - наполните таблицы следующими тестовыми данными:
