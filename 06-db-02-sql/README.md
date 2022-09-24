@@ -12,12 +12,11 @@
 
 Приведите получившуюся команду или docker-compose манифест.
 
-### Решение
-
-docker-compose.yml      
+### Решение      
 
 #### docker-compose up -d              
 
+docker-compose.yml
 ```yaml
 version: '3.9'
 services:
