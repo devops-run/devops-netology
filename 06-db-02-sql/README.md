@@ -354,22 +354,30 @@ root@ubuntu2204:~/postgres#
 root@ubuntu2204:~/postgres# docker container stop postgres12
 postgres12
 ```
+
+#### запуск нового контейнера
 ```bash
-root@ubuntu2204:~/postgres# docker run -d -e POSTGRES_USER=test-admin-user -e POSTGRES_PASSWORD=netology -e POSTGRES_DB=test_db --name postgres12-from_backup postgres:12
-d5fd9b137f068fb70e20981ff031bc87ba05e8c3dc4c2e38bb77f67b2fc903c6
-root@ubuntu2204:~/postgres# docker ps
-CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS      NAMES
-d5fd9b137f06   postgres:12   "docker-entrypoint.s…"   8 seconds ago   Up 7 seconds   5432/tcp   postgres12-from_backup
-root@ubuntu2204:~/postgres#
+version: '3.9'
+services:
+  postgres:
+    image: postgres:12
+    container_name: postgres12-2
+    ports:
+      - "0.0.0.0:5432:5432"
+    volumes:
+      - ./backup:/backup
+    environment:
+      POSTGRES_USER: "test-admin-user"
+      POSTGRES_PASSWORD: "netology"
+      POSTGRES_DB: "test_db"
+    restart: always
+
 ```
 ```bash
-root@ubuntu2204:~/postgres# docker run --rm -d -e POSTGRES_USER=test-admin-user -e POSTGRES_PASSWORD=netology -e POSTGRES_DB=test_db -v backup:/backup --name second-base postgres:12
-5212de835cadc0726bb0857baf1f76ed5f21312149d96d4228965bff3d298631        
-
-root@ubuntu2204:~/postgres# docker ps -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS                      PORTS      NAMES
-5212de835cad   postgres:12   "docker-entrypoint.s…"   About a minute ago   Up About a minute           5432/tcp   second-base
-405d954def79   postgres:12   "docker-entrypoint.s…"   3 hours ago          Exited (0) 18 minutes ago              postgres12
+root@ubuntu2204:~/postgres# docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS                    NAMES
+e23a610fbed8   postgres:12   "docker-entrypoint.s…"   4 minutes ago   Up 4 minutes   0.0.0.0:5432->5432/tcp   postgres12-2
+405d954def79   postgres:12   "docker-entrypoint.s…"   3 hours ago          Exited (0) 18 minutes ago          postgres12
 root@ubuntu2204:~/postgres#
 
 ```
