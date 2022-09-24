@@ -124,6 +124,9 @@ test_db=# GRANT SELECT, INSERT, UPDATE, DELETE ON orders, clients TO "test-simpl
 GRANT
 test_db=#
 ```
+<p align="center"><img src="./content/2.png"></p>
+
+<p align="center"><img src="./content/3.png"></p>
 
 
 ## Задача 3
