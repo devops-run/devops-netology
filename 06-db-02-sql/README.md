@@ -86,6 +86,8 @@ test_db=#
 
 ### Решение
 Подключаемся к базе, создаём таблички
+psql -h 127.0.0.1 -U test-admin-user -d test_db     
+
 ```sql
 test_db=# CREATE TABLE orders (
     id SERIAL,
@@ -107,6 +109,8 @@ test_db=# CREATE TABLE clients (
 );
 CREATE TABLE
 ```
+
+
 
 ## Задача 3
 
