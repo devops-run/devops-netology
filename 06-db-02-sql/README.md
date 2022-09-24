@@ -381,4 +381,9 @@ e23a610fbed8   postgres:12   "docker-entrypoint.s…"   4 minutes ago   Up 4 min
 root@ubuntu2204:~/postgres#
 
 ```
+```bash
+psql -h localhost -U test-admin-user -f backup/dumpall.sql test_db
+```
+
+
 
