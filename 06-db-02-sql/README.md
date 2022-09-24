@@ -332,12 +332,28 @@ test_db=# EXPLAIN ANALYZE SELECT * FROM clients c JOIN orders o ON c.заказ 
 
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
 
-#### Решение    
+#### Решение 
+   
 ```bash 
 
 root@ubuntu2204:~/postgres# pwd
 /root/postgres
 root@ubuntu2204:~/postgres# export PGPASSWORD=netology && pg_dumpall -h localhost -U test-admin-user > ./backup/dumpall.sql
 root@ubuntu2204:~/postgres#
+```
+
+```bash
+oot@ubuntu2204:~/postgres# docker ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED       STATUS       PORTS                    NAMES
+405d954def79   postgres:12   "docker-entrypoint.s…"   3 hours ago   Up 3 hours   0.0.0.0:5432->5432/tcp   postgres12
+root@ubuntu2204:~/postgres#
 
 ```
+
+```bash
+root@ubuntu2204:~/postgres# docker container stop postgres12
+postgres12
+```
+
+
+
