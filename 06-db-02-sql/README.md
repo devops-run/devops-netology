@@ -292,23 +292,18 @@ test_db=# SELECT * FROM clients c JOIN orders o ON c.заказ = o.id;
 #### Решение
 
 ```sql
-test_db=# EXPLAIN ANALYZE VERBOSE SELECT c.* FROM clients c JOIN orders o ON c.заказ = o.id;
-                                                       QUERY PLAN
--------------------------------------------------------------------------------------------------------------------------
- Hash Join  (cost=37.00..57.24 rows=810 width=72) (actual time=0.015..0.016 rows=3 loops=1)
-   Output: c.id, c."фамилия", c."страна проживания", c."заказ"
-   Inner Unique: true
+test_db=# EXPLAIN ANALYZE SELECT * FROM clients c JOIN orders o ON c.заказ = o.id;
+                                                    QUERY PLAN
+-------------------------------------------------------------------------------------------------------------------
+ Hash Join  (cost=37.00..57.24 rows=810 width=112) (actual time=0.015..0.016 rows=3 loops=1)
    Hash Cond: (c."заказ" = o.id)
-   ->  Seq Scan on public.clients c  (cost=0.00..18.10 rows=810 width=72) (actual time=0.005..0.006 rows=5 loops=1)
-         Output: c.id, c."фамилия", c."страна проживания", c."заказ"
-   ->  Hash  (cost=22.00..22.00 rows=1200 width=4) (actual time=0.005..0.005 rows=5 loops=1)
-         Output: o.id
+   ->  Seq Scan on clients c  (cost=0.00..18.10 rows=810 width=72) (actual time=0.005..0.006 rows=5 loops=1)
+   ->  Hash  (cost=22.00..22.00 rows=1200 width=40) (actual time=0.004..0.005 rows=5 loops=1)
          Buckets: 2048  Batches: 1  Memory Usage: 17kB
-         ->  Seq Scan on public.orders o  (cost=0.00..22.00 rows=1200 width=4) (actual time=0.003..0.003 rows=5 loops=1)
-               Output: o.id
- Planning Time: 0.061 ms
+         ->  Seq Scan on orders o  (cost=0.00..22.00 rows=1200 width=40) (actual time=0.002..0.002 rows=5 loops=1)
+ Planning Time: 0.075 ms
  Execution Time: 0.027 ms
-(13 rows)
+(8 rows)
 
 
 ```
