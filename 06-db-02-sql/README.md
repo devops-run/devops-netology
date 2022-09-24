@@ -354,6 +354,13 @@ root@ubuntu2204:~/postgres#
 root@ubuntu2204:~/postgres# docker container stop postgres12
 postgres12
 ```
-
+```bash
+root@ubuntu2204:~/postgres# docker run -d -e POSTGRES_USER=test-admin-user -e POSTGRES_PASSWORD=netology -e POSTGRES_DB=test_db --name postgres12-from_backup postgres:12
+d5fd9b137f068fb70e20981ff031bc87ba05e8c3dc4c2e38bb77f67b2fc903c6
+root@ubuntu2204:~/postgres# docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS      NAMES
+d5fd9b137f06   postgres:12   "docker-entrypoint.s…"   8 seconds ago   Up 7 seconds   5432/tcp   postgres12-from_backup
+root@ubuntu2204:~/postgres#
+```
 
 
