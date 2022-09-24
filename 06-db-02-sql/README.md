@@ -84,6 +84,29 @@ test_db=#
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 - список пользователей с правами над таблицами test_db
 
+### Решение
+```sql
+test_db=# CREATE TABLE orders (
+    id SERIAL,
+    наименование VARCHAR,
+    цена INTEGER,
+    PRIMARY KEY (id)
+);
+CREATE TABLE
+
+test_db=# CREATE TABLE clients (
+    id SERIAL,
+    фамилия VARCHAR,
+    "страна проживания" VARCHAR,
+    заказ INTEGER,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_заказ
+      FOREIGN KEY(заказ)
+            REFERENCES orders(id)
+);
+CREATE TABLE
+```
+
 ## Задача 3
 
 Используя SQL синтаксис - наполните таблицы следующими тестовыми данными:
