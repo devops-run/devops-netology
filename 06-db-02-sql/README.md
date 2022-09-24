@@ -362,5 +362,15 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS    
 d5fd9b137f06   postgres:12   "docker-entrypoint.s…"   8 seconds ago   Up 7 seconds   5432/tcp   postgres12-from_backup
 root@ubuntu2204:~/postgres#
 ```
+```bash
+root@ubuntu2204:~/postgres# docker run --rm -d -e POSTGRES_USER=test-admin-user -e POSTGRES_PASSWORD=netology -e POSTGRES_DB=test_db -v backup:/backup --name second-base postgres:12
+5212de835cadc0726bb0857baf1f76ed5f21312149d96d4228965bff3d298631        
 
+root@ubuntu2204:~/postgres# docker ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS                      PORTS      NAMES
+5212de835cad   postgres:12   "docker-entrypoint.s…"   About a minute ago   Up About a minute           5432/tcp   second-base
+405d954def79   postgres:12   "docker-entrypoint.s…"   3 hours ago          Exited (0) 18 minutes ago              postgres12
+root@ubuntu2204:~/postgres#
+
+```
 
