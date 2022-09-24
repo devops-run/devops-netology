@@ -124,7 +124,10 @@ test_db=# GRANT SELECT, INSERT, UPDATE, DELETE ON orders, clients TO "test-simpl
 GRANT
 test_db=#
 ```
+#### Листинг всех баз
 <p align="center"><img src="./content/2.png"></p>
+
+#### Сожержание таблиц orders, clients
 
 <p align="center"><img src="./content/3.png"></p>
 
