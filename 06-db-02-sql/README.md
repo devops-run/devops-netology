@@ -374,7 +374,7 @@ services:
 
 ```
 ```bash
-root@ubuntu2204:~/postgres# docker ps
+root@ubuntu2204:~/postgres# docker ps -a
 CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS                    NAMES
 e23a610fbed8   postgres:12   "docker-entrypoint.s…"   4 minutes ago   Up 4 minutes   0.0.0.0:5432->5432/tcp   postgres12-2
 405d954def79   postgres:12   "docker-entrypoint.s…"   3 hours ago          Exited (0) 18 minutes ago          postgres12
