@@ -15,11 +15,8 @@
 ### Решение
 docker-compose.yml      
 
-```
+```yaml
 version: '3.9'
-volumes:
-  data: {}
-  backup: {}
 services:
   postgres:
     image: postgres:12
@@ -30,11 +27,10 @@ services:
       - ./data:/var/lib/postgresql/data
       - ./backup:/backup
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "run_db"
+      POSTGRES_USER: "test-admin-user"
+      POSTGRES_PASSWORD: "netology"
+      POSTGRES_DB: "test_db"
     restart: always
-
 ```
      
 ```
