@@ -318,7 +318,7 @@ test_db=# EXPLAIN ANALYZE SELECT * FROM clients c JOIN orders o ON c.заказ 
         
 Ожидаемый средний размер строк, выводимых этим узлом плана (в байтах).      
 
-
+использовал информацию с https://postgrespro.ru/docs/postgrespro/9.5/using-explain  
 
 ## Задача 6
 
