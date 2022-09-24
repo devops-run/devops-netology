@@ -14,8 +14,9 @@
 
 ### Решение
 
-#### docker-compose up -d        
 docker-compose.yml      
+
+#### docker-compose up -d              
 
 ```yaml
 version: '3.9'
