@@ -109,7 +109,21 @@ test_db=# CREATE TABLE clients (
 );
 CREATE TABLE
 ```
-
+```
+test_db=# CREATE INDEX ON clients("страна проживания");
+CREATE INDEX
+test_db=# GRANT ALL ON TABLE orders, clients TO "test-admin-user";
+GRANT
+test_db=# CREATE USER "test-simple-user" WITH PASSWORD 'netology';
+CREATE ROLE
+test_db=# GRANT CONNECT ON DATABASE test_db TO "test-simple-user";
+GRANT
+test_db=# GRANT USAGE ON SCHEMA public TO "test-simple-user";
+GRANT
+test_db=# GRANT SELECT, INSERT, UPDATE, DELETE ON orders, clients TO "test-simple-user";
+GRANT
+test_db=#
+```
 
 
 ## Задача 3
