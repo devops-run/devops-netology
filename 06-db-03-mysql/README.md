@@ -50,7 +50,7 @@ volumes:
 ```
 2. Восстановил базу из дампа test_dump.sql     
 
-```bash
+```
 mysql# mysql -u root -h 127.0.0.1 -p test_db < test_dump.sql
 
 ```
@@ -71,7 +71,7 @@ mysql> show databases;
 
 mysql>
 ```
-```bash
+```
 mysql> status;
 --------------
 mysql  Ver 8.0.30-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
@@ -100,7 +100,24 @@ Threads: 2  Questions: 42  Slow queries: 0  Opens: 164  Flush tables: 3  Open ta
 mysql>
 
 ```
+4. Переключился на базу и вывел список таблиц
 
+```
+mysql> use test_db;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_test_db |
++-------------------+
+| orders            |
++-------------------+
+1 row in set (0.00 sec)
+
+
+```
 
 ## Задача 2
 
