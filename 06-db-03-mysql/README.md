@@ -25,6 +25,8 @@
 В следующих заданиях мы будем продолжать работу с данным контейнером.
 
 #### Решение
+Запустил контейнер с экземпляром MySQL v.8      
+    
 docker-compose.yml  
 ```yaml
 version: '3.9'
@@ -46,7 +48,13 @@ volumes:
   dbdata:
 
 ```
+Восстановил базу из дампа test_dump.sql     
 
+```bash
+root@ubuntu2204:~/mysql# mysql -u root -p test_db < test_dump.sql
+Enter password:
+
+```
 ## Задача 2
 
 Создайте пользователя test в БД c паролем test-pass, используя:
