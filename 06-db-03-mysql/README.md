@@ -51,8 +51,7 @@ volumes:
 Восстановил базу из дампа test_dump.sql     
 
 ```bash
-root@ubuntu2204:~/mysql# mysql -u root -p test_db < test_dump.sql
-Enter password:
+mysql# mysql -u root -h 127.0.0.1 -p test_db < test_dump.sql
 
 ```
 ## Задача 2
