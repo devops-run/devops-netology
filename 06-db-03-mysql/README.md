@@ -140,6 +140,12 @@ mysql> SELECT price FROM orders WHERE price > 300;
     - Фамилия "Pretty"
     - Имя "James"
 
+Предоставьте привелегии пользователю `test` на операции SELECT базы `test_db`.
+
+Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю `test` и
+**приведите в ответе к задаче**.
+
+
 #### Решение
 1. Создал юзера     
 ```
@@ -182,10 +188,6 @@ Query OK, 0 rows affected (0.02 sec)
 
 
 
-Предоставьте привелегии пользователю `test` на операции SELECT базы `test_db`.
-    
-Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю `test` и 
-**приведите в ответе к задаче**.
 
 ## Задача 3
 
