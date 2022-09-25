@@ -251,9 +251,33 @@ Max_data_length: 0
 
 ```
 
-3. 
+3. Сделал запрос на переключение ENGINE и вывел статус 
 ```
+mysql> ALTER TABLE orders ENGINE = MyISAM;
+Query OK, 5 rows affected (0.09 sec)
+Records: 5  Duplicates: 0  Warnings: 0
 
+mysql> SHOW TABLE STATUS WHERE Name = 'orders'\G;
+*************************** 1. row ***************************
+           Name: orders
+         Engine: MyISAM
+        Version: 10
+     Row_format: Dynamic
+           Rows: 5
+ Avg_row_length: 3276
+    Data_length: 16384
+Max_data_length: 0
+   Index_length: 0
+      Data_free: 0
+ Auto_increment: 6
+    Create_time: 2022-09-25 10:23:53
+    Update_time: 2022-09-25 09:24:51
+     Check_time: NULL
+      Collation: utf8mb4_0900_ai_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
 
 ```
 
