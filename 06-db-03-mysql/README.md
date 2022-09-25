@@ -71,7 +71,35 @@ mysql> show databases;
 
 mysql>
 ```
+```bash
+mysql> status;
+--------------
+mysql  Ver 8.0.30-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
 
+Connection id:          11
+Current database:
+Current user:           root@172.18.0.1
+SSL:                    Cipher in use is TLS_AES_256_GCM_SHA384
+Current pager:          stdout
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         8.0.30 MySQL Community Server - GPL
+Protocol version:       10
+Connection:             127.0.0.1 via TCP/IP
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    utf8mb4
+Conn.  characterset:    utf8mb4
+TCP port:               3306
+Binary data as:         Hexadecimal
+Uptime:                 26 min 51 sec
+
+Threads: 2  Questions: 42  Slow queries: 0  Opens: 164  Flush tables: 3  Open tables: 82  Queries per second avg: 0.026
+--------------
+
+mysql>
+
+```
 
 
 ## Задача 2
