@@ -348,6 +348,62 @@ mysql> SHOW PROFILE FOR QUERY 17;
 
 ```
 
+6. Вернул  движок на InnoDB
+```
+mysql> ALTER TABLE orders ENGINE = InnoDB;
+Query OK, 5 rows affected (0.12 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+```
+7. Вывод профилирования команд
+
+```
+mysql> SHOW PROFILES;
++----------+------------+--------------------------------------------+
+| Query_ID | Duration   | Query                                      |
++----------+------------+--------------------------------------------+
+|        1 | 0.00026075 | select price from orders where price > 300 |
+|        2 | 0.00077700 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|        3 | 0.10115475 | ALTER TABLE orders ENGINE = InnoDB         |
++----------+------------+--------------------------------------------+
+3 rows in set, 1 warning (0.00 sec)
+
+mysql> SHOW PROFILE FOR QUERY 3;
++--------------------------------+----------+
+| Status                         | Duration |
++--------------------------------+----------+
+| starting                       | 0.000034 |
+| Executing hook on transaction  | 0.000005 |
+| starting                       | 0.000013 |
+| checking permissions           | 0.000005 |
+| checking permissions           | 0.000004 |
+| init                           | 0.000007 |
+| Opening tables                 | 0.000097 |
+| setup                          | 0.000027 |
+| creating table                 | 0.000055 |
+| After create                   | 0.048726 |
+| System lock                    | 0.000009 |
+| copy to tmp table              | 0.000098 |
+| rename result table            | 0.000486 |
+| waiting for handler commit     | 0.000008 |
+| waiting for handler commit     | 0.010797 |
+| waiting for handler commit     | 0.000007 |
+| waiting for handler commit     | 0.021924 |
+| waiting for handler commit     | 0.000008 |
+| waiting for handler commit     | 0.004080 |
+| waiting for handler commit     | 0.000007 |
+| waiting for handler commit     | 0.008066 |
+| end                            | 0.000208 |
+| query end                      | 0.006100 |
+| closing tables                 | 0.000006 |
+| waiting for handler commit     | 0.000206 |
+| freeing items                  | 0.000167 |
+| cleaning up                    | 0.000009 |
++--------------------------------+----------+
+27 rows in set, 1 warning (0.00 sec)
+
+```
+
 
 ## Задача 4 
 
@@ -361,5 +417,7 @@ mysql> SHOW PROFILE FOR QUERY 17;
 - Размер файла логов операций 100 Мб
 
 Приведите в ответе измененный файл `my.cnf`.
+
+docker exec -ti mysql-8 /bin/bash
 
 ---
