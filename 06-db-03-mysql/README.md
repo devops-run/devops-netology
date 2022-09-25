@@ -212,6 +212,36 @@ mysql>
 - на `MyISAM`
 - на `InnoDB`
 
+### Решение
+
+1. Включил режим  profiling  
+```
+mysql> SET profiling = 1;
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+```
+2. 
+```
+
+```
+
+2.
+```
+
+```
+
+2.
+```
+
+```
+
+2.
+```
+
+```
+
+
+
 ## Задача 4 
 
 Изучите файл `my.cnf` в директории /etc/mysql.
