@@ -186,7 +186,19 @@ mysql> GRANT SELECT ON test_db.* TO 'test'@'127.0.0.1';
 Query OK, 0 rows affected (0.02 sec)
 ```
 
+7. Информация о пользователе test    
+```
+mysql> SELECT * FROM INFORMATION_SCHEMA.USER_ATTRIBUTES WHERE USER = 'test';
++------+-----------+-------------------------------------------------+
+| USER | HOST      | ATTRIBUTE                                       |
++------+-----------+-------------------------------------------------+
+| test | 127.0.0.1 | {"Имя": "James", "Фамилия": "Pretty"}           |
++------+-----------+-------------------------------------------------+
+1 row in set (0.00 sec)
 
+mysql>
+
+```
 
 
 ## Задача 3
