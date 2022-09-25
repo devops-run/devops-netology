@@ -140,6 +140,38 @@ mysql> SELECT price FROM orders WHERE price > 300;
     - Фамилия "Pretty"
     - Имя "James"
 
+#### Решение
+1. Создал юзера     
+```
+Database changed
+mysql> CREATE USER 'test'@'127.0.0.1' IDENTIFIED WITH mysql_native_password BY 'test-pass';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql>
+
+```
+2. 
+```
+
+```
+
+3.
+```
+
+```
+
+4.
+```
+
+```
+
+5.
+```
+
+```
+
+
+
 Предоставьте привелегии пользователю `test` на операции SELECT базы `test_db`.
     
 Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю `test` и 
