@@ -147,27 +147,37 @@ Database changed
 mysql> CREATE USER 'test'@'127.0.0.1' IDENTIFIED WITH mysql_native_password BY 'test-pass';
 Query OK, 0 rows affected (0.02 sec)
 
-mysql>
-
 ```
-2. 
+2. Задал срок истечения пароля   
 ```
-
-```
-
-3.
-```
+mysql> ALTER USER 'test'@'127.0.0.1' PASSWORD EXPIRE INTERVAL 180 DAY;
+Query OK, 0 rows affected (0.01 sec)
 
 ```
 
-4.
+3. Задал кол-во попыток неверной авторизации    
 ```
+mysql> ALTER USER 'test'@'127.0.0.1' FAILED_LOGIN_ATTEMPTS 3 PASSWORD_LOCK_TIME 2;
+Query OK, 0 rows affected (0.01 sec)
 
 ```
 
-5.
+4. Задал максимальное кол-во запросов в час
+```
+mysql> ALTER USER 'test'@'127.0.0.1' WITH MAX_QUERIES_PER_HOUR 100;
+Query OK, 0 rows affected (0.02 sec)
 ```
 
+5. Задал атрибуты для пользователя  
+```
+mysql> ALTER USER 'test'@'127.0.0.1' ATTRIBUTE '{"Фамилия": "Pretty", "Имя": "James"}';
+Query OK, 0 rows affected (0.02 sec)
+```
+
+6. Дал права SELECT на все таблицы базы test_db     
+```
+mysql> GRANT SELECT ON test_db.* TO 'test'@'127.0.0.1';
+Query OK, 0 rows affected (0.02 sec)
 ```
 
 
