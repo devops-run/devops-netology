@@ -116,9 +116,19 @@ mysql> show tables;
 +-------------------+
 1 row in set (0.00 sec)
 
+```
+5. Сделал запрос SELECT 
 
 ```
+mysql> SELECT price FROM orders WHERE price > 300;
++-------+
+| price |
++-------+
+|   500 |
++-------+
+1 row in set (0.00 sec)
 
+```
 ## Задача 2
 
 Создайте пользователя test в БД c паролем test-pass, используя:
