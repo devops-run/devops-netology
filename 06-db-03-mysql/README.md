@@ -418,6 +418,45 @@ mysql> SHOW PROFILE FOR QUERY 3;
 
 Приведите в ответе измененный файл `my.cnf`.
 
-docker exec -ti mysql-8 /bin/bash
+#### Решение
+
+```
+[mysqld]
+innodb_flush_log_at_trx_commit = 2
+innodb_file_per_table = ON
+innodb_log_buffer_size = 1M
+innodb_buffer_pool_size = 2048M
+innodb_log_file_size = 100M
+#
+# innodb_buffer_pool_size = 128M
+#
+# Remove leading # to turn on a very important data integrity option: logging
+# changes to the binary log between backups.
+# log_bin
+#
+# The server defaults are faster for transactions and fast SELECTs.
+# Adjust sizes as needed, experiment to find the optimal values.
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+
+# Remove leading # to revert to previous value for default_authentication_plugin,
+# this will increase compatibility with older clients. For background, see:
+# https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin
+# default-authentication-plugin=mysql_native_password
+skip-host-cache
+skip-name-resolve
+datadir=/var/lib/mysql
+socket=/var/run/mysqld/mysqld.sock
+secure-file-priv=/var/lib/mysql-files
+user=mysql
+
+pid-file=/var/run/mysqld/mysqld.pid
+[client]
+socket=/var/run/mysqld/mysqld.sock
+
+!includedir /etc/mysql/conf.d/
+
+```
 
 ---
