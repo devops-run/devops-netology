@@ -281,16 +281,72 @@ Max_data_length: 0
 
 ```
 
-2.
+4. Вывод профилирования команд  
 ```
+mysql> SHOW PROFILES;
++----------+------------+--------------------------------------------+
+| Query_ID | Duration   | Query                                      |
++----------+------------+--------------------------------------------+
+|        5 | 0.00015825 | SELECT DATABASE()                          |
+|        6 | 0.00045525 | show databases                             |
+|        7 | 0.00058725 | show tables                                |
+|        8 | 0.01287250 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|        9 | 0.00075050 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|       10 | 0.00078150 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|       11 | 0.00079325 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|       12 | 0.00018625 | SELECT DATABASE()                          |
+|       13 | 0.00078125 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|       14 | 0.00073100 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|       15 | 0.00015400 | SELECT DATABASE()                          |
+|       16 | 0.00080475 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|       17 | 0.08597275 | ALTER TABLE orders ENGINE = MyISAM         |
+|       18 | 0.00087625 | SHOW TABLE STATUS WHERE Name = 'orders'    |
+|       19 | 0.00028475 | select price from orders where price > 300 |
++----------+------------+--------------------------------------------+
+15 rows in set, 1 warning (0.00 sec)
 
 ```
 
-2.
+5. Статистика по Query_ID 17 (смена движка ALTER TABLE orders ENGINE = MyISAM)
 ```
+mysql> SHOW PROFILE FOR QUERY 17;
++--------------------------------+----------+
+| Status                         | Duration |
++--------------------------------+----------+
+| starting                       | 0.000032 |
+| Executing hook on transaction  | 0.000004 |
+| starting                       | 0.000013 |
+| checking permissions           | 0.000005 |
+| checking permissions           | 0.000004 |
+| init                           | 0.000007 |
+| Opening tables                 | 0.000197 |
+| setup                          | 0.000079 |
+| creating table                 | 0.000401 |
+| waiting for handler commit     | 0.000006 |
+| waiting for handler commit     | 0.011548 |
+| After create                   | 0.000304 |
+| System lock                    | 0.000007 |
+| copy to tmp table              | 0.000093 |
+| waiting for handler commit     | 0.000006 |
+| waiting for handler commit     | 0.000007 |
+| waiting for handler commit     | 0.000030 |
+| rename result table            | 0.000053 |
+| waiting for handler commit     | 0.021365 |
+| waiting for handler commit     | 0.000007 |
+| waiting for handler commit     | 0.005987 |
+| waiting for handler commit     | 0.000007 |
+| waiting for handler commit     | 0.023101 |
+| waiting for handler commit     | 0.000008 |
+| waiting for handler commit     | 0.003436 |
+| end                            | 0.012212 |
+| query end                      | 0.006980 |
+| closing tables                 | 0.000006 |
+| waiting for handler commit     | 0.000011 |
+| freeing items                  | 0.000049 |
+| cleaning up                    | 0.000011 |
++--------------------------------+----------+
 
 ```
-
 
 
 ## Задача 4 
