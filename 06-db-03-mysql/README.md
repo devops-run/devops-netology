@@ -24,6 +24,29 @@
 
 В следующих заданиях мы будем продолжать работу с данным контейнером.
 
+#### Решение
+docker-compose.yml  
+```yaml
+version: '3.9'
+services:
+  db:
+    image: mysql:8
+    container_name: mysql-8
+    environment:
+      MYSQL_ROOT_PASSWORD: 1PassW0rd!
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1passW0rd!
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./dbdata:/var/lib/mysql
+volumes:
+  dbdata:
+
+```
+
 ## Задача 2
 
 Создайте пользователя test в БД c паролем test-pass, используя:
