@@ -422,11 +422,12 @@ mysql> SHOW PROFILE FOR QUERY 3;
 
 ```
 [mysqld]
-innodb_flush_log_at_trx_commit = 2
-innodb_file_per_table = ON
-innodb_log_buffer_size = 1M
-innodb_buffer_pool_size = 2048M
-innodb_log_file_size = 100M
+innodb_flush_log_at_trx_commit = 2  # Скорость IO важнее сохранности данных 
+innodb_file_per_table = ON          # Компрессия таблиц для экономии места на диске   
+innodb_log_buffer_size = 1M         # Размер буффера, в который помещаются транзакции в незакомиченном
+состоянии.
+innodb_buffer_pool_size = 2048M     # Размер буффера кеширования данных и индексов
+innodb_log_file_size = 100M         # Размер файла-лога операций
 #
 # innodb_buffer_pool_size = 128M
 #
