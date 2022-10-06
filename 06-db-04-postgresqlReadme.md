@@ -36,7 +36,82 @@ services:
 
 ```
 docker-compose up -d
+psql -h 127.0.0.1 -U admin -d test_db
 
+- вывода списка БД  
+```
+test_db=# \l
+                             List of databases
+   Name    | Owner | Encoding |  Collate   |   Ctype    | Access privileges
+-----------+-------+----------+------------+------------+-------------------
+ postgres  | admin | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | admin | UTF8     | en_US.utf8 | en_US.utf8 | =c/admin         +
+           |       |          |            |            | admin=CTc/admin
+ template1 | admin | UTF8     | en_US.utf8 | en_US.utf8 | =c/admin         +
+           |       |          |            |            | admin=CTc/admin
+ test_db   | admin | UTF8     | en_US.utf8 | en_US.utf8 |
+(4 rows)
+
+```
+- подключения к БД
+postgres=# \c postgres
+psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 13.8 (Debian 13.8-1.pgdg110+1))
+You are now connected to database "postgres" as user "admin".
+
+- вывода списка таблиц
+
+postgres=# \dtS
+ 
+```
+postgres=# \dtS
+                  List of relations
+   Schema   |          Name           | Type  | Owner
+------------+-------------------------+-------+-------
+ pg_catalog | pg_aggregate            | table | admin
+ pg_catalog | pg_am                   | table | admin
+ pg_catalog | pg_amop                 | table | admin
+ pg_catalog | pg_amproc               | table | admin
+ pg_catalog | pg_attrdef              | table | admin
+
+```
+- вывода описания содержимого таблиц
+postgres=# \dS+ pg_aggregate
+```
+                                   Table "pg_catalog.pg_aggregate"
+      Column      |   Type   | Collation | Nullable | Default | Storage  | Stats target | Description
+------------------+----------+-----------+----------+---------+----------+--------------+-------------
+ aggfnoid         | regproc  |           | not null |         | plain    |              |
+ aggkind          | "char"   |           | not null |         | plain    |              |
+ aggnumdirectargs | smallint |           | not null |         | plain    |              |
+ aggtransfn       | regproc  |           | not null |         | plain    |              |
+ aggfinalfn       | regproc  |           | not null |         | plain    |              |
+ aggcombinefn     | regproc  |           | not null |         | plain    |              |
+ aggserialfn      | regproc  |           | not null |         | plain    |              |
+ aggdeserialfn    | regproc  |           | not null |         | plain    |              |
+ aggmtransfn      | regproc  |           | not null |         | plain    |              |
+ aggminvtransfn   | regproc  |           | not null |         | plain    |              |
+ aggmfinalfn      | regproc  |           | not null |         | plain    |              |
+ aggfinalextra    | boolean  |           | not null |         | plain    |              |
+ aggmfinalextra   | boolean  |           | not null |         | plain    |              |
+ aggfinalmodify   | "char"   |           | not null |         | plain    |              |
+ aggmfinalmodify  | "char"   |           | not null |         | plain    |              |
+ aggsortop        | oid      |           | not null |         | plain    |              |
+ aggtranstype     | oid      |           | not null |         | plain    |              |
+ aggtransspace    | integer  |           | not null |         | plain    |              |
+ aggmtranstype    | oid      |           | not null |         | plain    |              |
+ aggmtransspace   | integer  |           | not null |         | plain    |              |
+ agginitval       | text     | C         |          |         | extended |              |
+ aggminitval      | text     | C         |          |         | extended |              |
+Indexes:
+    "pg_aggregate_fnoid_index" UNIQUE, btree (aggfnoid)
+Access method: heap
+
+```
+- выхода из psql
+
+\q
+
+  
 ## Задача 2
 
 Используя `psql` создайте БД `test_database`.
