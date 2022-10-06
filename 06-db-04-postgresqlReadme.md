@@ -15,6 +15,25 @@
 - вывода описания содержимого таблиц
 - выхода из psql
 
+*** Решение
+ 
+```
+version: '3.9'
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres13
+    ports:
+      - "0.0.0.0:5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "test_db"
+    restart: always
+
+```
 ## Задача 2
 
 Используя `psql` создайте БД `test_database`.
