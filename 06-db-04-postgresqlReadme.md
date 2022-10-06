@@ -16,6 +16,7 @@
 - выхода из psql
 
 ### Решение
+docker-compose.yml
  
 ```
 version: '3.9'
@@ -34,6 +35,8 @@ services:
     restart: always
 
 ```
+docker-compose up -d
+
 ## Задача 2
 
 Используя `psql` создайте БД `test_database`.
