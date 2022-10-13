@@ -84,9 +84,9 @@ test_db=# \l
 (4 rows)
 
 ```
-- подключения к БД
-postgres=# \c postgres
-psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 13.8 (Debian 13.8-1.pgdg110+1))
+- подключения к БД      
+postgres=# \c postgres      
+psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 13.8 (Debian 13.8-1.pgdg110+1))   
 You are now connected to database "postgres" as user "admin".
 
 - вывод списка таблиц (включая системные объекты)
