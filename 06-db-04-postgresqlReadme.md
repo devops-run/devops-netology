@@ -213,14 +213,27 @@ test_database=# \dt+
  public | orders | table | admin | permanent   | heap          | 8192 bytes |
 (1 row)
 
-test_database=# ANALYZE VERBOSE public.orders;
+```
+
+
+```
+test_database=# ANALYZE verbose orders;
 INFO:  analyzing "public.orders"
 INFO:  "orders": scanned 1 of 1 pages, containing 8 live rows and 0 dead rows; 8 rows in sample, 8 estimated total rows
 ANALYZE
-test_database=#
 
 ```
+Вывод наибольшего среднего значения размера элементов в байтах.
+```
+test_database=# select attname, avg_width from pg_stats where tablename='orders';
+ attname | avg_width
+---------+-----------
+ id      |         4
+ title   |        16
+ price   |         4
+(3 rows)
 
+```
 
 ## Задача 3
 
