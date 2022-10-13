@@ -215,7 +215,7 @@ test_database=# \dt+
 
 ```
 
-
+Провёл операцию ANALYZE для сбора статистики по таблице.
 ```
 test_database=# ANALYZE verbose orders;
 INFO:  analyzing "public.orders"
