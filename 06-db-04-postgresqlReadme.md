@@ -302,4 +302,21 @@ test_database=#
 
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
 
+#### Решение
+1. Сделал дамп базы
+
+```
+root@ubuntu2204:~/postgres13# pg_dump -h 127.0.0.1 -U admin -d test_database > dump.sql
+```
+2. Добавил уникальное значения столбца title для таблиц базы test_database
+
+```
+psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 13.8 (Debian 13.8-1.pgdg110+1))
+Type "help" for help.
+
+test_database=# CREATE unique INDEX title_un ON public.orders(title);
+CREATE INDEX
+
+```
+
 ---
