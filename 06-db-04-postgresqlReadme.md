@@ -215,7 +215,7 @@ test_database=# \dt+
 
 ```
 
-Провёл операцию ANALYZE для сбора статистики по таблице.
+3. Провёл операцию ANALYZE для сбора статистики по таблице.
 ```
 test_database=# ANALYZE verbose orders;
 INFO:  analyzing "public.orders"
@@ -223,7 +223,7 @@ INFO:  "orders": scanned 1 of 1 pages, containing 8 live rows and 0 dead rows; 8
 ANALYZE
 
 ```
-Вывод наибольшего среднего значения размера элементов в байтах.
+4. Вывод наибольшего среднего значения размера элементов в байтах.
 ```
 test_database=# select attname, avg_width from pg_stats where tablename='orders';
  attname | avg_width
