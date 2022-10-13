@@ -197,9 +197,6 @@ test_db=# \l
  test_db       | admin | UTF8     | en_US.utf8 | en_US.utf8 |
 (5 rows)
 
-test_db=# ^C
-test_db=#
-
 ```  
 
 
