@@ -159,6 +159,49 @@ Access method: heap
 
 **Приведите в ответе** команду, которую вы использовали для вычисления и полученный результат.
 
+#### Решение   
+ 
+ПОдключился к базе, сщздал новую, пустую    
+```
+
+root@ubuntu2204:~/postgres13# psql -h 127.0.0.1 -U admin -d test_db
+Password for user admin:
+psql (14.5 (Ubuntu 14.5-0ubuntu0.22.04.1), server 13.8 (Debian 13.8-1.pgdg110+1))
+Type "help" for help.
+
+test_db=# \l
+                             List of databases
+   Name    | Owner | Encoding |  Collate   |   Ctype    | Access privileges
+-----------+-------+----------+------------+------------+-------------------
+ postgres  | admin | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | admin | UTF8     | en_US.utf8 | en_US.utf8 | =c/admin         +
+           |       |          |            |            | admin=CTc/admin
+ template1 | admin | UTF8     | en_US.utf8 | en_US.utf8 | =c/admin         +
+           |       |          |            |            | admin=CTc/admin
+ test_db   | admin | UTF8     | en_US.utf8 | en_US.utf8 |
+(4 rows)
+
+test_db=# CREATE DATABASE test_database;
+CREATE DATABASE
+test_db=# \l
+                               List of databases
+     Name      | Owner | Encoding |  Collate   |   Ctype    | Access privileges
+---------------+-------+----------+------------+------------+-------------------
+ postgres      | admin | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0     | admin | UTF8     | en_US.utf8 | en_US.utf8 | =c/admin         +
+               |       |          |            |            | admin=CTc/admin
+ template1     | admin | UTF8     | en_US.utf8 | en_US.utf8 | =c/admin         +
+               |       |          |            |            | admin=CTc/admin
+ test_database | admin | UTF8     | en_US.utf8 | en_US.utf8 |
+ test_db       | admin | UTF8     | en_US.utf8 | en_US.utf8 |
+(5 rows)
+
+test_db=# ^C
+test_db=#
+
+```  
+
+
 ## Задача 3
 
 Архитектор и администратор БД выяснили, что ваша таблица orders разрослась до невиданных размеров и
