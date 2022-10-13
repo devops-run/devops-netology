@@ -198,7 +198,7 @@ test_db=# \l
 (5 rows)
 
 ```  
-2. Задил дамп
+2. Залил дамп
 
 ```
 root@ubuntu2204:~/postgres13# psql -h 127.0.0.1 -U admin -f test_dump.sql test_database
