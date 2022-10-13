@@ -161,7 +161,7 @@ Access method: heap
 
 #### Решение   
  
-Пoдключился к базе, сoздал новую, пустую
+1. Пoдключился к базе, сoздал новую, пустую
     
 ```
 
@@ -198,6 +198,28 @@ test_db=# \l
 (5 rows)
 
 ```  
+2. Задил дамп
+
+```
+root@ubuntu2204:~/postgres13# psql -h 127.0.0.1 -U admin -f test_dump.sql test_database
+```
+3. Подключился к базе и вывел список таблиц 
+
+```
+test_database=# \dt+
+                                    List of relations
+ Schema |  Name  | Type  | Owner | Persistence | Access method |    Size    | Description
+--------+--------+-------+-------+-------------+---------------+------------+-------------
+ public | orders | table | admin | permanent   | heap          | 8192 bytes |
+(1 row)
+
+test_database=# ANALYZE VERBOSE public.orders;
+INFO:  analyzing "public.orders"
+INFO:  "orders": scanned 1 of 1 pages, containing 8 live rows and 0 dead rows; 8 rows in sample, 8 estimated total rows
+ANALYZE
+test_database=#
+
+```
 
 
 ## Задача 3
