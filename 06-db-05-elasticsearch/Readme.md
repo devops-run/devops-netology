@@ -53,7 +53,12 @@ WORKDIR ${ES_HOME}
 CMD ["sh", "-c", "${ES_HOME}/bin/elasticsearch"]
 
 ```
-2. 
+2. Запушил имидж на ДокерХаб    
+docker login -u "devopsrun" -p "@@@" docker.io  
+docker push devopsrun/es:v1     
+### Cсылка на образ в репозитории dockerhub
+https://hub.docker.com/repository/docker/devopsrun/es
+ 
 
 ## Задача 2
 
