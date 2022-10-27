@@ -27,7 +27,11 @@
 
 #### Решение
 1. Собрал свой образ на базе centos:7.9.2009 и elasticsearch-7.17.7 (использовал VPN)       
-Dockerfile  
+
+docker build -t devopsrun/es:v1 .       
+        
+Dockerfile      
+  
 ```
 FROM centos:7.9.2009
 EXPOSE 9200 9300
