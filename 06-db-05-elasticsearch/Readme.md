@@ -2,11 +2,6 @@
 
 ## Задача 1
 
-В этом задании вы потренируетесь в:
-- установке elasticsearch
-- первоначальном конфигурировании elastcisearch
-- запуске elasticsearch в docker
-
 Используя докер образ [elasticsearch:7](https://hub.docker.com/_/elasticsearch) как базовый:
 
 - составьте Dockerfile-манифест для elasticsearch
@@ -30,7 +25,31 @@
 - если докер образ не запускается и падает с ошибкой 137 в этом случае может помочь настройка `-e ES_HEAP_SIZE`
 - при настройке `path` возможно потребуется настройка прав доступа на директорию
 
-Далее мы будем работать с данным экземпляром elasticsearch.
+#### Решение
+1. Собрал свой образ на базе centos:7.9.2009 и elasticsearch-7.17.7 (использовал VPN)
+Dockerfile  
+```
+FROM centos:7.9.2009
+EXPOSE 9200 9300
+USER 0
+RUN export ES_HOME="/var/lib/elasticsearch"
+RUN yum -y update && yum -y upgrade
+RUN yum -y install wget
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.7-linux-x86_64.tar.gz
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.7-linux-x86_64.tar.gz.sha512
+RUN sha512sum -c elasticsearch-7.17.7-linux-x86_64.tar.gz.sha512
+RUN tar -xzf elasticsearch-7.17.7-linux-x86_64.tar.gz
+RUN mv elasticsearch-7.17.7 /var/lib/elasticsearch
+RUN useradd -m -u 1000 elasticsearch
+RUN chown -R elasticsearch:elasticsearch /var/lib/elasticsearch
+USER 1000
+ENV ES_HOME="/var/lib/elasticsearch" \
+    ES_PATH_CONF="/var/lib/elasticsearch/config"
+WORKDIR ${ES_HOME}
+CMD ["sh", "-c", "${ES_HOME}/bin/elasticsearch"]
+
+```
+2. 
 
 ## Задача 2
 
