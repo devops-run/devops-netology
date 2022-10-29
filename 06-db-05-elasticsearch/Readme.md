@@ -306,4 +306,21 @@ chown -R elasticsearch:elasticsearch /var/lib/elasticsearch
 
 docker restart netology_test
 ```
+2. Регистрация netology_backup как snapshot repository: 
+
+```bash
+curl -X PUT "localhost:9200/_snapshot/netology_backup?pretty" -H 'Content-Type: application/json' -d'
+> {
+  "type": "fs",
+  "settings": {
+    "location": "/var/lib/elasticsearch/snapshots",
+    "compress": true
+  }
+}
+> '
+{
+  "acknowledged" : true
+
+```
+
 
