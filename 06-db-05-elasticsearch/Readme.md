@@ -51,7 +51,7 @@ docker push devopsrun/es:v4
 ### Cсылка на образ в репозитории dockerhub     
 https://hub.docker.com/repository/docker/devopsrun/es   
  
-4. Запустил образ с помощь docker-compose    
+4. Запустил контейнер на основе образа с помощь docker-compose    
 
 ```bash 
 docker-compose up -d    
@@ -268,9 +268,5 @@ curl -X DELETE 'http://localhost:9200/_all'
 Подсказки:
 - возможно вам понадобится доработать `elasticsearch.yml` в части директивы `path.repo` и перезапустить `elasticsearch`
 
----
-
-### Как cдавать задание
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
+### Решение
 
