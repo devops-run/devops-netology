@@ -136,6 +136,24 @@ f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up Abo
 При проектировании кластера elasticsearch нужно корректно рассчитывать количество реплик и шард,
 иначе возможна потеря данных индексов, вплоть до полной, при деградации системы.
 
+#### Решение    
+```bash
+[root@fedora-docker ~]# curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d'
+> {
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  }
+}
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "ind-1"
+}
+
+```
+
 ## Задача 3
 
 В данном задании вы научитесь:
