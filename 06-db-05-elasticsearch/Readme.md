@@ -42,36 +42,12 @@ MAINTAINER DevopsRUN
 
 ```
 
-docker build -t devopsrun/es:v1 .       
-        
-Dockerfile      
-  
-```
-FROM centos:7.9.2009
-EXPOSE 9200 9300
-USER 0
-RUN export ES_HOME="/var/lib/elasticsearch"
-RUN yum -y update && yum -y upgrade
-RUN yum -y install wget
-RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.7-linux-x86_64.tar.gz
-RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.7-linux-x86_64.tar.gz.sha512
-RUN sha512sum -c elasticsearch-7.17.7-linux-x86_64.tar.gz.sha512
-RUN tar -xzf elasticsearch-7.17.7-linux-x86_64.tar.gz
-RUN mv elasticsearch-7.17.7 /var/lib/elasticsearch
-RUN useradd -m -u 1000 elasticsearch
-RUN chown -R elasticsearch:elasticsearch /var/lib/elasticsearch
-USER 1000
-ENV ES_HOME="/var/lib/elasticsearch" \
-    ES_PATH_CONF="/var/lib/elasticsearch/config"
-WORKDIR ${ES_HOME}
-CMD ["sh", "-c", "${ES_HOME}/bin/elasticsearch"]
 
-```
-2. Запушил имидж на ДокерХаб    
-docker login -u "devopsrun" -p "*****" docker.io  
-docker push devopsrun/es:v1     
-### Cсылка на образ в репозитории dockerhub
-https://hub.docker.com/repository/docker/devopsrun/es
+3. Запушил имидж на ДокерХаб       
+docker login -u "devopsrun" -p "*****" docker.io    
+docker push devopsrun/es:v4         
+### Cсылка на образ в репозитории dockerhub     
+https://hub.docker.com/repository/docker/devopsrun/es   
  
 
 ## Задача 2
