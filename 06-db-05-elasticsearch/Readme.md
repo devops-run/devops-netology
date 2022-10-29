@@ -137,8 +137,9 @@ f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up Abo
 иначе возможна потеря данных индексов, вплоть до полной, при деградации системы.
 
 #### Решение    
-```bash
-[root@fedora-docker ~]# curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d'
+- ind-1 
+```json
+curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d'
 > {
   "settings": {
     "number_of_shards": 1,
@@ -153,6 +154,24 @@ f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up Abo
 }
 
 ```
+- ind-2 
+```json
+curl -X PUT "localhost:9200/ind-2?pretty" -H 'Content-Type: application/json' -d'
+> {
+  "settings": {
+    "number_of_shards": 2,
+    "number_of_replicas": 1
+  }
+}
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "ind-2"
+}
+
+```
+
 
 ## Задача 3
 
