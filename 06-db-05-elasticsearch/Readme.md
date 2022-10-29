@@ -26,7 +26,21 @@
 - при настройке `path` возможно потребуется настройка прав доступа на директорию
 
 #### Решение
-1. Собрал свой образ на базе centos:7.9.2009 и elasticsearch-7.17.7 (использовал VPN)       
+1. Запустил для проверки образ: 
+```
+docker run -it -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.7
+```
+2. На основе проверенного образа с помощью Dockerfile собрал свой   
+
+docker build -t devopsrun/es:v4 .  
+
+Dockerfile  
+```
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.17.7
+# container creator
+MAINTAINER DevopsRUN
+
+```
 
 docker build -t devopsrun/es:v1 .       
         
