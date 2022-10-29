@@ -192,6 +192,18 @@ curl -X PUT "localhost:9200/ind-3?pretty" -H 'Content-Type: application/json' -d
 }
 ```
 
+- Cписок индексов и их статусов:    
+curl 'localhost:9200/_cat/indices?v'    
+
+```bash
+health status index            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+green  open   .geoip_databases EvmghFsWQq2AvcLYy_4h1w   1   0         41            0       39mb           39mb
+green  open   ind-1            fp3gTpPuTEOu0oktbatZqA   1   0          0            0       226b           226b
+yellow open   ind-3            jb0kGwhTTJW3wiPtO3axGw   4   2          0            0       904b           904b
+yellow open   ind-2            mDKjjtsxR1GqQfqeYpptSw   2   1          0            0       452b           452b
+```
+
+
 ## Задача 3
 
 В данном задании вы научитесь:
