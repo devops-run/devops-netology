@@ -139,7 +139,7 @@ f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up Abo
 #### Решение    
 - ind-1
 curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d' 
-```json
+```bash
 > {
   "settings": {
     "number_of_shards": 1,
@@ -157,7 +157,7 @@ curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d
 - ind-2
  
 curl -X PUT "localhost:9200/ind-2?pretty" -H 'Content-Type: application/json' -d'
-```json
+```bash
 > {
   "settings": {
     "number_of_shards": 2,
