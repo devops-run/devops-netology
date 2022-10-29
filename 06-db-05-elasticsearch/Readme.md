@@ -431,3 +431,13 @@ curl -X PUT "localhost:9200/test-2?pretty" -H 'Content-Type: application/json' -
   "index" : "test-2"
 }
 ```
+
+```
+curl 'localhost:9200/_cat/indices?pretty'
+green open .geoip_databases vMcCjYq8Sdy9bkVfLw4BlA 1 0 41 0 39.1mb 39.1mb
+green open test-2           RDmsXK2LSpWMJQyMBHQV8w 1 0  0 0   226b   226b
+
+```
+
+
+
