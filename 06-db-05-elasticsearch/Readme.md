@@ -72,10 +72,10 @@ CMD ["sh", "-c", "${ES_HOME}/bin/elasticsearch"]
 
 3. Запушил имидж на ДокерХаб     
 docker login -u "devopsrun" -p "*****" docker.io    
-docker push devopsrun/es:v4     
+docker push devopsrun/es-7.17-ubuntu:v1     
 
 ### Cсылка на образ в репозитории dockerhub     
-https://hub.docker.com/repository/docker/devopsrun/es   
+https://hub.docker.com/r/devopsrun/es-7.17-ubuntu/tags  
  
 4. Запустил контейнер на основе образа с помощь docker-compose    
 
@@ -90,13 +90,10 @@ version: "3"
 services:
   elasticsearch:
     container_name: netology_test
-    image: devopsrun/es:v4
+    image: devopsrun/es-7.17-ubuntu:v1
     restart: always
     environment:
-      - xpack.security.enabled=false
       - discovery.type=single-node
-      - node.name=netology_test
-      - path.data='/var/lib'
     ports:
       - 9200:9200
       - 9300:9300
@@ -104,22 +101,23 @@ services:
 ```
 
 ```bash
-[root@fedora-docker ~]# docker ps
-CONTAINER ID   IMAGE             COMMAND                  CREATED       STATUS              PORTS                                                                                  NAMES
-f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up About a minute   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 0.0.0.0:9300->9300/tcp, :::9300->9300/tcp   netology_test
+[root@fedora-docker es]# docker ps
+CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS          PORTS                                                                                  NAMES
+370a3b19c683   devopsrun/es-7.17-ubuntu:v1   "sh -c ${ES_HOME}/bi…"   31 minutes ago   Up 31 minutes   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 0.0.0.0:9300->9300/tcp, :::9300->9300/tcp   netology_test
+
 
 ```
 
-[root@fedora-docker ~]# curl localhost:9200/
-```json
+[root@fedora-docker ~]# curl localhost:9200/        
+```json 
 {
   "name" : "netology_test",
-  "cluster_name" : "docker-cluster",
-  "cluster_uuid" : "YJ2IWD_nRhiFYRQZHClTxQ",
+  "cluster_name" : "es-ubuntu_cluster",
+  "cluster_uuid" : "Strad_1zSCqKRrjjsjpf6w",
   "version" : {
     "number" : "7.17.7",
     "build_flavor" : "default",
-    "build_type" : "docker",
+    "build_type" : "tar",
     "build_hash" : "78dcaaa8cee33438b91eca7f5c7f56a70fec9e80",
     "build_date" : "2022-10-17T15:29:54.167373105Z",
     "build_snapshot" : false,
@@ -129,7 +127,6 @@ f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up Abo
   },
   "tagline" : "You Know, for Search"
 }
-
 
 ```
 
