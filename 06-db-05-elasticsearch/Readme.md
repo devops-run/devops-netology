@@ -219,20 +219,21 @@ curl -X PUT "localhost:9200/ind-3?pretty" -H 'Content-Type: application/json' -d
 curl 'localhost:9200/_cat/indices?v'    
 
 ```bash
+[root@fedora-docker es]# curl 'localhost:9200/_cat/indices?v'
 health status index            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-green  open   .geoip_databases EvmghFsWQq2AvcLYy_4h1w   1   0         41            0       39mb           39mb
-green  open   ind-1            fp3gTpPuTEOu0oktbatZqA   1   0          0            0       226b           226b
-yellow open   ind-3            jb0kGwhTTJW3wiPtO3axGw   4   2          0            0       904b           904b
-yellow open   ind-2            mDKjjtsxR1GqQfqeYpptSw   2   1          0            0       452b           452b
+green  open   .geoip_databases d4aThjt6T5aMgG6w0ZHJHQ   1   0         41            0       39mb           39mb
+green  open   ind-1            8TaXIF8BQ3e5aQahpeoTiA   1   0          0            0       226b           226b
+yellow open   ind-3            4cer4QUoTuO0Mtt4cYiMIA   4   2          0            0       226b           226b
+yellow open   ind-2            BbuxUHyeSXOUG_d_iPvOxg   2   1          0            0       452b           452b
+
 ```
 
 - Состояние кластера
 
 curl -X GET "localhost:9200/_cluster/health?pretty"
 ```json
-
 {
-  "cluster_name" : "docker-cluster",
+  "cluster_name" : "es-ubuntu_cluster",
   "status" : "yellow",
   "timed_out" : false,
   "number_of_nodes" : 1,
