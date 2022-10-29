@@ -174,7 +174,7 @@ curl -X PUT "localhost:9200/ind-2?pretty" -H 'Content-Type: application/json' -d
 ```
 
 - ind-3     
-[root@fedora-docker ~]# curl -X PUT "localhost:9200/ind-3?pretty" -H 'Content-Type: application/json' -d'
+curl -X PUT "localhost:9200/ind-3?pretty" -H 'Content-Type: application/json' -d'   
 
 ```bash
 > {
