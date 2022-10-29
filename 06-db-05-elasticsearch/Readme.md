@@ -39,7 +39,7 @@ discovery.type: single-node
 
 ```
 
-1. На основе Dockerfile собрал свой образ:   
+1. Подготовил Dockerfile и на его основе собрал свой образ (использовал VPN):   
 
 docker build -t devopsrun/es-7.17-ubuntu:v1 .  
 
