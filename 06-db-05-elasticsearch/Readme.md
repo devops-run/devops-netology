@@ -28,7 +28,8 @@
 ### Решение
 1. Подготовил конфиг elasticsearch.yml, разместил его рядом с Dockerfile
 
-```
+elasticsearch.yml
+```bash
 cluster.name: es-ubuntu_cluster
 node.name: netology_test
 path.data: /var/lib/data
