@@ -322,5 +322,75 @@ curl -X PUT "localhost:9200/_snapshot/netology_backup?pretty" -H 'Content-Type: 
   "acknowledged" : true
 
 ```
+3. Создайте индекс test с 0 реплик и 1 шардом и приведите в ответе список индексов:
 
+```
+curl -X PUT "localhost:9200/test?pretty" -H 'Content-Type: application/json' -d'
+> {
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  }
+}
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "test"
+}
+
+```
+```
+curl 'localhost:9200/_cat/indices?v'
+health status index            uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+green  open   .geoip_databases vMcCjYq8Sdy9bkVfLw4BlA   1   0         41            0     39.1mb         39.1mb
+green  open   test             z7Pe6mDbROa-NqG2ftv3WQ   1   0          0            0       226b           226b
+```
+
+4. Snapshot состояния кластера elasticsearch.
+
+```
+curl -X PUT "localhost:9200/_snapshot/netology_backup/snapshot_1?wait_for_completion=true&pretty"
+{
+  "snapshot" : {
+    "snapshot" : "snapshot_1",
+    "uuid" : "fUlfWOdCTJW0wDFy9QdBiQ",
+    "repository" : "netology_backup",
+    "version_id" : 7170799,
+    "version" : "7.17.7",
+    "indices" : [
+      ".geoip_databases",
+      ".ds-ilm-history-5-2022.10.29-000001",
+      "test",
+      ".ds-.logs-deprecation.elasticsearch-default-2022.10.29-000001"
+    ],
+    "data_streams" : [
+      "ilm-history-5",
+      ".logs-deprecation.elasticsearch-default"
+    ],
+    "include_global_state" : true,
+    "state" : "SUCCESS",
+    "start_time" : "2022-10-29T12:38:23.512Z",
+    "start_time_in_millis" : 1667047103512,
+    "end_time" : "2022-10-29T12:38:24.713Z",
+    "end_time_in_millis" : 1667047104713,
+    "duration_in_millis" : 1201,
+    "failures" : [ ],
+    "shards" : {
+      "total" : 4,
+      "failed" : 0,
+      "successful" : 4
+    },
+    "feature_states" : [
+      {
+        "feature_name" : "geoip",
+        "indices" : [
+          ".geoip_databases"
+        ]
+      }
+    ]
+  }
+}
+
+```
 
