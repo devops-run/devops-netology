@@ -53,6 +53,10 @@ https://hub.docker.com/repository/docker/devopsrun/es
  
 4. Запустил образ с помощь docker docker-compose    
 
+```bash 
+docker-compose up -d    
+``` 
+
 docker-compose.yaml
 
 ```yaml
