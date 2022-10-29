@@ -295,3 +295,13 @@ curl -X DELETE 'http://localhost:9200/_all'
 
 ### Решение
 
+1. Залогинился в контейнер и добавил строку в конфиг файл, подправвил права на каталог:       
+
+```bash
+docker exec -u root -it netology_test bash
+        
+echo path.repo: [ "/var/lib/elasticsearch/snapshots" ] >> "$ES_HOME/config/elasticsearch.yml"
+        
+chown -R elasticsearch:elasticsearch /var/lib/elasticsearch
+```
+
