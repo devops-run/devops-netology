@@ -173,6 +173,23 @@ curl -X PUT "localhost:9200/ind-2?pretty" -H 'Content-Type: application/json' -d
 
 ```
 
+- ind-3
+[root@fedora-docker ~]# curl -X PUT "localhost:9200/ind-3?pretty" -H 'Content-Type: application/json' -d'
+
+```bash
+> {
+  "settings": {
+    "number_of_shards": 4,
+    "number_of_replicas": 2
+  }
+}
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "ind-3"
+}
+```
 
 ## Задача 3
 
