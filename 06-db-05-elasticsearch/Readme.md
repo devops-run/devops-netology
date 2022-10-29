@@ -25,7 +25,7 @@
 - если докер образ не запускается и падает с ошибкой 137 в этом случае может помочь настройка `-e ES_HEAP_SIZE`
 - при настройке `path` возможно потребуется настройка прав доступа на директорию
 
-#### Решение
+### Решение
 1. Запустил для проверки образ: 
 ```
 docker run -it -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.7
@@ -42,13 +42,33 @@ MAINTAINER DevopsRUN
 
 ```
 
-
 3. Запушил имидж на ДокерХаб       
 docker login -u "devopsrun" -p "*****" docker.io    
 docker push devopsrun/es:v4         
 ### Cсылка на образ в репозитории dockerhub     
 https://hub.docker.com/repository/docker/devopsrun/es   
  
+4. Запустил образ с помощь docker docker-compose    
+
+docker-compose.yaml
+
+```yaml
+version: "3"
+services:
+  elasticsearch:
+    container_name: netology_test
+    image: devopsrun/es:v4
+    restart: always
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+      - node.name=netology_test
+      - path.data='/var/lib'
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+```
 
 ## Задача 2
 
