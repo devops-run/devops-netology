@@ -77,6 +77,13 @@ services:
 
 ```
 
+```bash
+[root@fedora-docker ~]# docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED       STATUS              PORTS                                                                                  NAMES
+f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up About a minute   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 0.0.0.0:9300->9300/tcp, :::9300->9300/tcp   netology_test
+
+```
+
 ## Задача 2
 
 В этом задании вы научитесь:
