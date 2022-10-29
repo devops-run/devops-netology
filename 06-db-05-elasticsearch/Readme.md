@@ -26,21 +26,47 @@
 - при настройке `path` возможно потребуется настройка прав доступа на директорию
 
 ### Решение
-1. Запустил для проверки образ: 
- 
-```bash
-docker run -it -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.7
-```
-2. На основе проверенного образа с помощью Dockerfile собрал свой   
+1. Подготовил конфиг elasticsearch.yml, разместил его рядом с Dockerfile
 
-docker build -t devopsrun/es:v4 .  
+```
+cluster.name: es-ubuntu_cluster
+node.name: netology_test
+path.data: /var/lib/data
+bootstrap.memory_lock: true
+network.host: 0.0.0.0
+discovery.type: single-node
+
+```
+
+1. На основе Dockerfile собрал свой образ:   
+
+docker build -t devopsrun/es-7.17-ubuntu:v1 .  
 
 Dockerfile  
   
 ```bash
-FROM docker.elastic.co/elasticsearch/elasticsearch:7.17.7
-# container creator
-MAINTAINER DevopsRUN
+FROM ubuntu
+EXPOSE 9200 9300
+USER 0
+RUN export ES_HOME="/var/lib/elasticsearch"
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt -y install wget vim
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.7-linux-x86_64.tar.gz
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.7-linux-x86_64.tar.gz.sha512
+RUN sha512sum -c elasticsearch-7.17.7-linux-x86_64.tar.gz.sha512
+RUN tar -xzf elasticsearch-7.17.7-linux-x86_64.tar.gz
+RUN useradd -m -u 1000 elasticsearch
+RUN mv elasticsearch-7.17.7 /var/lib/elasticsearch
+RUN mkdir /var/lib/data
+RUN mkdir /var/lib/elasticsearch/snapshots
+COPY ./elasticsearch.yml /var/lib/elasticsearch/config
+RUN chown -R elasticsearch:elasticsearch /var/lib/data
+RUN chown -R elasticsearch:elasticsearch /var/lib/elasticsearch
+USER 1000
+ENV ES_HOME="/var/lib/elasticsearch" \
+    ES_PATH_CONF="/var/lib/elasticsearch/config"
+WORKDIR ${ES_HOME}
+CMD ["sh", "-c", "${ES_HOME}/bin/elasticsearch"]
 
 ```
 
