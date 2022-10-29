@@ -84,6 +84,29 @@ f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up Abo
 
 ```
 
+[root@fedora-docker ~]# curl localhost:9200/
+```json
+{
+  "name" : "netology_test",
+  "cluster_name" : "docker-cluster",
+  "cluster_uuid" : "YJ2IWD_nRhiFYRQZHClTxQ",
+  "version" : {
+    "number" : "7.17.7",
+    "build_flavor" : "default",
+    "build_type" : "docker",
+    "build_hash" : "78dcaaa8cee33438b91eca7f5c7f56a70fec9e80",
+    "build_date" : "2022-10-17T15:29:54.167373105Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.11.1",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+
+```
+
 ## Задача 2
 
 В этом задании вы научитесь:
