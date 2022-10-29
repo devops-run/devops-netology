@@ -438,6 +438,27 @@ green open .geoip_databases vMcCjYq8Sdy9bkVfLw4BlA 1 0 41 0 39.1mb 39.1mb
 green open test-2           RDmsXK2LSpWMJQyMBHQV8w 1 0  0 0   226b   226b
 
 ```
+7. Восстановить индекс:
+
+```
+ curl -X POST "localhost:9200/_snapshot/netology_backup/snapshot_1/_restore?pretty" -H 'Content-Type: application/json' -d'
+{
+  "indices": "test",
+  "include_global_state": true
+}
+'
+{
+  "accepted" : true
+}
+
+```
 
 
+```
+[root@fedora-docker ~]# curl 'localhost:9200/_cat/indices?pretty'
+green open .geoip_databases 77sh4NtkQSW1rsOIGL9Omw 1 0 41 0 39.1mb 39.1mb
+green open test-2           RDmsXK2LSpWMJQyMBHQV8w 1 0  0 0   226b   226b
+green open test             9G_vsz3KTM-2l5X6dsvifQ 1 0  0 0   226b   226b
+
+```
 
