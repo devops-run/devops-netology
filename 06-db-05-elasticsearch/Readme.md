@@ -51,7 +51,7 @@ docker push devopsrun/es:v4
 ### Cсылка на образ в репозитории dockerhub     
 https://hub.docker.com/repository/docker/devopsrun/es   
  
-4. Запустил образ с помощь docker docker-compose    
+4. Запустил образ с помощь docker-compose    
 
 ```bash 
 docker-compose up -d    
