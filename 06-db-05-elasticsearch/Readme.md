@@ -137,9 +137,9 @@ f741a7546471   devopsrun/es:v4   "/bin/tini -- /usr/l…"   7 hours ago   Up Abo
 иначе возможна потеря данных индексов, вплоть до полной, при деградации системы.
 
 #### Решение    
-- ind-1 
+- ind-1
+curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d' 
 ```json
-curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d'
 > {
   "settings": {
     "number_of_shards": 1,
@@ -154,9 +154,10 @@ curl -X PUT "localhost:9200/ind-1?pretty" -H 'Content-Type: application/json' -d
 }
 
 ```
-- ind-2 
-```json
+- ind-2
+ 
 curl -X PUT "localhost:9200/ind-2?pretty" -H 'Content-Type: application/json' -d'
+```json
 > {
   "settings": {
     "number_of_shards": 2,
