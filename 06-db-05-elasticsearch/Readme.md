@@ -453,7 +453,6 @@ green open test-2           RDmsXK2LSpWMJQyMBHQV8w 1 0  0 0   226b   226b
 
 ```
 
-
 ```
 [root@fedora-docker ~]# curl 'localhost:9200/_cat/indices?pretty'
 green open .geoip_databases 77sh4NtkQSW1rsOIGL9Omw 1 0 41 0 39.1mb 39.1mb
