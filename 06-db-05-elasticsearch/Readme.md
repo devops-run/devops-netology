@@ -203,6 +203,30 @@ yellow open   ind-3            jb0kGwhTTJW3wiPtO3axGw   4   2          0        
 yellow open   ind-2            mDKjjtsxR1GqQfqeYpptSw   2   1          0            0       452b           452b
 ```
 
+- Состояние кластера
+
+curl -X GET "localhost:9200/_cluster/health?pretty"
+```json
+
+{
+  "cluster_name" : "docker-cluster",
+  "status" : "yellow",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 10,
+  "active_shards" : 10,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 10,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 50.0
+}
+
+```
 
 ## Задача 3
 
