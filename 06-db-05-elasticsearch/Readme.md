@@ -27,7 +27,8 @@
 
 ### Решение
 1. Запустил для проверки образ: 
-```
+ 
+```bash
 docker run -it -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.7
 ```
 2. На основе проверенного образа с помощью Dockerfile собрал свой   
@@ -35,16 +36,18 @@ docker run -it -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=
 docker build -t devopsrun/es:v4 .  
 
 Dockerfile  
-```
+  
+```bash
 FROM docker.elastic.co/elasticsearch/elasticsearch:7.17.7
 # container creator
 MAINTAINER DevopsRUN
 
 ```
 
-3. Запушил имидж на ДокерХаб       
+3. Запушил имидж на ДокерХаб     
 docker login -u "devopsrun" -p "*****" docker.io    
-docker push devopsrun/es:v4         
+docker push devopsrun/es:v4     
+
 ### Cсылка на образ в репозитории dockerhub     
 https://hub.docker.com/repository/docker/devopsrun/es   
  
