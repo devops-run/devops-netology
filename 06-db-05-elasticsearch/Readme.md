@@ -393,4 +393,15 @@ curl -X PUT "localhost:9200/_snapshot/netology_backup/snapshot_1?wait_for_comple
 }
 
 ```
+5. Листинг каталога со снапшётами:  
+```
+docker exec -it netology_test ls -l /var/lib/elasticsearch/snapshots/
+total 24
+-rw-r--r-- 1 elasticsearch elasticsearch 1422 Oct 29 12:38 index-0
+-rw-r--r-- 1 elasticsearch elasticsearch    8 Oct 29 12:38 index.latest
+drwxr-xr-x 6 elasticsearch elasticsearch  126 Oct 29 12:38 indices
+-rw-r--r-- 1 elasticsearch elasticsearch 9703 Oct 29 12:38 meta-fUlfWOdCTJW0wDFy9QdBiQ.dat
+-rw-r--r-- 1 elasticsearch elasticsearch  454 Oct 29 12:38 snap-fUlfWOdCTJW0wDFy9QdBiQ.dat
+
+```
 
