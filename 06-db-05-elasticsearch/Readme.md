@@ -405,3 +405,29 @@ drwxr-xr-x 6 elasticsearch elasticsearch  126 Oct 29 12:38 indices
 
 ```
 
+6. Удалить индекс test и создайть индекс test-2:
+
+```
+curl -X DELETE "localhost:9200/test?pretty"
+
+{
+  "acknowledged" : true
+}
+
+
+
+curl -X PUT "localhost:9200/test-2?pretty" -H 'Content-Type: application/json' -d'
+
+> {
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  }
+}
+> '
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "test-2"
+}
+```
