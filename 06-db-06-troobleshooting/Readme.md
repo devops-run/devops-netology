@@ -49,6 +49,7 @@ db.system.profile.find().pretty()
 // or get 'query' operations only and specified fields
 db.system.profile.find( { op: { $eq : 'query' } } , {"millis": 1, "ns": 1, "ts": 1,"query": 1}).sort( { ts : -1 } ).pretty()
 ```
+Для решения использовал официальную документацию и [данную статью](https://medium.com/mongodb-cowboys/troubleshooting-mongodb-100-cpu-load-and-slow-queries-da622c6e1339).
 
 ## Задача 2
 
