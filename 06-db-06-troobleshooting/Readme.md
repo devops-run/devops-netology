@@ -123,9 +123,3 @@ InterfaceError: (InterfaceError) 2013: Lost connection to MySQL server during qu
 Это не гарантирует, что OOM-Killer не придется вмешиваться, но снизит вероятность принудительного завершения процесса PostgreSQL.
 
 
-
-
-
-Out-Of-Memory Killer
-
-
