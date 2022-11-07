@@ -111,8 +111,6 @@ redis> TTL mykey
 (integer) -1
 redis> 
 
-
-
 ## Задача 3
 
 Перед выполнением задания познакомьтесь с документацией по [Common Mysql errors](https://dev.mysql.com/doc/refman/8.0/en/common-errors.html).
