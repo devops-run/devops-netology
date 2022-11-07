@@ -84,6 +84,35 @@ maxmemory 100mb
 
 Когда у редиса начинается этот механизм? - когда происходит рост коэффициента фрагментации памяти. 
 
+### #########Доработка################
+Использовал пример из жизни (чужой):
+https://highload.today/blogs/redis-bolshoe-potreblenie-ram-i-pri-chem-tut-ttl/
+
+Судя по всему, в нашем случае также происходит заполнение памяти уже просроченнывми данными, которые зря занимают место.
+Настройка параметра time-to-live (время жизни) должно решить проблему.
+
+
+There are four ways to set the expiration time in Redis:    
+expire key TTL(seconds): Set the key to expire after n seconds;     
+pexpire key TTL(milliseconds): Set the key to expire after n milliseconds;      
+expireat key timestamp: Set the key to expire after a specific timestamp (accurate to seconds);     
+pexpireat key millisecondsTimestamp: Set the key to expire after a specific timestamp (accurate to milliseconds);       
+    
+The time complexity is all O(1), and usages of them are similar.        
+
+"OK"
+redis> EXPIRE mykey 10
+(integer) 1
+redis> TTL mykey
+(integer) 10
+redis> SET mykey "Hello World"
+"OK"
+redis> TTL mykey
+(integer) -1
+redis> 
+
+
+
 ## Задача 3
 
 Перед выполнением задания познакомьтесь с документацией по [Common Mysql errors](https://dev.mysql.com/doc/refman/8.0/en/common-errors.html).
