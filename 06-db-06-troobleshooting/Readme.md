@@ -89,9 +89,10 @@ maxmemory 100mb
 https://highload.today/blogs/redis-bolshoe-potreblenie-ram-i-pri-chem-tut-ttl/
 
 Судя по всему, в нашем случае также происходит заполнение памяти уже просроченнывми данными, которые зря занимают место.
-Настройка параметра time-to-live (время жизни) должно решить проблему.
+И т.к количество истёкших значений постоянно увеличивается, то настройка параметра time-to-live (время жизни) должно решить проблему.
+Память будет автоматически освобождаться.
 
-
+#### Команды для настройки: 
 There are four ways to set the expiration time in Redis:    
 expire key TTL(seconds): Set the key to expire after n seconds;     
 pexpire key TTL(milliseconds): Set the key to expire after n milliseconds;      
