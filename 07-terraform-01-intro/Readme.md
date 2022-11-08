@@ -57,6 +57,54 @@
 Установите терраформ при помощи менеджера пакетов используемого в вашей операционной системе.
 В виде результата этой задачи приложите вывод команды `terraform --version`.
 
+#### Решение:
+
+
+```bash
+[root@alma9 ~]# yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+Adding repo from: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+[root@alma9 ~]# yum -y install terraform
+Hashicorp Stable - x86_64                                                                                904 kB/s | 911 kB     00:01
+Dependencies resolved.
+=========================================================================================================================================
+ Package                          Architecture                  Version                           Repository                        Size
+=========================================================================================================================================
+Installing:
+ terraform                        x86_64                        1.3.4-1                           hashicorp                         13 M
+
+Transaction Summary
+=========================================================================================================================================
+Install  1 Package
+
+Total download size: 13 M
+Installed size: 58 M
+Downloading Packages:
+terraform-1.3.4-1.x86_64.rpm                                                                             5.4 MB/s |  13 MB     00:02
+-----------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                    5.4 MB/s |  13 MB     00:02
+Hashicorp Stable - x86_64                                                                                 10 kB/s | 3.1 kB     00:00
+Importing GPG key 0xA3219F7B:
+ Userid     : "HashiCorp Security (HashiCorp Package Signing) <security+packaging@hashicorp.com>"
+ Fingerprint: E8A0 32E0 94D8 EB4E A189 D270 DA41 8C88 A321 9F7B
+ From       : https://rpm.releases.hashicorp.com/gpg
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                 1/1
+  Installing       : terraform-1.3.4-1.x86_64                                                                                        1/1
+  Verifying        : terraform-1.3.4-1.x86_64                                                                                        1/1
+
+Installed:
+  terraform-1.3.4-1.x86_64
+
+Complete!
+[root@alma9 ~]#
+
+```
+
 ## Задача 3. Поддержка легаси кода. 
 
 В какой-то момент вы обновили терраформ до новой версии, например с 0.12 до 0.13. 
