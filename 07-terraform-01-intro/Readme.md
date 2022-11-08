@@ -171,14 +171,14 @@ Switching default version to v1.3.3
 Default version (when not overridden by .terraform-version or TFENV_TERRAFORM_VERSION) is now: 1.3.3
 
 ```
-4.
+4. текущая версия:
 ```
 [root@alma9 ~]# terraform --version
 Terraform v1.3.3
 on linux_amd64
 
 ```
-
+5. Список доступных версий
 ```
 [root@alma9 bin]# tfenv list
   1.3.4
