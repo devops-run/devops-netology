@@ -105,6 +105,16 @@ Complete!
 
 ```
 
+```bash
+[root@alma9 ~]# date
+Tue Nov  8 11:16:11 PM +05 2022
+[root@alma9 ~]# terraform --version
+Terraform v1.3.4
+on linux_amd64
+[root@alma9 ~]#
+
+```
+
 ## Задача 3. Поддержка легаси кода. 
 
 В какой-то момент вы обновили терраформ до новой версии, например с 0.12 до 0.13. 
