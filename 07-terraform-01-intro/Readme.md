@@ -125,16 +125,20 @@ on linux_amd64
 В виде результата этой задачи приложите вывод `--version` двух версий терраформа доступных на вашем компьютере 
 или виртуальной машине.
 
-Для решения использовал переключатель версий terraform:     
-https://github.com/tfutils/tfenv
+#### Решение:
 
-1. Подготовил прогу ддля работы:
+Для решения использовал переключатель версий terraform:         
+https://github.com/tfutils/tfenv    
+
+1. Подготовил прогу ддля работы:    
+
 ```bash
 git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
 ln -s ~/.tfenv/bin/* /usr/local/bin
 
 ```
-2. Загрузил младшую версию terraform:
+2. Загрузил младшую версию terraform:   
+
 ```bash
 [root@alma9 bin]# tfenv install 1.3.3
 Installing Terraform v1.3.3
@@ -152,6 +156,7 @@ Installation of terraform v1.3.3 successful. To make this your default version, 
   1.3.3
 
 ```
+
 3. текущая версия:
 ```
 [root@alma9 bin]# terraform --version
@@ -181,8 +186,3 @@ on linux_amd64
 
 ```
 
----
-
-### Как cдавать задание
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
