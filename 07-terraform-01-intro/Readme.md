@@ -125,6 +125,62 @@ on linux_amd64
 В виде результата этой задачи приложите вывод `--version` двух версий терраформа доступных на вашем компьютере 
 или виртуальной машине.
 
+Для решения использовал переключатель версий terraform:     
+https://github.com/tfutils/tfenv
+
+1. Подготовил прогу ддля работы:
+```bash
+git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
+ln -s ~/.tfenv/bin/* /usr/local/bin
+
+```
+2. Загрузил младшую версию terraform:
+```bash
+[root@alma9 bin]# tfenv install 1.3.3
+Installing Terraform v1.3.3
+Downloading release tarball from https://releases.hashicorp.com/terraform/1.3.3/terraform_1.3.3_linux_amd64.zip
+################################################################################################################################## 100.0%
+Downloading SHA hash file from https://releases.hashicorp.com/terraform/1.3.3/terraform_1.3.3_SHA256SUMS
+Not instructed to use Local PGP (/root/.tfenv/use-{gpgv,gnupg}) & No keybase install found, skipping OpenPGP signature verification
+terraform_1.3.3_linux_amd64.zip: OK
+Archive:  /tmp/tfenv_download.zdp0cc/terraform_1.3.3_linux_amd64.zip
+  inflating: /root/.tfenv/versions/1.3.3/terraform
+Installation of terraform v1.3.3 successful. To make this your default version, run 'tfenv use 1.3.3'
+
+[root@alma9 bin]# tfenv list
+  1.3.4
+  1.3.3
+
+```
+3. текущая версия:
+```
+[root@alma9 bin]# terraform --version
+Terraform v1.3.4
+on linux_amd64
+
+```
+3. Переключение на младшую версию:
+```
+[root@alma9 bin]# tfenv use 1.3.3
+Switching default version to v1.3.3
+Default version (when not overridden by .terraform-version or TFENV_TERRAFORM_VERSION) is now: 1.3.3
+
+```
+4.
+```
+[root@alma9 ~]# terraform --version
+Terraform v1.3.3
+on linux_amd64
+
+```
+
+```
+[root@alma9 bin]# tfenv list
+  1.3.4
+* 1.3.3 (set by /root/.tfenv/bin/.terraform-version)
+
+```
+
 ---
 
 ### Как cдавать задание
