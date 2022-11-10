@@ -137,7 +137,7 @@ git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
 ln -s ~/.tfenv/bin/* /usr/local/bin
 
 ```
-2. Загрузил младшую версию terraform:   
+2. Загрузил старшую версию terraform:   
 
 ```bash
 [root@alma9 bin]# tfenv install 1.3.3
@@ -164,7 +164,7 @@ Terraform v1.3.4
 on linux_amd64
 
 ```
-3. Переключение на младшую версию:
+3. Переключение на старшую версию:
 ```
 [root@alma9 bin]# tfenv use 1.3.3
 Switching default version to v1.3.3
