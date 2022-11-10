@@ -130,7 +130,7 @@ on linux_amd64
 Для решения использовал переключатель версий terraform:         
 https://github.com/tfutils/tfenv    
 
-1. Подготовил прогу ддля работы:    
+1. Подготовил прогу для работы:    
 
 ```bash
 git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
