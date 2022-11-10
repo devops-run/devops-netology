@@ -157,7 +157,7 @@ Installation of terraform v1.3.3 successful. To make this your default version, 
 
 ```
 
-3. текущая версия:
+3. Tекущая версия:
 ```
 [root@alma9 bin]# terraform --version
 Terraform v1.3.4
@@ -171,7 +171,7 @@ Switching default version to v1.3.3
 Default version (when not overridden by .terraform-version or TFENV_TERRAFORM_VERSION) is now: 1.3.3
 
 ```
-4. текущая версия:
+4. Tекущая версия:
 ```
 [root@alma9 ~]# terraform --version
 Terraform v1.3.3
