@@ -5,4 +5,4 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa AAA*************************************************************************************************************************************************VOjghtmG12SvCl08HwMzB8BwRMAyQlkwx9T5JOisjNSmNRzu+ZeihuTkeazd19oL+b7o/O+elR/IRXq74U= root@terra.local
+      - ssh-rsa AAA****************************************q74U= root@terra.local
