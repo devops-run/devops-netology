@@ -23,7 +23,10 @@ compute-default-zone: ru-central1-a
 
 ```
 
-
+4. Чтобы не указывать авторизационный токен в коде, а терраформ провайдер брал его из переменных окруженийДобавил добавил строку в конец файла ~/.bashrc:   
+```bash
+export IAM_TOKEN=`yc iam create-token`
+```
 
 ## Задача 2. Создание aws ec2 или yandex_compute_instance через терраформ. 
 
