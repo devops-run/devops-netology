@@ -140,9 +140,29 @@ created_at: "2022-11-12T13:05:16.172459499Z"
 key_algorithm: RSA_2048
 
 ```
+2. Создал файл main.tf
+```json
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+  required_version = ">= 0.13"
+}
 
+provider "yandex" {
+  zone = "ru-central1-a"
+}
+```
+```bash
+[root@terra ~]# terraform init
+Terraform initialized in an empty directory!
 
-
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.
+[root@terra ~]# 
+```
 
  
 
