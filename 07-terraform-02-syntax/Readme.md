@@ -26,6 +26,7 @@ compute-default-zone: ru-central1-a
 4. Чтобы не указывать авторизационный токен в коде, а терраформ провайдер брал его из переменных окружений, добавил строку в конец файла ~/.bashrc и перелогинился:   
 ```bash
 export IAM_TOKEN=`yc iam create-token`
+
 ```
 #### curl -H "Authorization: Bearer ${IAM_TOKEN}" https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
 ```bash
@@ -140,7 +141,7 @@ created_at: "2022-11-12T13:05:16.172459499Z"
 key_algorithm: RSA_2048
 
 ```
-2. Создал файл main.tf
+2. Создал файл main.tf +доп. файлы для инфраструктуры и подключения 
 ```xml
 terraform {
   required_providers {
@@ -164,6 +165,9 @@ provider "yandex" {
   - [key.json](src/terra/key.json)
 
 ```
+(В ДЗ полная копия рабочего каталога со спец. повреждёнными ключами. 
+В "бою" использовал бы .gitignore  для отсечки файлов-ключей.)
+
 4. Проверил и применил конфигурацию 
 terraform validate    
 terraform plan  
@@ -172,10 +176,6 @@ terraform apply
 5. Авторизовался на вновь созданной ВМ  
 
 ```bash
-he authenticity of host '84.201.156.78 (84.201.156.78)' can't be established.
-ED25519 key fingerprint is SHA256:KMyY0OW+GbyxZnFSk+Uf1j+EDL1UpTj5xAbxgOcCtDk.
-This host key is known by the following other names/addresses:
-    ~/.ssh/known_hosts:1: 84.252.128.186
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '84.201.156.78' (ED25519) to the list of known hosts.
 Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
@@ -206,6 +206,9 @@ MiB Mem :   3924.0 total,   3527.6 free,    181.5 used,    214.9 buff/cache
 MiB Swap:      0.0 total,      0.0 free,      0.0 used.   3515.5 avail Mem
 
 ```
+6. Изменил конфигурацию оборудования ВМ (добавил ресурсов) и применил конфиг к облаку: 
+
+terraform apply 
 
 ``` 
 data.yandex_compute_image.ubuntu_image: Reading...
@@ -249,4 +252,28 @@ yandex_compute_instance.vm-test1: Modifications complete after 18s [id=fhmi7s8jf
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 
 ``` 
+7. Удалил ресурсы:  
+```bash
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+yandex_compute_instance.vm-test1: Destroying... [id=fhmi7s8jf85qi1diuor9]
+yandex_compute_instance.vm-test1: Still destroying... [id=fhmi7s8jf85qi1diuor9, 10s elapsed]
+yandex_compute_instance.vm-test1: Still destroying... [id=fhmi7s8jf85qi1diuor9, 20s elapsed]
+yandex_compute_instance.vm-test1: Destruction complete after 25s
+yandex_vpc_subnet.subnet_terraform: Destroying... [id=e9bvupprfo7rckf6ue56]
+yandex_vpc_subnet.subnet_terraform: Destruction complete after 2s
+yandex_vpc_network.network_terraform: Destroying... [id=enp7eets2v3tqmcthe9g]
+yandex_vpc_network.network_terraform: Destruction complete after 0s
+
+Destroy complete! Resources: 3 destroyed.
+
+```
+
+
+Ответ на вопрос: при помощи какого инструмента (из разобранных на прошлом занятии) можно создать свой образ ami? - Packer from Terraform        
+
 
