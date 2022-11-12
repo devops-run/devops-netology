@@ -13,6 +13,7 @@
 1. Подготовил OS (Rocky Linux 9.0), установил YC    
 2. Выполнил команду yc init для настройки профиля CLI.
 3. yc config list
+
 ```bash
 token: y0_**********************kM
 cloud-id: b1gbhgrs90i9vorv6i8c
