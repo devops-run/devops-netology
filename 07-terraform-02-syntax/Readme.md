@@ -9,6 +9,19 @@
 4. Воспользуйтесь [инструкцией](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs) на сайте терраформа, что бы 
 не указывать авторизационный токен в коде, а терраформ провайдер брал его из переменных окружений.
 
+### Решение
+1. Подготовил OS (Rocky Linux 9.0), установил YC    
+2. Выполнил команду yc init для настройки профиля CLI.
+3. yc config list
+```bash
+token: y0_**********************kM
+cloud-id: b1gbhgrs90i9vorv6i8c
+folder-id: b1gfs7kff96rdbes0mnv
+compute-default-zone: ru-central1-a
+[root@terra ~]#
+
+```
+
 
 
 ## Задача 2. Создание aws ec2 или yandex_compute_instance через терраформ. 
