@@ -141,7 +141,7 @@ key_algorithm: RSA_2048
 
 ```
 2. Создал файл main.tf
-```json
+```xml
 terraform {
   required_providers {
     yandex = {
