@@ -27,6 +27,23 @@ compute-default-zone: ru-central1-a
 ```bash
 export IAM_TOKEN=`yc iam create-token`
 ```
+#### curl -H "Authorization: Bearer ${IAM_TOKEN}" https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+```bash
+[root@terra ~]# curl -H "Authorization: Bearer ${IAM_TOKEN}" https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+{
+ "clouds": [
+  {
+   "id": "b1gbhgrs90i9vorv6i8c",
+   "createdAt": "2022-03-27T04:27:13Z",
+   "name": "cloud-devops-run",
+   "organizationId": "bpfln6dbjahbnrdlcb7m"
+  }
+ ]
+}
+[root@terra ~]#
+
+```
+
 
 ## Задача 2. Создание aws ec2 или yandex_compute_instance через терраформ. 
 
