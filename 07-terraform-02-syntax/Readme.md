@@ -155,19 +155,7 @@ provider "yandex" {
   zone = "ru-central1-a"
 }
 ```
-```bash
-[root@terra ~]# terraform init
-Terraform initialized in an empty directory!
-
-The directory has no Terraform configuration files. You may begin working
-with Terraform immediately by creating Terraform configuration files.
-[root@terra ~]# 
-```
-3. Нашел нужный образ:
-```bash
-yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
-```
-4. Создал/привёл к виду конфиг файлы.   
+3. Создал/привёл к виду конфиг файлы.   
 
 - Конфигурация terraform:
   - [main.tf](src/terra/main.tf)
@@ -176,7 +164,50 @@ yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
   - [key.json](src/terra/key.json)
 
 ```
-[root@terra terra]# terraform apply
+4. Проверил и применил конфигурацию 
+terraform validate    
+terraform plan  
+terraform apply 
+ 
+5. Авторизовался на вновь созданной ВМ  
+
+```bash
+he authenticity of host '84.201.156.78 (84.201.156.78)' can't be established.
+ED25519 key fingerprint is SHA256:KMyY0OW+GbyxZnFSk+Uf1j+EDL1UpTj5xAbxgOcCtDk.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: 84.252.128.186
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '84.201.156.78' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sat Nov 12 05:16:00 PM UTC 2022
+
+  System load:  0.080078125       Processes:             126
+  Usage of /:   86.1% of 4.84GB   Users logged in:       0
+  Memory usage: 5%                IPv4 address for eth0: 192.168.100.9
+  Swap usage:   0%
+
+  => / is using 86.1% of 4.84GB
+
+
+0 updates can be applied immediately.
+
+
+Last login: Sat Nov 12 16:32:47 2022 from 46.36.218.77
+ubuntu@fhmi7s8jf85qi1diuor9:~$ top
+top - 17:16:23 up 25 min,  1 user,  load average: 0.06, 0.01, 0.01
+Tasks: 124 total,   1 running, 123 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.2 us,  0.0 sy,  0.0 ni, 96.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   3924.0 total,   3527.6 free,    181.5 used,    214.9 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   3515.5 avail Mem
+
+```
+
+``` 
 data.yandex_compute_image.ubuntu_image: Reading...
 yandex_vpc_network.network_terraform: Refreshing state... [id=enp7eets2v3tqmcthe9g]
 data.yandex_compute_image.ubuntu_image: Read complete after 1s [id=fd8njkcpguboriofo0nm]
