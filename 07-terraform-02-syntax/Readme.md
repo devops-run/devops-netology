@@ -124,5 +124,25 @@ v4_cidr_blocks:
 В качестве результата задания предоставьте:
 1. Ответ на вопрос: при помощи какого инструмента (из разобранных на прошлом занятии) можно создать свой образ ami?
 1. Ссылку на репозиторий с исходной конфигурацией терраформа.  
+
+### Решение:
+```bash
+
+```
+
+1. Создал авторизованный ключ для сервисного аккаунта и записал его файл:
+
+```bash
+[root@terra terra]# yc iam key create --service-account-id ajeu77i4iaqa84psgumk --folder-name devops-run --output key.json
+id: ajehuqj779pk7a0jr51f
+service_account_id: ajeu77i4iaqa84psgumk
+created_at: "2022-11-12T13:05:16.172459499Z"
+key_algorithm: RSA_2048
+
+```
+
+
+
+
  
----
+
