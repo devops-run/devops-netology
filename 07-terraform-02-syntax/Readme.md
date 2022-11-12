@@ -42,7 +42,8 @@ export IAM_TOKEN=`yc iam create-token`
 }
 [root@terra ~]#
 ```
-5. Создал сеть и подсеть в облаке:
+5. Создал сервисный аккаунт, назначил права на ресурс (через web интерфейс):         
+сеть и подсеть в облаке:
 ```bash
 [root@terra terra]# yc iam service-account list
 +----------------------+------------+
@@ -51,7 +52,10 @@ export IAM_TOKEN=`yc iam create-token`
 | ajejiia73mf8r5f7b2nt | devops-run |
 | ajeu77i4iaqa84psgumk | terra      |
 +----------------------+------------+
+```
 
+6. Создал сеть и подсеть в облаке:      
+```bash
 [root@terra terra]# yc vpc network create --name terra-network --labels my-label=terra-network --description "yandex terra network"
 id: enp7fceva56gtj601nbi
 folder_id: b1gfs7kff96rdbes0mnv
