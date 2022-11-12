@@ -43,7 +43,7 @@ export IAM_TOKEN=`yc iam create-token`
 [root@terra ~]#
 ```
 5. Создал сервисный аккаунт, назначил права на ресурс (через web интерфейс):         
-сеть и подсеть в облаке:
+
 ```bash
 [root@terra terra]# yc iam service-account list
 +----------------------+------------+
