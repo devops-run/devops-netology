@@ -163,6 +163,17 @@ The directory has no Terraform configuration files. You may begin working
 with Terraform immediately by creating Terraform configuration files.
 [root@terra ~]# 
 ```
+3. Нашел нужный образ:
+```bash
+yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
+```
+4. Создал/привёл к виду конфиг файлы.   
+
+- Конфигурация terraform:
+  - [main.tf](07-terraform-02-syntax/src/main.tf)
+  - [outputs.tf](07-terraform-02-syntax/src/outputs.tf)
+  - [versions.tf](07-terraform-02-syntax/src/versions.tf)
+
 
  
 
