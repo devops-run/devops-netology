@@ -41,6 +41,43 @@ export IAM_TOKEN=`yc iam create-token`
  ]
 }
 [root@terra ~]#
+```
+5. Создал сеть и подсеть в облаке:
+```bash
+[root@terra terra]# yc iam service-account list
++----------------------+------------+
+|          ID          |    NAME    |
++----------------------+------------+
+| ajejiia73mf8r5f7b2nt | devops-run |
+| ajeu77i4iaqa84psgumk | terra      |
++----------------------+------------+
+
+[root@terra terra]# yc vpc network create --name terra-network --labels my-label=terra-network --description "yandex terra network"
+id: enp7fceva56gtj601nbi
+folder_id: b1gfs7kff96rdbes0mnv
+created_at: "2022-11-12T12:02:41Z"
+name: terra-network
+description: yandex terra network
+labels:
+  my-label: terra-network
+
+[root@terra terra]# yc vpc subnet create --name terra-subnet-a --zone ru-central1-a --range 10.10.10.0/24 --network-name terra-network --description "subnet terra-network"
+id: e9bj570s9dc93u13t053
+folder_id: b1gfs7kff96rdbes0mnv
+created_at: "2022-11-12T12:05:43Z"
+name: terra-subnet-a
+description: subnet terra-network
+network_id: enp7fceva56gtj601nbi
+zone_id: ru-central1-a
+v4_cidr_blocks:
+  - 10.10.10.0/24
+
+[root@terra terra]# yc vpc network list
++----------------------+---------------+
+|          ID          |     NAME      |
++----------------------+---------------+
+| enp7fceva56gtj601nbi | terra-network |
++----------------------+---------------+
 
 ```
 
