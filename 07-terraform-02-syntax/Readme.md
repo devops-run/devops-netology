@@ -170,10 +170,10 @@ yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
 4. Создал/привёл к виду конфиг файлы.   
 
 - Конфигурация terraform:
-  - [main.tf](07-terraform-02-syntax/src/terra/main.tf)
-  - [infrastructure.tf](07-terraform-02-syntax/src/terra/infrastructure.tf)
-  - [meta.yml](07-terraform-02-syntax/src/terra/meta.yml)
-  - [key.json](07-terraform-02-syntax/src/terra/key.json)
+  - [main.tf](src/terra/main.tf)
+  - [infrastructure.tf](src/terra/infrastructure.tf)
+  - [meta.yml](src/terra/meta.yml)
+  - [key.json](src/terra/key.json)
 
 ```
 [root@terra terra]# terraform apply
