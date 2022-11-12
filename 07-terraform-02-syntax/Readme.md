@@ -175,5 +175,47 @@ yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
   - [versions.tf](07-terraform-02-syntax/src/versions.tf)
 
 
- 
+```
+[root@terra terra]# terraform apply
+data.yandex_compute_image.ubuntu_image: Reading...
+yandex_vpc_network.network_terraform: Refreshing state... [id=enp7eets2v3tqmcthe9g]
+data.yandex_compute_image.ubuntu_image: Read complete after 1s [id=fd8njkcpguboriofo0nm]
+yandex_vpc_subnet.subnet_terraform: Refreshing state... [id=e9bvupprfo7rckf6ue56]
+yandex_compute_instance.vm-test1: Refreshing state... [id=fhmi7s8jf85qi1diuor9]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # yandex_compute_instance.vm-test1 will be updated in-place
+  ~ resource "yandex_compute_instance" "vm-test1" {
+        id                        = "fhmi7s8jf85qi1diuor9"
+        name                      = "test1"
+        # (10 unchanged attributes hidden)
+
+      ~ resources {
+          ~ cores         = 2 -> 4
+          ~ memory        = 2 -> 8
+            # (2 unchanged attributes hidden)
+        }
+
+        # (4 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+yandex_compute_instance.vm-test1: Modifying... [id=fhmi7s8jf85qi1diuor9]
+yandex_compute_instance.vm-test1: Still modifying... [id=fhmi7s8jf85qi1diuor9, 10s elapsed]
+yandex_compute_instance.vm-test1: Modifications complete after 18s [id=fhmi7s8jf85qi1diuor9]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+``` 
 
