@@ -273,7 +273,4 @@ Destroy complete! Resources: 3 destroyed.
 
 ```
 
-
 Ответ на вопрос: при помощи какого инструмента (из разобранных на прошлом занятии) можно создать свой образ ami? - Packer from Terraform        
-
-
