@@ -97,51 +97,7 @@ Terraform will perform the following actions:
       + folder_id  = (known after apply)
       + id         = (known after apply)
       + name       = "storage"
-    }
 
-  # yandex_iam_service_account_static_access_key.sa-static-key will be created
-  + resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-      + access_key           = (known after apply)
-      + created_at           = (known after apply)
-      + description          = "static access key for object storage"
-      + encrypted_secret_key = (known after apply)
-      + id                   = (known after apply)
-      + key_fingerprint      = (known after apply)
-      + secret_key           = (sensitive value)
-      + service_account_id   = (known after apply)
-    }
-
-  # yandex_resourcemanager_folder_iam_member.sa-editor will be created
-  + resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
-      + folder_id = "b1gc1rb1rp27vcsk14d5"
-      + id        = (known after apply)
-      + member    = (known after apply)
-      + role      = "storage.editor"
-    }
-
-  # yandex_storage_bucket.test will be created
-  + resource "yandex_storage_bucket" "test" {
-      + access_key            = (known after apply)
-      + acl                   = "private"
-      + bucket                = "devopsrun"
-      + bucket_domain_name    = (known after apply)
-      + default_storage_class = (known after apply)
-      + folder_id             = (known after apply)
-      + force_destroy         = false
-      + id                    = (known after apply)
-      + secret_key            = (sensitive value)
-      + website_domain        = (known after apply)
-      + website_endpoint      = (known after apply)
-
-      + anonymous_access_flags {
-          + list = (known after apply)
-          + read = (known after apply)
-        }
-
-      + versioning {
-          + enabled = (known after apply)
-        }
-    }
 
 Plan: 4 to add, 0 to change, 0 to destroy.
 
@@ -154,14 +110,6 @@ yandex_iam_service_account_static_access_key.sa-static-key: Creating...
 yandex_resourcemanager_folder_iam_member.sa-editor: Creating...
 yandex_iam_service_account_static_access_key.sa-static-key: Creation complete after 1s [id=ajen1laeouslp8l2nl49]
 yandex_storage_bucket.test: Creating...
-yandex_resourcemanager_folder_iam_member.sa-editor: Creation complete after 2s [id=b1gc1rb1rp27vcsk14d5/storage.editor/serviceAccount:ajec4773vtonspm2ueue]
-yandex_storage_bucket.test: Still creating... [10s elapsed]
-yandex_storage_bucket.test: Still creating... [20s elapsed]
-yandex_storage_bucket.test: Still creating... [30s elapsed]
-yandex_storage_bucket.test: Still creating... [40s elapsed]
-yandex_storage_bucket.test: Still creating... [50s elapsed]
-yandex_storage_bucket.test: Still creating... [1m0s elapsed]
-yandex_storage_bucket.test: Creation complete after 1m2s [id=devopsrun]
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
