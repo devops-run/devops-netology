@@ -10,7 +10,7 @@
 ### Решение
 1. Создал s3 бакет в Yandex Cloud c помошью terraform
 
-main.tf     
+#### main.tf     
 ```
 terraform {
   required_version = "= 1.3.5"
@@ -33,7 +33,7 @@ provider "yandex" {
 
 ```
 
-bucket.tf
+#### bucket.tf
 ```
 resource "yandex_iam_service_account" "sa" {
   name = "storage"
@@ -60,10 +60,8 @@ resource "yandex_storage_bucket" "test" {
 }
 
 ```
-terraform init
+#### terraform init
 ```bash
-terraform init
-
 Initializing the backend...
 
 Initializing provider plugins...
@@ -81,11 +79,12 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 
 ```
+
+#### terraform validate
 ```
-terraform validate
 Success! The configuration is valid.
 ```
-terraform plan
+#### terraform plan
 ```
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
@@ -147,7 +146,26 @@ Terraform will perform the following actions:
 Plan: 4 to add, 0 to change, 0 to destroy.
 
 ```
+#### terraform apply
+```
+yandex_iam_service_account.sa: Creating...
+yandex_iam_service_account.sa: Creation complete after 2s [id=ajec4773vtonspm2ueue]
+yandex_iam_service_account_static_access_key.sa-static-key: Creating...
+yandex_resourcemanager_folder_iam_member.sa-editor: Creating...
+yandex_iam_service_account_static_access_key.sa-static-key: Creation complete after 1s [id=ajen1laeouslp8l2nl49]
+yandex_storage_bucket.test: Creating...
+yandex_resourcemanager_folder_iam_member.sa-editor: Creation complete after 2s [id=b1gc1rb1rp27vcsk14d5/storage.editor/serviceAccount:ajec4773vtonspm2ueue]
+yandex_storage_bucket.test: Still creating... [10s elapsed]
+yandex_storage_bucket.test: Still creating... [20s elapsed]
+yandex_storage_bucket.test: Still creating... [30s elapsed]
+yandex_storage_bucket.test: Still creating... [40s elapsed]
+yandex_storage_bucket.test: Still creating... [50s elapsed]
+yandex_storage_bucket.test: Still creating... [1m0s elapsed]
+yandex_storage_bucket.test: Creation complete after 1m2s [id=devopsrun]
 
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+
+```
 ## Задача 2. Инициализируем проект и создаем воркспейсы. 
 
 1. Выполните `terraform init`:
