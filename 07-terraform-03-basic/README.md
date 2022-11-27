@@ -152,3 +152,6 @@ root@debian11:~/bucket2#
 
 ```
 2. Потренировался в загрузке состояний Terraform в Object Storage (использовал [мануал от яндекса](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-state-storage#configure-terraform))
+- Конфигурация terraform:
+  - [main.tf](src/main.tf)
+
