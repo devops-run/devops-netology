@@ -176,7 +176,7 @@ subnet-1 = "e9bdogaou3156k31jln6"
 
 4. Вывод команды `terraform workspace list`     
 ```
-root@debian11:~/bucket2# terraform workspace list
+root@debian11:~/bucket2# terraform workspace list:
 * default
   prod
   stage
