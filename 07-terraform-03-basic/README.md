@@ -10,6 +10,7 @@
 ### Решение
 1. Создал s3 бакет в Yandex Cloud c помошью terraform
 
+main.tf     
 ```
 terraform {
   required_version = "= 1.3.5"
