@@ -151,7 +151,26 @@ for this configuration.
 root@debian11:~/bucket2#
 
 ```
-2. Потренировался в загрузке состояний Terraform в Object Storage (использовал [мануал от яндекса](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-state-storage#configure-terraform))
+Потренировался в загрузке состояний Terraform в Object Storage (использовал [мануал от яндекса](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-state-storage#configure-terraform))
+
+2. Развернул конфигурацию:  
+
 - Конфигурация terraform:
   - [main.tf](src/main.tf)
+```
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+external_ip_address_vm_1 = "158.160.41.92"
+external_ip_address_vm_2 = "158.160.43.8"
+internal_ip_address_vm_1 = "192.168.10.13"
+internal_ip_address_vm_2 = "192.168.10.26"
+subnet-1 = "e9bdogaou3156k31jln6"
+
+```
+
+3. Убедился, что файл состояния загружен в Object Storage:
+
+![файл состояния](src/Screenshot-7.png)
 
