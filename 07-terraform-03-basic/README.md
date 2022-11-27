@@ -172,5 +172,5 @@ subnet-1 = "e9bdogaou3156k31jln6"
 
 3. Убедился, что файл состояния загружен в Object Storage:
 
-![файл состояния](src/Screenshot-7.png)
+![файл состояния](src/Screenshot_7.png)
 
