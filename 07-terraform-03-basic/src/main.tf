@@ -31,6 +31,9 @@ resource "yandex_compute_image" "ubuntu_2004" {
 
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
+  lifecycle {
+  create_before_destroy = true
+  }
 
   resources {
     cores  = 2
@@ -55,6 +58,9 @@ resource "yandex_compute_instance" "vm-1" {
 
 resource "yandex_compute_instance" "vm-2" {
   name = "terraform2"
+  lifecycle {
+  create_before_destroy = true
+  }
 
   resources {
     cores  = 2
