@@ -31,13 +31,14 @@ resource "yandex_compute_image" "ubuntu_2004" {
 
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
+  allow_stopping_for_update = true
   lifecycle {
-  create_before_destroy = true
+    create_before_destroy = true
   }
 
   resources {
-    cores  = 2
-    memory = 2
+    cores  = 4
+    memory = 4
   }
 
   boot_disk {
@@ -58,12 +59,13 @@ resource "yandex_compute_instance" "vm-1" {
 
 resource "yandex_compute_instance" "vm-2" {
   name = "terraform2"
+  allow_stopping_for_update = true
   lifecycle {
   create_before_destroy = true
   }
 
   resources {
-    cores  = 2
+    cores  = 4
     memory = 4
   }
 
