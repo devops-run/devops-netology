@@ -73,7 +73,7 @@ ansible-inventory -i inventory/test.yml site.yml --list
 
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.
 
-vim group_vars/all/examp.yml        
+####vim group_vars/all/examp.yml        
 ansible-inventory -i inventory/test.yml --list      
 
 ```
