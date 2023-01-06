@@ -72,6 +72,34 @@ ansible-inventory -i inventory/test.yml site.yml --list
 ```
 
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.
+
+ansible-inventory -i inventory/test.yml --list
+
+```
+{
+    "_meta": {
+        "hostvars": {
+            "localhost": {
+                "ansible_connection": "local",
+                "some_fact": "all default fact"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "inside",
+            "ungrouped"
+        ]
+    },
+    "inside": {
+        "hosts": [
+            "localhost"
+        ]
+    }
+}
+
+```
+
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились следующие значения: для `deb` - 'deb default fact', для `el` - 'el default fact'.
