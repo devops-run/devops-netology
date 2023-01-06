@@ -45,6 +45,32 @@ localhost                  : ok=3    changed=0    unreachable=0    failed=0    s
 
 ```
 
+ansible-inventory -i inventory/test.yml site.yml --list
+```json
+{
+    "_meta": {
+        "hostvars": {
+            "localhost": {
+                "ansible_connection": "local",
+                "some_fact": 12
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "inside",
+            "ungrouped"
+        ]
+    },
+    "inside": {
+        "hosts": [
+            "localhost"
+        ]
+    }
+}
+
+```
+
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
