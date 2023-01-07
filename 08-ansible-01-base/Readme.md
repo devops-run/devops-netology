@@ -123,10 +123,11 @@ services:
     entrypoint: "sleep infinity"
 
   ubuntu:
-    image: ubuntu
+    image: pycontribs/ubuntu
     container_name: ubuntu
     restart: always
     entrypoint: "sleep infinity"
+
 ```
 
 ####    ansible2:~/work/os$ docker ps
