@@ -2,16 +2,18 @@
 
 ## Подготовка к выполнению
 1. Установите ansible версии 2.10 или выше.         
-```
+
 ansible --version
+
+```bash
 ansible [core 2.14.1]
   config file = None
   configured module search path = ['/home/kornik/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/local/lib/python3.9/site-packages/ansible
+  ansible python module location = /usr/local/lib/python3.10/dist-packages/ansible
   ansible collection location = /home/kornik/.ansible/collections:/usr/share/ansible/collections
   executable location = /usr/local/bin/ansible
-  python version = 3.9.14 (main, Nov  7 2022, 00:00:00) [GCC 11.3.1 20220421 (Red Hat 11.3.1-2)] (/usr/bin/python3)
-  jinja version = 3.1.2
+  python version = 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0] (/usr/bin/python3)
+  jinja version = 3.0.3
   libyaml = True
 
 ```
@@ -74,6 +76,8 @@ ansible-inventory -i inventory/test.yml site.yml --list
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.
 
 #### vim group_vars/all/examp.yml        
+
+
 ansible-inventory -i inventory/test.yml --list      
 
 ```
