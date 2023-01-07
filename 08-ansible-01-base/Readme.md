@@ -213,37 +213,6 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились следующие значения: для `deb` - 'deb default fact', для `el` - 'el default fact'.
 
-#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml
-
-```bash
-PLAY [Print os facts] *******************************************************************************************************************************
-
-TASK [Gathering Facts] ******************************************************************************************************************************
-ok: [centos7]
-ok: [ubuntu]
-
-TASK [Print OS] *************************************************************************************************************************************
-ok: [centos7] => {
-    "msg": "CentOS"
-}
-ok: [ubuntu] => {
-    "msg": "Ubuntu"
-}
-
-TASK [Print fact] ***********************************************************************************************************************************
-ok: [centos7] => {
-    "msg": "el default fact"
-}
-ok: [ubuntu] => {
-    "msg": "deb default fact"
-}
-
-PLAY RECAP ******************************************************************************************************************************************
-centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
-```
-
 #### ansible-inventory -i inventory/prod.yml --list
 ```json
 {
@@ -281,7 +250,69 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 ```
 
 
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml
+
+```bash
+PLAY [Print os facts] *******************************************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************************
+ok: [centos7]
+ok: [ubuntu]
+
+TASK [Print OS] *************************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "CentOS"
+}
+ok: [ubuntu] => {
+    "msg": "Ubuntu"
+}
+
+TASK [Print fact] ***********************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "el default fact"
+}
+ok: [ubuntu] => {
+    "msg": "deb default fact"
+}
+
+PLAY RECAP ******************************************************************************************************************************************
+centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+```
+
 6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml  
+    
+```bash
+PLAY [Print os facts] *******************************************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************************
+ok: [centos7]
+ok: [ubuntu]
+
+TASK [Print OS] *************************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "CentOS"
+}
+ok: [ubuntu] => {
+    "msg": "Ubuntu"
+}
+
+TASK [Print fact] ***********************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "el default fact"
+}
+ok: [ubuntu] => {
+    "msg": "deb default fact"
+}
+
+PLAY RECAP ******************************************************************************************************************************************
+centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+```
+
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
