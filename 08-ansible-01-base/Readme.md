@@ -220,7 +220,8 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 
 ```
 
-7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
+7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.       
+
 Зашифровал строки 'deb default fact', 'el default fact':    
 
 #### ansible2:~/work/playbook$ cat group_vars/el/examp.yml
