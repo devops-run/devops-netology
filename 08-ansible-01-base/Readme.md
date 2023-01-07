@@ -288,6 +288,7 @@ Encryption successful
 
 ```
 
+Запустил ansible-playbook с запросом пароля:             
 #### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml --ask-vault-pass
 ```bash
 Vault password:
