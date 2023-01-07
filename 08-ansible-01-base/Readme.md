@@ -77,35 +77,12 @@ localhost                  : ok=3    changed=0    unreachable=0    failed=0    s
 
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.
 
-####    vim group_vars/all/examp.yml        
+#### ansible2:~/work/playbook$ cat group_vars/all/examp.yml
 
-
-####    ansible2:~/work/playbook$ ansible-inventory -i inventory/test.yml --list      
-
-```json
-{
-    "_meta": {
-        "hostvars": {
-            "localhost": {
-                "ansible_connection": "local",
-                "some_fact": "all default fact"
-            }
-        }
-    },
-    "all": {
-        "children": [
-            "inside",
-            "ungrouped"
-        ]
-    },
-    "inside": {
-        "hosts": [
-            "localhost"
-        ]
-    }
-}
-
-```
+```yaml
+---
+  some_fact: 'all default fact'
+```        
 
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.    
 
@@ -173,44 +150,6 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 
 ```
 
-#### kornik@ansible2:~/work/playbook$ ansible-inventory -i inventory/prod.yml --list    
-
-```json
-{
-    "_meta": {
-        "hostvars": {
-            "centos7": {
-                "ansible_connection": "docker",
-                "some_fact": "el"
-            },
-            "ubuntu": {
-                "ansible_connection": "docker",
-                "some_fact": "deb"
-            }
-        }
-    },
-    "all": {
-        "children": [
-            "deb",
-            "el",
-            "ungrouped"
-        ]
-    },
-    "deb": {
-        "hosts": [
-            "ubuntu"
-        ]
-    },
-    "el": {
-        "hosts": [
-            "centos7"
-        ]
-    }
-}
-
-```
-
-
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились следующие значения: для `deb` - 'deb default fact', для `el` - 'el default fact'.
 
 #### ansible-inventory -i inventory/prod.yml --list
@@ -246,38 +185,6 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
         ]
     }
 }
-
-```
-
-
-#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml
-
-```bash
-PLAY [Print os facts] *******************************************************************************************************************************
-
-TASK [Gathering Facts] ******************************************************************************************************************************
-ok: [centos7]
-ok: [ubuntu]
-
-TASK [Print OS] *************************************************************************************************************************************
-ok: [centos7] => {
-    "msg": "CentOS"
-}
-ok: [ubuntu] => {
-    "msg": "Ubuntu"
-}
-
-TASK [Print fact] ***********************************************************************************************************************************
-ok: [centos7] => {
-    "msg": "el default fact"
-}
-ok: [ubuntu] => {
-    "msg": "deb default fact"
-}
-
-PLAY RECAP ******************************************************************************************************************************************
-centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
 ```
 
