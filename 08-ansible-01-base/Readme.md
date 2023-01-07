@@ -80,9 +80,9 @@ localhost                  : ok=3    changed=0    unreachable=0    failed=0    s
 #### vim group_vars/all/examp.yml        
 
 
-ansible-inventory -i inventory/test.yml --list      
+#### ansible2:~/work/playbook$ ansible-inventory -i inventory/test.yml --list      
 
-```
+```json
 {
     "_meta": {
         "hostvars": {
