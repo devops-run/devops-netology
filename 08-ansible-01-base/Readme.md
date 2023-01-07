@@ -213,6 +213,36 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились следующие значения: для `deb` - 'deb default fact', для `el` - 'el default fact'.
 
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml
+
+```bash
+PLAY [Print os facts] *******************************************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************************
+ok: [centos7]
+ok: [ubuntu]
+
+TASK [Print OS] *************************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "CentOS"
+}
+ok: [ubuntu] => {
+    "msg": "Ubuntu"
+}
+
+TASK [Print fact] ***********************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "el default fact"
+}
+ok: [ubuntu] => {
+    "msg": "deb default fact"
+}
+
+PLAY RECAP ******************************************************************************************************************************************
+centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+```
 
 #### ansible-inventory -i inventory/prod.yml --list
 ```json
