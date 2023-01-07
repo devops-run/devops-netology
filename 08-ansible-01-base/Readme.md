@@ -156,6 +156,45 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 ```
 
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились следующие значения: для `deb` - 'deb default fact', для `el` - 'el default fact'.
+
+
+#### ansible-inventory -i inventory/prod.yml --list
+```json
+{
+    "_meta": {
+        "hostvars": {
+            "centos7": {
+                "ansible_connection": "docker",
+                "some_fact": "el default fact"
+            },
+            "ubuntu": {
+                "ansible_connection": "docker",
+                "some_fact": "deb default fact"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "deb",
+            "el",
+            "ungrouped"
+        ]
+    },
+    "deb": {
+        "hosts": [
+            "ubuntu"
+        ]
+    },
+    "el": {
+        "hosts": [
+            "centos7"
+        ]
+    }
+}
+
+```
+
+
 6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
