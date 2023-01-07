@@ -7,9 +7,9 @@
 ```bash
 ansible [core 2.14.1]
   config file = None
-  configured module search path = ['/home/kornik/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  configured module search path = ['/home/*****/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/local/lib/python3.10/dist-packages/ansible
-  ansible collection location = /home/kornik/.ansible/collections:/usr/share/ansible/collections
+  ansible collection location = /home/*****/.ansible/collections:/usr/share/ansible/collections
   executable location = /usr/local/bin/ansible
   python version = 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0] (/usr/bin/python3)
   jinja version = 3.0.3
