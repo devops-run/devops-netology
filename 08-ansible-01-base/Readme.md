@@ -288,7 +288,10 @@ Encryption successful
 
 ```
 
-Запустил ansible-playbook с запросом пароля:             
+
+8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
+Запустил ansible-playbook с запросом пароля:        
+
 #### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml --ask-vault-pass
 ```bash
 Vault password:
@@ -321,7 +324,7 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 
 ```
 
-8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
+
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
 11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь что факты `some_fact` для каждого из хостов определены из верных `group_vars`.
