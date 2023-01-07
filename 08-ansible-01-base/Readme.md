@@ -2,8 +2,7 @@
 
 ## Подготовка к выполнению
 1. Установите ansible версии 2.10 или выше.         
-
-ansible --version
+#### ansible --version
 
 ```bash
 ansible [core 2.14.1]
