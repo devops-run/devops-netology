@@ -77,10 +77,10 @@ localhost                  : ok=3    changed=0    unreachable=0    failed=0    s
 
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.
 
-#### vim group_vars/all/examp.yml        
+####    vim group_vars/all/examp.yml        
 
 
-#### ansible2:~/work/playbook$ ansible-inventory -i inventory/test.yml --list      
+####    ansible2:~/work/playbook$ ansible-inventory -i inventory/test.yml --list      
 
 ```json
 {
@@ -110,7 +110,8 @@ localhost                  : ok=3    changed=0    unreachable=0    failed=0    s
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 Запустил два контейнера:    
 docker-compose.yml  
-````yaml
+
+```yaml
 version: '3'
 services:
   centos7:
@@ -126,7 +127,7 @@ services:
     entrypoint: "sleep infinity"
 ```
 
-#### ansible2:~/work/os$ docker ps
+####    ansible2:~/work/os$ docker ps
 
 ```bash
 CONTAINER ID   IMAGE     COMMAND            CREATED         STATUS         PORTS     NAMES
