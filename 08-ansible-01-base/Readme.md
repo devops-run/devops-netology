@@ -140,20 +140,18 @@ CONTAINER ID   IMAGE     COMMAND            CREATED         STATUS         PORTS
 ```
 
 
-4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
-```
-ansible-playbook -i inventory/prod.yml site.yml
+4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.    
 
-PLAY [Print os facts] ******************************************************************************************************************
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml
 
-TASK [Gathering Facts] *****************************************************************************************************************
-ok: [ubuntu]
-[WARNING]: Timeout exceeded when getting mount info for /etc/hosts
-[WARNING]: Timeout exceeded when getting mount info for /etc/hostname
-[WARNING]: Timeout exceeded when getting mount info for /etc/resolv.conf
+```bash
+PLAY [Print os facts] *******************************************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************************
 ok: [centos7]
+ok: [ubuntu]
 
-TASK [Print OS] ************************************************************************************************************************
+TASK [Print OS] *************************************************************************************************************************************
 ok: [centos7] => {
     "msg": "CentOS"
 }
@@ -161,7 +159,7 @@ ok: [ubuntu] => {
     "msg": "Ubuntu"
 }
 
-TASK [Print fact] **********************************************************************************************************************
+TASK [Print fact] ***********************************************************************************************************************************
 ok: [centos7] => {
     "msg": "el"
 }
@@ -169,11 +167,49 @@ ok: [ubuntu] => {
     "msg": "deb"
 }
 
-PLAY RECAP *****************************************************************************************************************************
+PLAY RECAP ******************************************************************************************************************************************
 centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
 ```
+
+#### kornik@ansible2:~/work/playbook$ ansible-inventory -i inventory/prod.yml --list    
+
+```json
+{
+    "_meta": {
+        "hostvars": {
+            "centos7": {
+                "ansible_connection": "docker",
+                "some_fact": "el"
+            },
+            "ubuntu": {
+                "ansible_connection": "docker",
+                "some_fact": "deb"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "deb",
+            "el",
+            "ungrouped"
+        ]
+    },
+    "deb": {
+        "hosts": [
+            "ubuntu"
+        ]
+    },
+    "el": {
+        "hosts": [
+            "centos7"
+        ]
+    }
+}
+
+```
+
 
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились следующие значения: для `deb` - 'deb default fact', для `el` - 'el default fact'.
 
