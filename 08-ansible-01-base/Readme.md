@@ -374,7 +374,7 @@ ANSIBLE.BUILTIN.LOCAL
         
 This connection plugin allows ansible to execute tasks on the Ansible 'controller' instead of on a remotehost.
 ```        
-Для работы на control node на окружении из prod.yml используем community.docker.docker     
+Для работы на control node с окружением из prod.yml используем community.docker.docker     
 #### ansible-doc -t connection community.docker.docker     
  
 ```
