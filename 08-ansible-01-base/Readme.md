@@ -221,6 +221,83 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 ```
 
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
+Зашифровал строки 'deb default fact', 'el default fact':    
+
+#### ansible2:~/work/playbook$ cat group_vars/el/examp.yml
+
+```
+---
+  some_fact: 'el default fact'      
+
+ansible-vault encrypt_string
+New Vault password:
+Confirm New Vault password:
+Reading plaintext input from stdin. (ctrl-d to end input, twice if your content does not already have a newline)
+'el default fact'
+Encryption successful
+!vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          35366630336136393632376465353430383563396538636663333666323735663734356265633534
+          6633346435373461366535396637623836343066666131350a353964666130626634656134356533
+          36346561643539383034393734666536373430343932626230633134623935356534636663646364
+          3938393739396465620a626437623937363861373939363565313433303462636339613231623839
+          37333438643863313638633861666561353335623563383261663566313962633361
+```
+
+#### ansible2:~/work/playbook$ cat group_vars/deb/examp.yml
+
+```
+---
+  some_fact: 'deb default fact'
+
+ansible-vault encrypt_string
+New Vault password:
+Confirm New Vault password:
+Reading plaintext input from stdin. (ctrl-d to end input, twice if your content does not already have a newline)
+'deb default fact'
+Encryption successful
+!vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          31366133383961633164636433396635663366363061373164636566383439623363626334376666
+          6633353365346266343062663239643738343333383563630a356137316261346463323435643834
+          62613663303438333861653135356239613561666262323939666365613566353731636164643766
+          6330373862333263330a633331393864313266376436663861333866383666396538393935656336
+          36346565656530653566353433353162383731616134396339326364323539323866
+```
+
+
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml --ask-vault-pass
+```bash
+Vault password:
+
+PLAY [Print os facts] *****************************************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************************
+ok: [centos7]
+ok: [ubuntu]
+
+TASK [Print OS] ***********************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "CentOS"
+}
+ok: [ubuntu] => {
+    "msg": "Ubuntu"
+}
+
+TASK [Print fact] *********************************************************************************************************************************
+ok: [centos7] => {
+    "msg": "'el default fact'"
+}
+ok: [ubuntu] => {
+    "msg": "'deb default fact'"
+}
+
+PLAY RECAP ****************************************************************************************************************************************
+centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+```
+
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
