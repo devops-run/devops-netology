@@ -127,6 +127,7 @@ services:
 ```
 
 #### ansible2:~/work/os$ docker ps
+
 ```bash
 CONTAINER ID   IMAGE     COMMAND            CREATED         STATUS         PORTS     NAMES
 22bb5ad93575   centos    "sleep infinity"   7 seconds ago   Up 6 seconds             centos7
