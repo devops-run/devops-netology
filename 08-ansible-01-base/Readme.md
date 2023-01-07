@@ -114,17 +114,26 @@ docker-compose.yml
 version: '3'
 services:
   centos7:
-    image: pycontribs/centos:7
+    image: centos
     container_name: centos7
     restart: always
     entrypoint: "sleep infinity"
 
   ubuntu:
-    image: pycontribs/ubuntu
+    image: ubuntu
     container_name: ubuntu
     restart: always
     entrypoint: "sleep infinity"
 ```
+
+#### ansible2:~/work/os$ docker ps
+```bash
+CONTAINER ID   IMAGE     COMMAND            CREATED         STATUS         PORTS     NAMES
+22bb5ad93575   centos    "sleep infinity"   7 seconds ago   Up 6 seconds             centos7
+32af3ca187e8   ubuntu    "sleep infinity"   7 seconds ago   Up 6 seconds             ubuntu
+
+```
+
 
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
 ```
