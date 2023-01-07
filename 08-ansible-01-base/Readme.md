@@ -370,7 +370,7 @@ kubernetes.core.kubectl        Execute tasks in pods running on Kubernetes
 #### ansible-doc -t connection ansible.builtin.local    
 
 ```
-ANSIBLE.BUILTIN.LOCAL    (/usr/local/lib/python3.10/dist-packages/ansible/plugins/connection/local.py)
+ANSIBLE.BUILTIN.LOCAL   
         
 This connection plugin allows ansible to execute tasks on the Ansible 'controller' instead of on a remotehost.
 ```        
@@ -378,7 +378,7 @@ This connection plugin allows ansible to execute tasks on the Ansible 'controlle
 #### ansible-doc -t connection community.docker.docker     
  
 ```
-COMMUNITY.DOCKER.DOCKER    (/usr/local/lib/python3.10/dist-packages/ansible_collections/community/docker/plugins/connection/docker.py)
+COMMUNITY.DOCKER.DOCKER   
 
 Run commands or put/fetch files to an existing docker container. Uses the Docker CLI to execute commands in the container. If you prefer to directly connect to the Docker daemon, use the community.docker.docker_api connection plugin.
 ```
