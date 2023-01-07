@@ -325,7 +325,64 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 ```
 
 
-9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
+9. Посмотрите при помощи `ansible-doc` список плагинов для подключения.     
+Выберите подходящий для работы на `control node`.       
+
+#### ansible2:~/work/playbook$ ansible-doc -t connection -l
+
+```
+ansible2:~/work/playbook$ ansible-doc -t connection -l
+ansible.builtin.local          execute on controller
+ansible.builtin.paramiko_ssh   Run tasks via python ssh (paramiko)
+ansible.builtin.psrp           Run tasks over Microsoft PowerShell Remoting Protocol
+ansible.builtin.ssh            connect via SSH client binary
+ansible.builtin.winrm          Run tasks over Microsoft's WinRM
+ansible.netcommon.grpc         Provides a persistent connection using the gRPC protocol
+ansible.netcommon.httpapi      Use httpapi to run command on network appliances
+ansible.netcommon.libssh       Run tasks using libssh for ssh connection
+ansible.netcommon.netconf      Provides a persistent connection using the netconf protocol
+ansible.netcommon.network_cli  Use network_cli to run command on network appliances
+ansible.netcommon.persistent   Use a persistent unix socket for connection
+community.aws.aws_ssm          execute via AWS Systems Manager
+community.docker.docker        Run tasks in docker containers
+community.docker.docker_api    Run tasks in docker containers
+community.docker.nsenter       execute on host running controller container
+community.general.chroot       Interact with local chroot
+community.general.funcd        Use funcd to connect to target
+community.general.iocage       Run tasks in iocage jails
+community.general.jail         Run tasks in jails
+community.general.lxc          Run tasks in lxc containers via lxc python library
+community.general.lxd          Run tasks in lxc containers via lxc CLI
+community.general.qubes        Interact with an existing QubesOS AppVM
+community.general.saltstack    Allow ansible to piggyback on salt minions
+community.general.zone         Run tasks in a zone instance
+community.libvirt.libvirt_lxc  Run tasks in lxc containers via libvirt
+community.libvirt.libvirt_qemu Run tasks on libvirt/qemu virtual machines
+community.okd.oc               Execute tasks in pods running on OpenShift
+community.vmware.vmware_tools  Execute tasks inside a VM via VMware Tools
+containers.podman.buildah      Interact with an existing buildah container
+containers.podman.podman       Interact with an existing podman container
+kubernetes.core.kubectl        Execute tasks in pods running on Kubernetes
+
+```
+
+Для работы на control node используем ansible.builtin.local (в случае окружения из test.yml)        
+#### ansible-doc -t connection ansible.builtin.local    
+
+```
+ANSIBLE.BUILTIN.LOCAL    (/usr/local/lib/python3.10/dist-packages/ansible/plugins/connection/local.py)
+        
+This connection plugin allows ansible to execute tasks on the Ansible 'controller' instead of on a remotehost.
+```        
+Для работы на control node на окружении из prod.yml используем community.docker.docker     
+#### ansible-doc -t connection community.docker.docker     
+ 
+```
+COMMUNITY.DOCKER.DOCKER    (/usr/local/lib/python3.10/dist-packages/ansible_collections/community/docker/plugins/connection/docker.py)
+
+Run commands or put/fetch files to an existing docker container. Uses the Docker CLI to execute commands in the container. If you prefer to directly connect to the Docker daemon, use the community.docker.docker_api connection plugin.
+```
+
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
 11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь что факты `some_fact` для каждого из хостов определены из верных `group_vars`.
 12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.
