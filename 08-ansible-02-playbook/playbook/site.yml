@@ -2,12 +2,15 @@
 - name: Dnf Upgrade
   hosts: clickhouse
   tasks:
+    # Обновляем существующие пакеты в системе
     - name: Upgrade all packages
       become: true
       ansible.builtin.dnf:
         name: "*"
         state: latest
     - name: Execute command
+    # yamllint disable-line rule:line-length
+    # Меняем политику на DEFAULT:SHA1  (без этого скаченные пвкеты не устанавливаются)
       ansible.builtin.shell: "update-crypto-policies --set DEFAULT:SHA1"
 - name: Install Clickhouse
   hosts: clickhouse
@@ -17,11 +20,13 @@
       ansible.builtin.service:
         name: clickhouse-server.service
         state: restarted
+        # Импортируем ключ репозитория
   tasks:
     - name: Importing Repo key
       ansible.builtin.rpm_key:
         state: present
         key: https://repo.clickhouse.com/CLICKHOUSE-KEY.GPG
+        # Скачиваем RPM заданной в переменной версии
     - name: Get clickhouse distrib1
       ansible.builtin.get_url:
         # yamllint disable-line rule:line-length
@@ -37,6 +42,7 @@
         # yamllint disable-line rule:line-length
         url: "https://packages.clickhouse.com/rpm/stable/clickhouse-client-{{ clickhouse_version }}.x86_64.rpm"
         dest: "/root"
+        # Инсталлируем пакеты
     - name: Install clickhouse packages
       become: true
       ansible.builtin.yum:
@@ -45,12 +51,14 @@
           - clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm
           - clickhouse-client-{{ clickhouse_version }}.x86_64.rpm
           - clickhouse-server-{{ clickhouse_version }}.x86_64.rpm
+# Перезапускаем сервер (без перезапуска служба не стартует)
 - name: Reboot
   hosts: clickhouse
   tasks:
     - name: Reboot the machine
       become: true
       ansible.builtin.reboot:
+# Создаём базу данных
 - name: Database task
   hosts: clickhouse
   tasks:
@@ -59,3 +67,30 @@
       register: create_db
       failed_when: "create_db.rc != 0 and create_db.rc !=82"
       changed_when: create_db.rc == 0
+# Загрузка и установка Vector 
+- name: Vector Setup
+  hosts: vector
+  tasks:
+    - name: Get Vector
+      become: true
+      ansible.builtin.get_url:
+        # yamllint disable-line rule:line-length
+        url: "https://packages.timber.io/vector/0.26.0/vector-{{ vector_version }}.x86_64.rpm"
+        dest: "./vector-{{ vector_version }}.x86_64.rpm"
+        #############################################
+    - name: Install Vector
+      become: true
+      ansible.builtin.yum:
+        disable_gpg_check: true
+        name:
+          - vector-{{ vector_version }}.x86_64.rpm
+          #############################################
+    - name: Enable vector
+      become: true
+      ansible.builtin.shell: "systemctl enable vector.service"
+      ############################################
+    - name: Start vector service
+      become: true
+      ansible.builtin.service:
+        name: vector.service
+        state: restarted
