@@ -1,34 +1,61 @@
 ---
+- name: Dnf Upgrade
+  hosts: clickhouse
+  tasks:
+    - name: Upgrade all packages
+      become: true
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+    - name: Execute command
+      ansible.builtin.shell: "update-crypto-policies --set DEFAULT:SHA1"
 - name: Install Clickhouse
   hosts: clickhouse
   handlers:
     - name: Start clickhouse service
       become: true
       ansible.builtin.service:
-        name: clickhouse-server
+        name: clickhouse-server.service
         state: restarted
   tasks:
-    - block:
-        - name: Get clickhouse distrib
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
-            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
-          with_items: "{{ clickhouse_packages }}"
-      rescue:
-        - name: Get clickhouse distrib
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
-            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+    - name: Importing Repo key
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://repo.clickhouse.com/CLICKHOUSE-KEY.GPG
+    - name: Get clickhouse distrib1
+      ansible.builtin.get_url:
+        # yamllint disable-line rule:line-length
+        url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+        dest: "/root"
+    - name: Get clickhouse distrib2
+      ansible.builtin.get_url:
+        # yamllint disable-line rule:line-length
+        url: "https://packages.clickhouse.com/rpm/stable/clickhouse-server-{{ clickhouse_version }}.x86_64.rpm"
+        dest: "/root"
+    - name: Get clickhouse distrib3
+      ansible.builtin.get_url:
+        # yamllint disable-line rule:line-length
+        url: "https://packages.clickhouse.com/rpm/stable/clickhouse-client-{{ clickhouse_version }}.x86_64.rpm"
+        dest: "/root"
     - name: Install clickhouse packages
       become: true
       ansible.builtin.yum:
+        disable_gpg_check: true
         name:
-          - clickhouse-common-static-{{ clickhouse_version }}.rpm
-          - clickhouse-client-{{ clickhouse_version }}.rpm
-          - clickhouse-server-{{ clickhouse_version }}.rpm
-      notify: Start clickhouse service
+          - clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm
+          - clickhouse-client-{{ clickhouse_version }}.x86_64.rpm
+          - clickhouse-server-{{ clickhouse_version }}.x86_64.rpm
+- name: Reboot
+  hosts: clickhouse
+  tasks:
+    - name: Reboot the machine
+      become: true
+      ansible.builtin.reboot:
+- name: Database task
+  hosts: clickhouse
+  tasks:
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
-      failed_when: create_db.rc != 0 and create_db.rc !=82
+      failed_when: "create_db.rc != 0 and create_db.rc !=82"
       changed_when: create_db.rc == 0
