@@ -14,7 +14,8 @@
 ## Основная часть
 
 1. Приготовьте свой собственный inventory файл `prod.yml`.
-#### Сделано [prod.yml](playbook/inventory/prod.yml)     
+#### Сделано [prod.yml](playbook/inventory/prod.ymli)
+#### Отредактирован нерабочий [site.yml](playbook/site.yml)           
 2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает [vector](https://vector.dev).
 3. При создании tasks рекомендую использовать модули: `get_url`, `template`, `unarchive`, `file`.
 4. Tasks должны: скачать нужной версии дистрибутив, выполнить распаковку в выбранную директорию, установить vector.
