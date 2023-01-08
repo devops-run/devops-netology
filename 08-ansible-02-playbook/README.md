@@ -59,7 +59,19 @@ vector-01                  : ok=4    changed=1    unreachable=0    failed=0    s
 ```
 
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.   
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml --diff       
+```bash
+PLAY RECAP ********************************************************************************************************************************************
+clickhouse-01              : ok=13   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+vector-01                  : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.    
-9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.   
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml --diff       
+```bash
+PLAY RECAP ********************************************************************************************************************************************
+clickhouse-01              : ok=13   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+vector-01                  : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+```
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.    
 ---
