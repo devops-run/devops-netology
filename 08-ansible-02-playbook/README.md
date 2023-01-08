@@ -16,7 +16,7 @@
 1. Приготовьте свой собственный inventory файл `prod.yml`.
 #### Сделано: [prod.yml](playbook/inventory/prod.yml), Отредактирован нерабочий [site.yml](playbook/site.yml)               
 2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает [vector](https://vector.dev).    
-### Часть prod.yml
+### Часть prod.yml, отвечающая за Vector
 ```yaml
 # Загрузка и установка Vector
 - name: Vector Setup
