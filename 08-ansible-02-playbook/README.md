@@ -47,9 +47,8 @@
         state: restarted
 
 ```
-3. При создании tasks рекомендую использовать модули: `get_url`, `template`, `unarchive`, `file`.   
-4. Tasks должны: скачать нужной версии дистрибутив, выполнить распаковку в выбранную директорию, установить vector. 
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.     
+Протестировал ansible-lint site.yml, исправил ошибки с помощью [yamlfixer](https://github.com/opt-nc/yamlfixer) --summary site.yml  
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.      
 #### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml --check  
 ```bash
