@@ -16,10 +16,48 @@
 1. Приготовьте свой собственный inventory файл `prod.yml`.
 #### Сделано: [prod.yml](playbook/inventory/prod.yml), Отредактирован нерабочий [site.yml](playbook/site.yml)               
 2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает [vector](https://vector.dev).    
+### Часть prod.yml
+```yaml
+# Загрузка и установка Vector
+- name: Vector Setup
+  hosts: vector
+  tasks:
+    - name: Get Vector
+      become: true
+      ansible.builtin.get_url:
+        # yamllint disable-line rule:line-length
+        url: "https://packages.timber.io/vector/0.26.0/vector-{{ vector_version }}.x86_64.rpm"
+        dest: "./vector-{{ vector_version }}.x86_64.rpm"
+      #############################################
+    - name: Install Vector
+      become: true
+      ansible.builtin.yum:
+        disable_gpg_check: true
+        name:
+          - vector-{{ vector_version }}.x86_64.rpm
+      ############################################
+    - name: Enable vector
+      become: true
+      ansible.builtin.shell: "systemctl enable vector.service"
+      ############################################
+    - name: Start vector service
+      become: true
+      ansible.builtin.service:
+        name: vector.service
+        state: restarted
+
+```
 3. При создании tasks рекомендую использовать модули: `get_url`, `template`, `unarchive`, `file`.   
 4. Tasks должны: скачать нужной версии дистрибутив, выполнить распаковку в выбранную директорию, установить vector. 
-5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть. 
-6. Попробуйте запустить playbook на этом окружении с флагом `--check`.  
+5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.     
+6. Попробуйте запустить playbook на этом окружении с флагом `--check`.      
+#### ansible2:~/work/playbook$ ansible-playbook -i inventory/prod.yml site.yml --check  
+```bash
+PLAY RECAP ********************************************************************************************************************************************
+clickhouse-01              : ok=11   changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+vector-01                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+```
+
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.   
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.    
 9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.   
