@@ -1,6 +1,7 @@
 ---
 - name: Install Nginx
   hosts: lighthouse:vector
+  # хэндлер /notify срабатывает по изменению состояния
   handlers:
     - name: Start nginx
       become: true
@@ -9,6 +10,7 @@
       become: true
       ansible.builtin.command: "nginx -s reload"
   tasks:
+    # подключаем epel Репо для установки nginx
     - name: NGINX | Install eper-release
       become: true
       ansible.builtin.yum:
@@ -27,6 +29,7 @@
         dest: /etc/nginx/nginx.conf
         mode: 0644
       notify: Reload nginx
+# инсталлим Lighthouse с помощью git
 - name: Install Lighthouse
   hosts: lighthouse
   handlers:
@@ -46,6 +49,7 @@
         repo: "{{ lighthouse_vcs }}"
         version: master
         dest: "{{ lighthouse_location_dir }}"
+        # задаём конфиг для nginx
     - name: Lighthouse | Create lighthouse config
       become: true
       ansible.builtin.template:
@@ -55,7 +59,8 @@
       notify: Reload nginx
 - name: Install Clickhouse
   hosts: clickhouse
-  # handlers часть которая запрашивается различными плеями при её упоменании через  notify: Start clickhouse service
+  # yamllint disable-line rule:line-length
+  # Стартуем clickhouse-server, если такого пакета нет, то скачиваем RPM и устанавливаем
   handlers:
     - name: Start clickhouse service
       become: true
@@ -66,16 +71,20 @@
     - block:
         - name: Get clickhouse distrib 1
           ansible.builtin.get_url:
+            # yamllint disable-line rule:line-length
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            # yamllint disable-line rule:line-length
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
           with_items: "{{ clickhouse_packages }}"
         - name: Get clickhouse distrib 2
           ansible.builtin.get_url:
+            # yamllint disable-line rule:line-length
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-server-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-server-{{ clickhouse_version }}.x86_64.rpm"
           with_items: "{{ clickhouse_packages }}"
         - name: Get clickhouse distrib 3
           ansible.builtin.get_url:
+            # yamllint disable-line rule:line-length
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-client-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-client-{{ clickhouse_version }}.x86_64.rpm"
           with_items: "{{ clickhouse_packages }}"
@@ -83,6 +92,7 @@
       rescue:
         - name: Get clickhouse distrib
           ansible.builtin.get_url:
+            # yamllint disable-line rule:line-length
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
     - name: Install clickhouse packages
@@ -98,12 +108,15 @@
     - name: Pause for 10 second for start servises
       pause:
         seconds: 10
+        # создаём базу данных в clickhouse-server и добавляем таблицу
     - name: Create database
+      # yamllint disable-line rule:line-length
       ansible.builtin.command: "clickhouse-client -h 127.0.0.1 -q 'create database logs;'"
       register: create_db
       failed_when: create_db.rc != 0 and create_db.rc !=82
       changed_when: create_db.rc == 0
     - name: Create table
+      # yamllint disable-line rule:line-length
       ansible.builtin.command: "clickhouse-client -h 127.0.0.1 -q 'CREATE TABLE IF NOT EXISTS  logs.access_logs ( message String ) ENGINE = MergeTree() ORDER BY tuple()'"
       register: create_table
       failed_when: create_table.rc != 0 and create_table.rc !=82
@@ -115,6 +128,8 @@
         dest: /etc/clickhouse-server/config.xml
         mode: 0644
       notify: Start clickhouse service
+# проверяем Nginx на сервере Vector, если есть - релоадим его
+# если нет, то скачиваем RPM и ставим
 - name: Install Nginx (vector)
   hosts: vector
   handlers:
@@ -132,6 +147,7 @@
       ansible.builtin.yum:
         name: "{{ vector_url }}"
         state: present
+        # Задаём конфиг для vector и параметры для его запуска из шаблона
     - name: VECTOR | Template config
       become: true
       ansible.builtin.template:
@@ -149,6 +165,7 @@
         mode: "0644"
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_gid }}"
+        # Стартуем сервис VECTOR
     - name: VECTOR | Start service
       become: true
       ansible.builtin.systemd:
