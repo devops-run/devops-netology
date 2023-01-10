@@ -1,0 +1,157 @@
+---
+- name: Install Nginx
+  hosts: lighthouse:vector
+  handlers:
+    - name: Start nginx
+      become: true
+      ansible.builtin.command: nginx
+    - name: Reload nginx
+      become: true
+      ansible.builtin.command: "nginx -s reload"
+  tasks:
+    - name: NGINX | Install eper-release
+      become: true
+      ansible.builtin.yum:
+        name: epel-release
+        state: present
+    - name: NGINX | Install Nginx
+      become: true
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+      notify: Start nginx
+    - name: NGINX | Create general config
+      become: true
+      ansible.builtin.template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        mode: 0644
+      notify: Reload nginx
+- name: Install Lighthouse
+  hosts: lighthouse
+  handlers:
+    - name: Reload nginx
+      become: true
+      ansible.builtin.command: nginx -s reload
+  pre_tasks:
+    - name: Lighthouse | install git
+      become: true
+      ansible.builtin.yum:
+        name: git
+        state: present
+  tasks:
+    - name: Lighthouse | Copy from git
+      become: true
+      ansible.builtin.git:
+        repo: "{{ lighthouse_vcs }}"
+        version: master
+        dest: "{{ lighthouse_location_dir }}"
+    - name: Lighthouse | Create lighthouse config
+      become: true
+      ansible.builtin.template:
+        src: lighthouse.conf.j2
+        dest: /etc/nginx/conf.d/default.conf
+        mode: 0644
+      notify: Reload nginx
+- name: Install Clickhouse
+  hosts: clickhouse
+  # handlers часть которая запрашивается различными плеями при её упоменании через  notify: Start clickhouse service
+  handlers:
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: restarted
+  tasks:
+    - block:
+        - name: Get clickhouse distrib 1
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+          with_items: "{{ clickhouse_packages }}"
+        - name: Get clickhouse distrib 2
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-server-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-server-{{ clickhouse_version }}.x86_64.rpm"
+          with_items: "{{ clickhouse_packages }}"
+        - name: Get clickhouse distrib 3
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-client-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-client-{{ clickhouse_version }}.x86_64.rpm"
+          with_items: "{{ clickhouse_packages }}"
+      # rescue блок
+      rescue:
+        - name: Get clickhouse distrib
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+    - name: Install clickhouse packages
+      become: true
+      ansible.builtin.yum:
+        name:
+          - clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm
+          - clickhouse-client-{{ clickhouse_version }}.x86_64.rpm
+          - clickhouse-server-{{ clickhouse_version }}.x86_64.rpm
+      notify: Start clickhouse service
+    - name: Flash handlers
+      ansible.builtin.meta: flush_handlers
+    - name: Pause for 10 second for start servises
+      pause:
+        seconds: 10
+    - name: Create database
+      ansible.builtin.command: "clickhouse-client -h 127.0.0.1 -q 'create database logs;'"
+      register: create_db
+      failed_when: create_db.rc != 0 and create_db.rc !=82
+      changed_when: create_db.rc == 0
+    - name: Create table
+      ansible.builtin.command: "clickhouse-client -h 127.0.0.1 -q 'CREATE TABLE IF NOT EXISTS  logs.access_logs ( message String ) ENGINE = MergeTree() ORDER BY tuple()'"
+      register: create_table
+      failed_when: create_table.rc != 0 and create_table.rc !=82
+      changed_when: create_table.rc == 0
+    - name: CLICKHOUSE | Create general config
+      become: true
+      ansible.builtin.template:
+        src: templates/config.xml.j2
+        dest: /etc/clickhouse-server/config.xml
+        mode: 0644
+      notify: Start clickhouse service
+- name: Install Nginx (vector)
+  hosts: vector
+  handlers:
+    - name: Start nginx
+      become: true
+      ansible.builtin.command: nginx
+    - name: Reload nginx
+      become: true
+      ansible.builtin.command: nginx -s reload
+- name: Install Vector
+  hosts: vector
+  tasks:
+    - name: VECTOR | Install rpm
+      become: true
+      ansible.builtin.yum:
+        name: "{{ vector_url }}"
+        state: present
+    - name: VECTOR | Template config
+      become: true
+      ansible.builtin.template:
+        src: templates/vector.yml.j2
+        dest: /etc/vector/vector.yml
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+        validate: vector validate --no-environment --config-yaml %s
+    - name: VECTOR | Create systemd unit
+      become: true
+      ansible.builtin.template:
+        src: templates/vector.service.j2
+        dest: /etc/systemd/system/vector.service
+        mode: "0644"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_gid }}"
+    - name: VECTOR | Start service
+      become: true
+      ansible.builtin.systemd:
+        name: vector
+        state: started
+        daemon_reload: true

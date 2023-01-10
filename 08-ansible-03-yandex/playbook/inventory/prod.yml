@@ -1,0 +1,19 @@
+---
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_host: 84.252.143.80
+      ansible_ssh_user: root
+      ansible_ssh_pass: Cdeszaq123
+lighthouse:
+  hosts:
+    lighthouse-01:
+      ansible_host: 84.252.141.28
+      ansible_ssh_user: root
+      ansible_ssh_pass: Cdeszaq123
+vector:
+  hosts:
+    vector-01:
+      ansible_host: 130.193.52.99
+      ansible_ssh_user: root
+      ansible_ssh_pass: Cdeszaq123
