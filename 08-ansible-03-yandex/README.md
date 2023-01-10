@@ -88,6 +88,42 @@ lighthouse-01              : ok=8    changed=0    unreachable=0    failed=0    s
 vector-01                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
 ```
+
+#### Проверка базы:     
+
+```bash
+[ansible-work playbook]$ ssh user@84.252.143.80
+Last login: Tue Jan 10 14:57:35 2023 from *.*.*.*
+[kornik@clickhouse-01 ~]$ clickhouse-client -h 127.0.0.1
+ClickHouse client version 22.8.11.15 (official build).
+Connecting to 127.0.0.1:9000 as user default.
+Connected to ClickHouse server version 22.8.11 revision 54460.
+
+Warnings:
+ * Linux transparent hugepages are set to "always". Check /sys/kernel/mm/transparent_hugepage/enabled
+ * Linux threads max count is too low. Check /proc/sys/kernel/threads-max
+ * Maximum number of threads is lower than 30000. There could be problems with handling a lot of simultaneous queries.
+ * Table system.session_log is enabled. It's unreliable and may contain garbage. Do not use it for any kind of security monitoring.
+
+clickhouse-01.ru-central1.internal :) show databases
+
+SHOW DATABASES
+
+Query id: 8a3879f1-18f1-42ed-8616-433343516440
+
+┌─name───────────────┐
+│ INFORMATION_SCHEMA │
+│ default            │
+│ information_schema │
+│ logs               │
+│ system             │
+└────────────────────┘
+
+5 rows in set. Elapsed: 0.001 sec.
+
+```
+
+
 9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
 
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-03-yandex` на фиксирующий коммит, в ответ предоставьте ссылку на него.
