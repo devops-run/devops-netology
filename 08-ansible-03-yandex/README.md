@@ -4,6 +4,7 @@
 
 1. Подготовьте в Yandex Cloud три хоста: для `clickhouse`, для `vector` и для `lighthouse`.
 Выполнено:  
+ 
 ![Yandex-vm](img/screen.png)
 
 
