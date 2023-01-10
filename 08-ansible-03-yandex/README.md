@@ -43,7 +43,8 @@ lighthouse-01              : ok=2    changed=1    unreachable=0    failed=1    s
 vector-01                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
 
 ```
-7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
+7. Запустите playbook на `prod.yml` окружении с флагом `--diff`.    
+Убедитесь, что изменения на системе произведены.    
 последние строки вывода:        
 
 ```bash
