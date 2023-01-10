@@ -121,6 +121,24 @@ Query id: 8a3879f1-18f1-42ed-8616-433343516440
 
 5 rows in set. Elapsed: 0.001 sec.
 
+USE logs
+
+Query id: 176ee8de-1742-4b77-bb72-bd6fb41dab62
+
+Ok.
+
+0 rows in set. Elapsed: 0.001 sec.
+
+clickhouse-01.ru-central1.internal :) show tables
+
+SHOW TABLES
+
+Query id: cd508117-ffae-40f2-a8d6-f34d0707ca22
+
+┌─name────────┐
+│ access_logs │
+└─────────────┘
+
 ```
 
 
