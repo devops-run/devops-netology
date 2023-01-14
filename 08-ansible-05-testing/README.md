@@ -13,8 +13,8 @@
 
 ### Molecule
 
-1. Запустите  `molecule test -s centos7` внутри корневой директории clickhouse-role, посмотрите на вывод команды.
-Склонировал репозиторий с прошлого задания на локальную машину:     
+1. Запустите  `molecule test -s centos7` внутри корневой директории clickhouse-role, посмотрите на вывод команды.       
+#### Склонировал репозиторий с прошлого задания на локальную машину:     
 git clone https://github.com/devops-run/ansible-roles.git       
 
 2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
