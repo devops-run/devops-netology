@@ -17,7 +17,7 @@
 #### Склонировал репозиторий с прошлого задания на локальную машину:     
 git clone https://github.com/devops-run/ansible-roles.git       
 
-Перешел в директорию с clickhouse-role и выполнил:  #### `molecule test -s centos7`      
+Перешел в директорию с clickhouse-role и выполнил:  __`molecule test -s centos7`__      
 
 
 2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
