@@ -24,7 +24,9 @@ CRITICAL 'molecule/centos7/molecule.yml' glob failed.  Exiting.
 
 ```
 
-2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
+2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи     
+`molecule init scenario --driver-name docker`.      
+
 Ошибка:     
 ```bash
  molecule init scenario --driver-name docker
