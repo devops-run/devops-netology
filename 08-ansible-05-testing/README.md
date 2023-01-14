@@ -25,6 +25,18 @@ CRITICAL 'molecule/centos7/molecule.yml' glob failed.  Exiting.
 ```
 
 2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
+Ошибка:     
+```bash
+ molecule init scenario --driver-name docker
+Usage: molecule init scenario [OPTIONS] [SCENARIO_NAME]
+Try 'molecule init scenario --help' for help.
+
+```
+Требуется: pip3 install molecule-docker     
+
+
+
+
 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
 4. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
