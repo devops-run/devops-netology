@@ -34,6 +34,12 @@ Try 'molecule init scenario --help' for help.
 ```
 Требуется: pip3 install molecule-docker     
 
+```bash
+molecule init scenario --driver-name docker
+INFO     Initializing new scenario default...
+INFO     Initialized scenario in /home/user/work/ansible-roles/roles/vector/molecule/default successfully.
+
+```
 
 
 
