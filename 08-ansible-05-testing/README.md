@@ -18,7 +18,11 @@
 git clone https://github.com/devops-run/ansible-roles.git       
 
 Перешел в директорию с clickhouse-role и выполнил:  __`molecule test -s centos7`__      
+```bash
+rocky91 clickhouse]$ molecule test -s centos7
+CRITICAL 'molecule/centos7/molecule.yml' glob failed.  Exiting.
 
+```
 
 2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
