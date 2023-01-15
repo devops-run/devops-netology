@@ -43,9 +43,35 @@ INFO     Initialized scenario in /home/user/work/ansible-roles/roles/vector/mole
 
 ```
 
-
-
 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
+Выполнено:      
+cat roles/vector/molecule/default/molecule.yml  
+
+```yaml
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: ansible-lint .
+  yamllint .
+platforms:
+  - name: centos8
+    image: docker.io/pycontribs/centos:8
+    pre_build_image: true
+  - name: centos7
+    image: docker.io/pycontribs/centos:7
+    pre_build_image: true
+  - name: ubuntu
+    image: ubuntu:latest
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+
+```
+
 4. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
