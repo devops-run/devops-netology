@@ -72,7 +72,8 @@ verifier:
   name: ansible
 
 ```
-#### Провёл тестирование на 3-х контейнерах пошагово исправляя ошибки в файле vector/tasks/main.yml:    
+Провёл тестирование на 3-х контейнерах.    
+Пошагово исправлял ошибки в файле vector/tasks/main.yml.    
      
 ```bash
 rocky91 work]$ docker ps
