@@ -72,7 +72,7 @@ verifier:
   name: ansible
 
 ```
-#### Провёл тестирование на 3-х контейнерах:
+#### Провёл тестирование на 3-х контейнерах пошагово исправляя ошибки в файле vector/tasks/main.yml:    
      
 ```bash
 rocky91 work]$ docker ps
@@ -82,8 +82,19 @@ bd4a89d43bfd   ubuntu:latest         "bash -c 'while true…"   9 minutes ago   
 40dc754f1924   pycontribs/centos:8   "bash -c 'while true…"   9 minutes ago   Up 9 minutes             centos8
 
 ```
-#### Впечатлён простым (на первый взгляд), мощным, удобным инструментом "molekule" по выявлению и исправлению ошибок в сценариях ansible. Взял его себе на "вооружение".  
 
+```bash
+TASK [Delete docker networks(s)] ***********************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+
+```
+
+#### Впечатлён простым (на первый взгляд), мощным, удобным инструментом "molekule" по выявлению и исправлению ошибок в сценариях ansible. Взял его себе на "вооружение".
 4. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
