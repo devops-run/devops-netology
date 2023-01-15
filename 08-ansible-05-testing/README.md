@@ -43,9 +43,9 @@ INFO     Initialized scenario in /home/user/work/ansible-roles/roles/vector/mole
 
 ```
 
-3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
-Выполнено:  
-    
+3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.     
+
+Выполнено:      
 #### cat roles/vector/molecule/default/molecule.yml  
 
 ```yaml
