@@ -64,7 +64,7 @@ platforms:
     image: docker.io/pycontribs/centos:7
     pre_build_image: true
   - name: ubuntu
-    image: docker.io/pycontribs/ubuntu:latest
+    image: ubuntu:latest
     pre_build_image: true
 provisioner:
   name: ansible
@@ -95,7 +95,7 @@ INFO     Pruning extra files from scenario ephemeral directory
 
 ```
 ### PS  
-#### Впечатлён простым (на первый взгляд), мощным и удобным инструментом по выявлению и исправлению ошибок "molekule" в сценариях ansible.  
+#### Впечатлён простым (на первый взгляд), мощным и удобным инструментом по выявлению и исправлению ошибок "molecule" в сценариях ansible.  
 #### Взял его себе на "вооружение".     
 4. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
@@ -105,8 +105,24 @@ INFO     Pruning extra files from scenario ephemeral directory
 ### Tox
 
 1. Добавьте в директорию с vector-role файлы из [директории](./example)
+
 2. Запустите `docker run --privileged=True -v <path_to_repo>:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash`, где path_to_repo - путь до корня репозитория с vector-role на вашей файловой системе.
+```bash
+docker ps
+CONTAINER ID   IMAGE                     COMMAND       CREATED          STATUS          PORTS     NAMES
+e40a7d2bcd6a   aragast/netology:latest   "/bin/bash"   17 minutes ago   Up 17 minutes             xenodochial_wescoff
+
+```
+
 3. Внутри контейнера выполните команду `tox`, посмотрите на вывод.
+```bash
+_________________________________________________________________________ summary _____________________________________________________________
+ERROR:   py37-ansible210: commands failed
+ERROR:   py37-ansible30: commands failed
+ERROR:   py39-ansible210: commands failed
+ERROR:   py39-ansible30: commands failed
+
+```
 5. Создайте облегчённый сценарий для `molecule` с драйвером `molecule_podman`. Проверьте его на исполнимость.
 6. Пропишите правильную команду в `tox.ini` для того чтобы запускался облегчённый сценарий.
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
