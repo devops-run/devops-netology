@@ -64,7 +64,7 @@ platforms:
     image: docker.io/pycontribs/centos:7
     pre_build_image: true
   - name: ubuntu
-    image: ubuntu:latest
+    image: docker.io/pycontribs/ubuntu:latest
     pre_build_image: true
 provisioner:
   name: ansible
@@ -94,10 +94,13 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0    s
 INFO     Pruning extra files from scenario ephemeral directory
 
 ```
-
-#### Впечатлён простым (на первый взгляд), мощным, удобным инструментом "molekule" по выявлению и исправлению ошибок в сценариях ansible. Взял его себе на "вооружение".
+### PS  
+#### Впечатлён простым (на первый взгляд), мощным и удобным инструментом по выявлению и исправлению ошибок "molekule" в сценариях ansible.  
+#### Взял его себе на "вооружение".     
 4. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
+
+[Тестирование с molecule. Tag v 1.0](https://github.com/devops-run/ansible-roles/tree/v1.0) 
 
 ### Tox
 
