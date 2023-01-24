@@ -152,6 +152,32 @@ py37-ansible210 installdeps: -rtox-requirements.txt, ansible<3.0
 
 #### molecule init scenario centos7_lite --driver-name podman
 
+
+#### roles/vector/molecule/centos7_lite/molecule.yml
+```yaml
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+ - name: instance
+   image: docker.io/pycontribs/centos:7
+   pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+scenario:
+  test_sequence:
+  - create
+  - converge
+  - idempotence
+  - verify
+  - destroy
+
+```
+
 6. Пропишите правильную команду в `tox.ini` для того чтобы запускался облегчённый сценарий.
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
 9. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
