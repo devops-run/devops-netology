@@ -182,8 +182,6 @@ scenario:
 
 #### tox.ini
 ```
-[tox]
-minversion = 1.8
 basepython = python3.6
 envlist = py{37,39}-ansible{210,30}
 skipsdist = true
@@ -195,35 +193,14 @@ deps =
     ansible210: ansible<3.0
     ansible30: ansible<3.1
 commands =
-    {posargs:molecule test -s centos7_lite --destroy always}
+    {posargs:molecule test -s centos8_lite --destroy always}
 
 ```
 
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
 
-### tox -r 
+###  tox -r -s
 
-
-```bash
-ERROR: InvocationError for command /opt/vector/py39-ansible30/bin/molecule test -s centos7_lite --destroy always (exited with code 1)
-_____________________________________________________________________ summary _____________________________________________________________________
-ERROR:   py37-ansible210: commands failed
-ERROR:   py37-ansible30: commands failed
-ERROR:   py39-ansible210: commands failed
-ERROR:   py39-ansible30: commands failed
-
-```
-Не получилось "победить" ошибку ERROR: InvocationError for command
-
-При ручном запуске /opt/vector/py39-ansible30/bin/molecule test -s centos7_lite --destroy отрабатывает нормально
-
-```bash
-PLAY RECAP *********************************************************************
-localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
-INFO     Pruning extra files from scenario ephemeral directory
-
-```
 
 9. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
