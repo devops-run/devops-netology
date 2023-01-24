@@ -116,6 +116,7 @@ INFO     Pruning extra files from scenario ephemeral directory
 
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
+### Выполнено:  
 [Тестирование с molecule. Tag v 1.0](https://github.com/devops-run/ansible-roles/tree/v1.0) 
 
 ### Tox
