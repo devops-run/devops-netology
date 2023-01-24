@@ -150,7 +150,7 @@ py37-ansible210 installdeps: -rtox-requirements.txt, ansible<3.0
 ```
 5. Создайте облегчённый сценарий для `molecule` с драйвером `molecule_podman`. Проверьте его на исполнимость.
 
-#### molecule init scenario centos8_lite --driver-name podman
+#### molecule init scenario centos7_lite --driver-name podman
 
 6. Пропишите правильную команду в `tox.ini` для того чтобы запускался облегчённый сценарий.
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
