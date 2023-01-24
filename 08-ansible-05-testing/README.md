@@ -179,6 +179,26 @@ scenario:
 ```
 
 6. Пропишите правильную команду в `tox.ini` для того чтобы запускался облегчённый сценарий.
+
+#### tox.ini
+```
+[tox]
+minversion = 1.8
+basepython = python3.6
+envlist = py{37,39}-ansible{210,30}
+skipsdist = true
+
+[testenv]
+passenv = *
+deps =
+    -r tox-requirements.txt
+    ansible210: ansible<3.0
+    ansible30: ansible<3.1
+commands =
+    {posargs:molecule test -s centos7_lite --destroy always}
+
+```
+
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
 9. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
