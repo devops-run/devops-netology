@@ -84,21 +84,9 @@ bd4a89d43bfd   ubuntu:latest         "bash -c 'while true…"   9 minutes ago   
 
 ```
 
-```bash
-TASK [Delete docker networks(s)] ***********************************************
-skipping: [localhost]
-
-PLAY RECAP *********************************************************************
-localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-
-INFO     Pruning extra files from scenario ephemeral directory
-
-```
-### PS  
-#### Впечатлён простым (на первый взгляд), мощным и удобным инструментом по выявлению и исправлению ошибок "molecule" в сценариях ansible.  
-#### Взял его себе на "вооружение".     
+    
 4. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
-#### /home/kornik/work/inventory
+#### ansible-roles/roles/vector/molecule/default/verify.yml 
 
 ```yaml
 - name: Verify
@@ -113,6 +101,22 @@ INFO     Pruning extra files from scenario ephemeral directory
   - name: Check NGINX status
     shell: ps aux | grep [v]ector
 ```
+
+
+```bash
+TASK [Delete docker networks(s)] ***********************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+```
+
+### PS
+#### Впечатлён простым (на первый взгляд), мощным и удобным инструментом по выявлению и исправлению ошибок "molecule" в сценариях ansible.
+#### Взял его себе на "вооружение".
+
 
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
