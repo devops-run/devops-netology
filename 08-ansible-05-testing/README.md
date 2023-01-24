@@ -98,6 +98,22 @@ INFO     Pruning extra files from scenario ephemeral directory
 #### Впечатлён простым (на первый взгляд), мощным и удобным инструментом по выявлению и исправлению ошибок "molecule" в сценариях ansible.  
 #### Взял его себе на "вооружение".     
 4. Добавьте несколько assert'ов в verify.yml файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска, etc). Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
+#### /home/kornik/work/inventory
+
+```yaml
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Example assertion
+    assert:
+      that: true
+  - name: Check NGINX configs
+    shell: vector validate --no-environment --config-yaml /etc/vector/vector.yml
+  - name: Check NGINX status
+    shell: ps aux | grep [v]ector
+```
+
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
 [Тестирование с molecule. Tag v 1.0](https://github.com/devops-run/ansible-roles/tree/v1.0) 
@@ -107,6 +123,10 @@ INFO     Pruning extra files from scenario ephemeral directory
 1. Добавьте в директорию с vector-role файлы из [директории](./example)
 
 2. Запустите `docker run --privileged=True -v <path_to_repo>:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash`, где path_to_repo - путь до корня репозитория с vector-role на вашей файловой системе.
+
+#### docker run --privileged=True -v /home/kornik/ansible-roles/roles/vector/:/opt/vector -w /opt/vector -it aragast/netology:latest /bin/bash
+
+
 ```bash
 docker ps
 CONTAINER ID   IMAGE                     COMMAND       CREATED          STATUS          PORTS     NAMES
@@ -115,12 +135,13 @@ e40a7d2bcd6a   aragast/netology:latest   "/bin/bash"   17 minutes ago   Up 17 mi
 ```
 
 3. Внутри контейнера выполните команду `tox`, посмотрите на вывод.
+tox -r
+
 ```bash
-_________________________________________________________________________ summary _____________________________________________________________
-ERROR:   py37-ansible210: commands failed
-ERROR:   py37-ansible30: commands failed
-ERROR:   py39-ansible210: commands failed
-ERROR:   py39-ansible30: commands failed
+[root@941f65fd8e24 vector]# tox -r
+py37-ansible210 create: /opt/vector/.tox/py37-ansible210
+py37-ansible210 installdeps: -rtox-requirements.txt, ansible<3.0
+
 
 ```
 5. Создайте облегчённый сценарий для `molecule` с драйвером `molecule_podman`. Проверьте его на исполнимость.
